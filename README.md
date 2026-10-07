@@ -4,6 +4,8 @@
 
 The goal of this package is to make a large selection of classic Infinity Engine and Neverwinter Nights voices available through a single installer while preserving the work of the original voice-pack authors.
 
+**Latest release:** [v1.2.0](https://github.com/Sauler89/Infinity-Engine-Voices-Pack/releases/tag/v1.2.0) — English-only public maintenance release.
+
 ## Features
 
 - **188 English voice sets** in one collection
@@ -67,6 +69,8 @@ For Steam/GOG installations where Siege of Dragonspear is still packaged as DLC,
 5. Start the game and choose the new soundset from character creation or character customization.
 
 If you change components later, run the same WeiDU setup program again.
+
+> **Technical filename note:** the package intentionally keeps the internal WeiDU identifier `allvoices` and the installer filename `setup-allvoices.exe`. These names are retained solely for safe upgrade/uninstall compatibility with v1.0.0/v1.1.0; the public project and release name is **IE-Voices-Pack**.
 
 ## Mod compatibility notes
 
