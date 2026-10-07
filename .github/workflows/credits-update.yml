@@ -1,0 +1,147 @@
+name: Update IE-Voices-Pack credits
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/credits-update.yml']
+permissions:
+  contents: write
+concurrency:
+  group: ie-voices-pack-release-1-0
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Update credits and publish matching package
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          base=6bd6438f02ab71e734bbdc6e11375005c08d872b
+          test "$GITHUB_REPOSITORY" = Sauler89/IE-Voices-Pack
+          test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
+          old_tag=6bd6438f02ab71e734bbdc6e11375005c08d872b
+          test "$(git rev-parse refs/tags/v1.0)" = "$old_tag"
+          git merge-base --is-ancestor "$base" HEAD
+          gh api "repos/$GITHUB_REPOSITORY/releases/405613067" > /tmp/release-before.json
+          python3 - <<'PY'
+          import json
+          r = json.load(open('/tmp/release-before.json'))
+          assert r['tag_name'] == 'v1.0' and not r['immutable']
+          a = {a['name']: a for a in r['assets']}
+          assert a['IE-Voices-Pack-v1.0.zip']['id'] == 619067805
+          assert a['IE-Voices-Pack-v1.0.sha256']['id'] == 619068659
+          PY
+          test "$(git rev-parse HEAD~1)" = "$base"
+          python3 - <<'PY'
+          from pathlib import Path
+          import hashlib
+          for line in Path('MANIFEST-SHA256.txt').read_text().splitlines():
+              digest,name=line.split('  ',1)
+              assert hashlib.sha256(Path(name).read_bytes()).hexdigest()==digest,name
+          texts={'README.md': "# IE-Voices-Pack\n\n**Version 1.0** — 205 player voice sets in one WeiDU installer.\n\n## Contents\n\n| Voice pack | Sets |\n| --- | ---: |\n| Baldur's Gate | 18 |\n| Baldur's Gate II | 9 |\n| Baldur's Gate NPCs | 36 |\n| Icewind Dale / Heart of Winter | 30 |\n| Icewind Dale II | 12 |\n| Planescape: Torment | 8 |\n| Neverwinter Nights | 59 |\n| NWN2 / Mask of the Betrayer / Darkness over Daggerford | 16 |\n| Custom voice packs and their included portraits | 17 |\n| **Total** | **205** |\n\nThe 14 generic NWN2 soundsets are excluded.\n\n## Custom voice packs\n\nThis component currently includes these 17 packs:\n\n- Archimonde\n- Amelyssan\n- Christopher Lee\n- Dagoth Ur\n- DotA 2: Invoker\n- DotA 2: Puck\n- Filthy Frank\n- Greta\n- Gromnir Il-Khan\n- Illasera\n- Morpheus\n- Palpatine\n- Rondak (lawful good)\n- Safana (Siege of Dragonspear)\n- Shang Tsung\n- The Hound\n- Thrall\n\n## Compatibility\n\n- Baldur's Gate: Enhanced Edition and Siege of Dragonspear\n- Baldur's Gate II: Enhanced Edition\n- Enhanced Edition Trilogy (EET)\n- Icewind Dale: Enhanced Edition\n\nRequires **EE 2.6.6+**. Classic games and Planescape: Torment: Enhanced Edition are not supported.\nFor Steam/GOG Siege of Dragonspear, run [DlcMerger](https://github.com/Argent77/A7-DlcMerger) first when required.\n\n## Installation\n\n1. Download the release ZIP and extract `IE-Voices-Pack/` and `setup-IE-Voices-Pack.exe` into the game folder containing `chitin.key`.\n2. Run `setup-IE-Voices-Pack.exe` and select the desired packs. The last component, **Custom voice packs and included portraits**, lets you install all 17 custom packs or answer yes/no for each pack. Its portraits follow your choices.\n3. Choose a voice during character creation or customization.\n\nThe installer and voices are in English. Uninstall an earlier version of this compilation before installing v1.0. Do not install the same voices from their original packs as well.\n\nCustom portraits include paired 24-bit BMP resources for the vanilla EE interface and Infinity UI++, with a standard-portrait fallback for the optional full-body inventory view. If you use Infinity UI++, install the custom component after the UI mod; reinstall that component if you replace the UI later.\n\n## Credits\n\nOriginal voice-pack conversions: **GraionDilach** and **AstroBryGuy / The Gate Project**.\nCompilation and integration: **Sauler89**.\n\nSpecial thanks to **[Davaeorn](https://davaeornsdungeon.com/)** for making the **Christopher Lee, Palpatine, Shang Tsung, Dagoth Ur and The Hound** soundsets available.\n\nCustom packs are supplied by their original authors; available author details and source documentation are preserved in the package.\n\nSee [full credits](CREDITS.md) and [third-party notices](THIRD_PARTY.md). Original audio and text remain the property of their respective rights holders.\n", 'CREDITS.md': "# Credits\n\nIE-Voices-Pack is a compilation project. Credit for the original voice-pack conversion work belongs to the authors listed below.\n\n## Primary source projects\n\n### GraionDilach\n\nGraionDilach created the modern EE 2.6+ voice-pack projects that form the majority of this compilation:\n\n- [Baldur's Gate Voice Pack for EE 2.6+](https://github.com/GraionDilach/Baldurs-Gate-Voice-Pack-for-EE-2.6)\n- [Baldur's Gate II Voice Pack for EE 2.6+](https://github.com/GraionDilach/Baldurs-Gate-II-Voice-Pack-for-EE-2.6)\n- [Baldur's Gate NPC Voice Pack for EE 2.6+](https://github.com/GraionDilach/Baldurs-Gate-NPC-Voice-Pack-for-EE-2.6)\n- [Icewind Dale Voice Pack for EE 2.6+](https://github.com/GraionDilach/Icewind-Dale-Voice-Pack-For-EE-2.6)\n- [Icewind Dale II Voice Pack for EE 2.6+](https://github.com/GraionDilach/Icewind-Dale-II-Voice-Pack-For-EE-2.6)\n- [Planescape: Torment Voice Pack for EE 2.6+](https://github.com/GraionDilach/Planescape-Torment-Voice-Pack-for-EE-2.6)\n- [Neverwinter Nights Voice Pack for EE 2.6+](https://github.com/GraionDilach/Neverwinter-Nights-Voice-Pack-for-EE-2.6)\n\nThese projects provide **172 active voice sets** used by this compilation.\n\n### AstroBryGuy / The Gate Project\n\n- **AstroBryGuy** is the original author of [NWN2 Soundsets](https://github.com/The-Gate-Project/NWN2SoundSets).\n- The project is currently hosted/maintained by **The Gate Project**.\n- IE-Voices-Pack includes **16 named character soundsets** from NWN2, Mask of the Betrayer, and Darkness over Daggerford.\n- The 14 generic NWN2 Female 1–7 and Male 1–7 sets are intentionally excluded.\n\n## Acknowledgements inherited from the source projects\n\nThe source projects credit or rely on work by:\n\n- **CamDawg** — EE 2.6+ soundset documentation and [EE Soundset Tool](https://github.com/Gibberlings3/EE_soundset_tool)\n- **Smeagolheart** — Awesome Soundsets documentation and earlier soundset work\n- **Wes Weimer, the bigg, Wisp, and WeiDU contributors** — WeiDU\n- **Jon Olav Hauglid, Argent77, AstroBryGuy, and Near Infinity contributors** — Near Infinity\n- **igi and contributors** — Infinity Engine Structures Description Project\n- **AlienQUAKE** — Infinity Auto Packager\n- **TeamBG** — Infinity Sound Converter\n- **Torlack, Acaos, and virusman** — NWN Explorer Reborn\n- **Argent77** — DlcMerger and Infinity Engine tooling\n\n## Compilation\n\nCompilation, integration, packaging, and repository maintenance: **Sauler89**.\n\n## Rights holders\n\nOriginal game audio, dialogue, character names, and related assets remain the property of their respective rights holders, including as applicable Wizards of the Coast/Hasbro and the original game developers and publishers.\n\nIE-Voices-Pack is an unofficial fan project and is not endorsed by the rights holders or the original game studios.\n\n## Custom voice-pack sources\n\n- Special thanks to **[Davaeorn](https://davaeornsdungeon.com/)** for making the **Christopher Lee, Palpatine, Shang Tsung, Dagoth Ur and The Hound** soundsets available.\n- The 17 archives supplied in `custom voice pack.zip` provide the new custom component.\n- **LukeTelvanni** is identified in the supplied Christopher Lee, Morpheus and Palpatine installer contact fields.\n- **norQ** is credited by the Shang Tsung installer.\n- **CamDawg / EE Soundset Tool** and **GraionDilach** provide the soundset registration code adapted for this component.\n- Original installer text, available READMEs and curation manifests are preserved under `IE-Voices-Pack/docs/custom-sources/` in the repository (`docs/custom-sources/` inside the release's mod folder).\n- Authors and portrait artists not identified in the supplied archives remain unverified; this compilation does not claim authorship of their work.\n"}
+          for name,text in texts.items():Path(name).write_text(text)
+          files=[p for p in Path('IE-Voices-Pack').rglob('*') if p.is_file()]
+          files += [Path(n) for n in ['README.md','CHANGELOG.md','CREDITS.md','THIRD_PARTY.md','setup-IE-Voices-Pack.exe']]
+          assert len(files)==7485
+          Path('MANIFEST-SHA256.txt').write_text(''.join(hashlib.sha256(p.read_bytes()).hexdigest()+'  '+p.as_posix()+'\n' for p in sorted(files,key=lambda p:p.as_posix())))
+          PY
+          python3 - . /tmp/IE-Voices-Pack-v1.0-custom.zip <<'PY'
+          from pathlib import Path
+          import hashlib, json, struct, sys, zipfile
+          
+          root = Path(sys.argv[1])
+          out = Path(sys.argv[2])
+          docs = ['README.md', 'CHANGELOG.md', 'CREDITS.md', 'THIRD_PARTY.md', 'MANIFEST-SHA256.txt']
+          files = [p for p in (root / 'IE-Voices-Pack').rglob('*') if p.is_file()]
+          files += [root / n for n in docs + ['setup-IE-Voices-Pack.exe']]
+          assert len(files) == 7486, len(files)
+          source = {p.relative_to(root).as_posix(): p.read_bytes() for p in files}
+          manifest = source['MANIFEST-SHA256.txt'].decode().splitlines()
+          assert len(manifest) == 7485
+          checked = set()
+          for line in manifest:
+              digest, name = line.split('  ', 1)
+              assert name not in checked and name != 'MANIFEST-SHA256.txt'
+              assert hashlib.sha256(source[name]).hexdigest() == digest, name
+              checked.add(name)
+          assert checked == set(source) - {'MANIFEST-SHA256.txt'}
+          assert hashlib.sha256(source['setup-IE-Voices-Pack.exe']).hexdigest() == 'ad70f5897a6d0ba4b0d226f845a9b14cf345f56cc9697ca8d05cac9fe4932c1a'
+          custom = 'IE-Voices-Pack/sources/custom/'
+          audio = [n for n in source if n.startswith(custom) and n.lower().endswith('.wav')]
+          portraits = [n for n in source if n.startswith(custom) and '/portraits/' in n and n.lower().endswith('.bmp')]
+          assert len(audio) == 537 and len(portraits) == 44
+          for name in portraits:
+              b = source[name]
+              assert b[:2] == b'BM' and struct.unpack_from('<H', b, 28)[0] == 24 and struct.unpack_from('<I', b, 30)[0] == 0
+              assert len(Path(name).stem) <= 8
+          tp2 = 'IE-Voices-Pack/IE-Voices-Pack.tp2'
+          assert source[tp2].count(b'BEGIN @53000') == 1
+          assert source[tp2].rfind(b'DESIGNATED 3000') > source[tp2].rfind(b'DESIGNATED 2100')
+          assert b'VERSION ~1.0~' in source[tp2]
+          assert source[tp2].count(b'README ~README.md~') == 1
+          entries = {}
+          for name, data in source.items():
+              if name == 'MANIFEST-SHA256.txt':
+                  continue
+              target = 'IE-Voices-Pack/' + name if name in docs else name
+              if name == tp2:
+                  data = data.replace(b'README ~README.md~', b'README ~IE-Voices-Pack/README.md~')
+              assert target not in entries
+              entries[target] = data
+          entries['IE-Voices-Pack/MANIFEST-SHA256.txt'] = ''.join(hashlib.sha256(data).hexdigest() + '  ' + name + '\n' for name, data in sorted(entries.items())).encode()
+          assert len(entries) == 7486
+          assert {n.split('/')[0] for n in entries} == {'IE-Voices-Pack', 'setup-IE-Voices-Pack.exe'}
+          out.parent.mkdir(parents=True, exist_ok=True)
+          with zipfile.ZipFile(out, 'w', compression=zipfile.ZIP_DEFLATED, compresslevel=9) as z:
+              for name, data in sorted(entries.items()):
+                  info = zipfile.ZipInfo(name, (2026, 10, 7, 0, 0, 0))
+                  info.create_system = 3
+                  info.external_attr = 0o100644 << 16
+                  info.compress_type = zipfile.ZIP_DEFLATED
+                  z.writestr(info, data, compresslevel=9)
+          with zipfile.ZipFile(out) as z:
+              assert z.testzip() is None
+              assert set(z.namelist()) == set(entries)
+              for name, data in entries.items():
+                  assert z.read(name) == data, name
+          digest = hashlib.sha256(out.read_bytes()).hexdigest()
+          out.with_name('IE-Voices-Pack-v1.0.sha256').write_text(digest + '  IE-Voices-Pack-v1.0.zip\n')
+          report = {'files': len(entries), 'bytes': out.stat().st_size, 'sha256': digest, 'custom_audio': len(audio), 'custom_portraits': len(portraits)}
+          out.with_name('custom-package-report.json').write_text(json.dumps(report))
+          print(json.dumps(report))
+          
+          PY
+          git rm .github/workflows/credits-update.yml
+          git add README.md CREDITS.md MANIFEST-SHA256.txt
+          git config user.name Sauler89
+          git config user.email Sauler89@users.noreply.github.com
+          tree=$(git write-tree)
+          test "$tree" = 016600046b7104478d3657d31f0b501bdfe615cb
+          new=$(printf 'IE-Voices-Pack 1.0\n' | git commit-tree "$tree")
+          test "$(git cat-file -p "$new" | sed -n '/^parent /p' | wc -l)" = 0
+          gh release upload v1.0 /tmp/IE-Voices-Pack-v1.0-custom.zip --repo "$GITHUB_REPOSITORY" --clobber
+          gh api "repos/$GITHUB_REPOSITORY/releases/405613067" > /tmp/release-staged.json
+          python3 - <<'PY'
+          import json
+          r = json.load(open('/tmp/release-staged.json'))
+          asset = next(a for a in r['assets'] if a['name'] == 'IE-Voices-Pack-v1.0-custom.zip')
+          expected = json.load(open('/tmp/custom-package-report.json'))
+          assert asset['state'] == 'uploaded' and asset['size'] == expected['bytes']
+          assert asset['digest'] == 'sha256:' + expected['sha256']
+          open('/tmp/staged-asset-id', 'w').write(str(asset['id']))
+          PY
+          git push --atomic --force-with-lease=refs/heads/main:"$GITHUB_SHA" --force-with-lease=refs/tags/v1.0:"$old_tag" origin "$new:refs/heads/main" "$new:refs/tags/v1.0"
+          gh api --method DELETE "repos/$GITHUB_REPOSITORY/releases/assets/619067805"
+          staged_id=$(cat /tmp/staged-asset-id)
+          gh api --method PATCH "repos/$GITHUB_REPOSITORY/releases/assets/$staged_id" -f name=IE-Voices-Pack-v1.0.zip > /tmp/renamed-asset.json
+          gh release upload v1.0 /tmp/IE-Voices-Pack-v1.0.sha256 --repo "$GITHUB_REPOSITORY" --clobber
+          if git ls-remote --exit-code --heads origin refs/heads/credits-update-1-0 > /dev/null; then
+              git push origin --delete credits-update-1-0
+          fi
+          printf 'Published root commit: %s\n' "$new"
+          cat /tmp/custom-package-report.json
