@@ -1,0 +1,18 @@
+@50000 = ~Complete voice packs~
+@50001 = ~Neverwinter Nights 2 characters~
+
+@51000 = ~Baldur's Gate: base voices (18 sets)~
+@51001 = ~Baldur's Gate II: base voices (9 sets)~
+@51002 = ~Icewind Dale: base and Heart of Winter voices (30 sets)~
+@51003 = ~Icewind Dale II: base voices (12 sets)~
+@51004 = ~Baldur's Gate: NPC voices (36 sets)~
+@51005 = ~Planescape: Torment: character voices (8 sets)~
+@51006 = ~Neverwinter Nights: base and character voices (59 sets)~
+
+@52000 = ~NWN2 Voice Pack~
+@52999 = ~Legacy individual NWN2 component~
+
+@59000 = ~This component requires Baldur's Gate: Enhanced Edition, Baldur's Gate II: Enhanced Edition, EET, or Icewind Dale: Enhanced Edition, version 2.6 or later.~
+@59001 = ~The corresponding original voice pack is already installed. Uninstall it before installing the same content from IE-Voices-Pack.~
+@59002 = ~The same NWN2 voice is already installed by NWN2 Soundsets. Uninstall that component first.~
+@59003 = ~The legacy individual NWN2 component from version 1.0.0 has been replaced by the unified NWN2 Voice Pack component.~
