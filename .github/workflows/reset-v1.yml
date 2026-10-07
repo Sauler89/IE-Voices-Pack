@@ -105,7 +105,8 @@ jobs:
           WEIDU_BIN="$(find /tmp/weidu249 -type f -name weidu -print -quit)"
           test -n "$WEIDU_BIN"
           chmod +x "$WEIDU_BIN"
-          "$WEIDU_BIN" --nogame --list-components IE-Voices-Pack/IE-Voices-Pack.tp2 0 > /tmp/components.txt
+          "$WEIDU_BIN" --nogame --case-exact --parse-check TP2 IE-Voices-Pack/IE-Voices-Pack.tp2
+          "$WEIDU_BIN" --nogame --case-exact --list-components IE-Voices-Pack/IE-Voices-Pack.tp2 0 > /tmp/components.txt
           cat /tmp/components.txt
           grep -q 'NWN2 Voice Pack' /tmp/components.txt
       - name: Create clean initial commit and draft release
