@@ -1,0 +1,83 @@
+name: Import verified v1.2.0 package
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/import-release-package.yml']
+permissions:
+  contents: write
+concurrency:
+  group: import-ie-voices-release
+  cancel-in-progress: false
+jobs:
+  import-package:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Download v1.2.0
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p /tmp/ie-voices-import
+          gh release download v1.2.0 --repo "$GITHUB_REPOSITORY" --pattern 'IE-Voices-Pack-v1.2.0.zip' --dir /tmp/ie-voices-import
+      - name: Verify and import every release file
+        shell: python
+        run: |
+          from pathlib import Path, PurePosixPath
+          import hashlib, zipfile, stat
+          
+          archive = Path("/tmp/ie-voices-import/IE-Voices-Pack-v1.2.0.zip")
+          expected_sha = "fb515a25772fdf8d2c088eeb307e1c4a06bb9d612b3d4cbf6bf62f9c084c9f08"
+          assert hashlib.sha256(archive.read_bytes()).hexdigest() == expected_sha, "Release ZIP checksum mismatch"
+          with zipfile.ZipFile(archive) as z:
+              entries = [i for i in z.infolist() if not i.is_dir()]
+              names = [i.filename for i in entries]
+              assert len(names) == len(set(names)) == 6804, "Unexpected archive file count"
+              assert sum(n.lower().endswith(".wav") for n in names) == 6742
+              required = {"allvoices/allvoices.tp2", "setup-allvoices.exe", "MANIFEST-SHA256.txt"}
+              assert required <= set(names)
+              expected = {}
+              for line in z.read("MANIFEST-SHA256.txt").decode().splitlines():
+                  if line:
+                      digest, name = line.split("  ", 1)
+                      assert name not in expected
+                      expected[name] = digest
+              assert set(names) == set(expected) | {"MANIFEST-SHA256.txt"}
+              for info in entries:
+                  p = PurePosixPath(info.filename)
+                  assert not p.is_absolute() and ".." not in p.parts and "\\" not in info.filename
+                  assert p.parts[0] in {"allvoices", "setup-allvoices.exe", "MANIFEST-SHA256.txt"}
+                  assert not stat.S_ISLNK(info.external_attr >> 16)
+                  target = Path(*p.parts)
+                  assert not target.exists(), f"Refusing to overwrite {target}"
+                  data = z.read(info)
+                  if info.filename in expected:
+                      assert hashlib.sha256(data).hexdigest() == expected[info.filename], info.filename
+                  target.parent.mkdir(parents=True, exist_ok=True)
+                  target.write_bytes(data)
+              for info in entries:
+                  assert Path(info.filename).read_bytes() == z.read(info), info.filename
+              print(f"Verified and imported {len(entries)} files, including 6742 WAV files.")
+          
+      - name: Commit complete package and remove temporary workflow
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git rm .github/workflows/import-release-package.yml
+          git add allvoices setup-allvoices.exe MANIFEST-SHA256.txt
+          git commit -m 'Add complete verified IE-Voices-Pack v1.2.0 package'
+          git push origin HEAD:main
+      - name: Delete merged temporary branches
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          for branch in public-release-refresh import-release-package; do
+            if git show-ref --verify --quiet "refs/remotes/origin/$branch"; then
+              git merge-base --is-ancestor "origin/$branch" HEAD
+              gh api --method DELETE "repos/$GITHUB_REPOSITORY/git/refs/heads/$branch"
+              echo "Deleted merged branch: $branch"
+            fi
+          done
