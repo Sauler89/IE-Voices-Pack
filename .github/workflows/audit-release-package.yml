@@ -139,7 +139,7 @@ jobs:
           - Renamed the public project and release identity to **IE-Voices-Pack**.
           - Converted the package to English-only installer/documentation.
           - Removed the Italian installer translation and `README-it.md`.
-          - Replaced remaining public-facing `Infinity Engine All Voices` references with `IE-Voices-Pack`.
+          - Replaced remaining legacy public-facing project-name references with `IE-Voices-Pack`.
           - Added detailed `CREDITS.md` and `THIRD_PARTY.md` files to the package.
           - Preserved the internal WeiDU technical identifier `allvoices` and `setup-allvoices.exe` for safe upgrades/uninstalls from earlier versions.
           - Preserved all bundled voice audio files unchanged.
