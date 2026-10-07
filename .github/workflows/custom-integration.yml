@@ -1,0 +1,165 @@
+name: Integrate custom packs and update v1.0
+on:
+  push:
+    branches: [main]
+    paths: ['.custom-upload/**', '.github/workflows/custom-integration.yml']
+permissions:
+  contents: write
+concurrency:
+  group: ie-voices-pack-release-1-0
+  cancel-in-progress: false
+jobs:
+  integrate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Verify, integrate, and publish
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          base=753eb9d5a701a3494085e3e5ee13d5291d82c2db
+          test "$GITHUB_REPOSITORY" = Sauler89/IE-Voices-Pack
+          test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
+          test "$(git rev-parse refs/tags/v1.0)" = "$base"
+          git merge-base --is-ancestor "$base" HEAD
+          gh api "repos/$GITHUB_REPOSITORY/releases/405613067" > /tmp/release-before.json
+          python3 - <<'PY'
+          import json
+          r = json.load(open('/tmp/release-before.json'))
+          assert r['tag_name'] == 'v1.0' and not r['immutable']
+          a = {a['name']: a for a in r['assets']}
+          assert a['IE-Voices-Pack-v1.0.zip']['id'] == 618503156
+          assert a['IE-Voices-Pack-v1.0.sha256']['id'] == 618503587
+          PY
+          python3 - <<'PY'
+          from pathlib import Path, PurePosixPath
+          import hashlib, io, tarfile
+          parts = sorted(Path('.custom-upload').glob('chunk-*.bin'))
+          assert len(parts) == 116
+          data = b''.join(p.read_bytes() for p in parts)
+          assert len(data) == 60439784
+          assert hashlib.sha256(data).hexdigest() == '093018017baf3bd0bbe622981566e0681247a7ed3711f9ef09498d12855210c7'
+          with tarfile.open(fileobj=io.BytesIO(data), mode='r:xz') as t:
+              members = t.getmembers()
+              assert len(members) == 679
+              for m in members:
+                  p = PurePosixPath(m.name)
+                  assert not p.is_absolute() and '..' not in p.parts and m.isfile()
+                  assert p.parts[0] in {'IE-Voices-Pack', 'README.md', 'CHANGELOG.md', 'CREDITS.md', 'THIRD_PARTY.md', 'MANIFEST-SHA256.txt'}
+              t.extractall('.', filter='data')
+          print('Verified and extracted custom payload.')
+          PY
+          python3 - . /tmp/IE-Voices-Pack-v1.0-custom.zip <<'PY'
+          from pathlib import Path
+          import hashlib, json, struct, sys, zipfile
+          
+          root = Path(sys.argv[1])
+          out = Path(sys.argv[2])
+          docs = ['README.md', 'CHANGELOG.md', 'CREDITS.md', 'THIRD_PARTY.md', 'MANIFEST-SHA256.txt']
+          files = [p for p in (root / 'IE-Voices-Pack').rglob('*') if p.is_file()]
+          files += [root / n for n in docs + ['setup-IE-Voices-Pack.exe']]
+          assert len(files) == 7475, len(files)
+          source = {p.relative_to(root).as_posix(): p.read_bytes() for p in files}
+          manifest = source['MANIFEST-SHA256.txt'].decode().splitlines()
+          assert len(manifest) == 7474
+          checked = set()
+          for line in manifest:
+              digest, name = line.split('  ', 1)
+              assert name not in checked and name != 'MANIFEST-SHA256.txt'
+              assert hashlib.sha256(source[name]).hexdigest() == digest, name
+              checked.add(name)
+          assert checked == set(source) - {'MANIFEST-SHA256.txt'}
+          assert hashlib.sha256(source['setup-IE-Voices-Pack.exe']).hexdigest() == 'ad70f5897a6d0ba4b0d226f845a9b14cf345f56cc9697ca8d05cac9fe4932c1a'
+          custom = 'IE-Voices-Pack/sources/custom/'
+          audio = [n for n in source if n.startswith(custom) and n.lower().endswith('.wav')]
+          portraits = [n for n in source if n.startswith(custom) and '/portraits/' in n and n.lower().endswith('.bmp')]
+          assert len(audio) == 537 and len(portraits) == 33
+          for name in portraits:
+              b = source[name]
+              assert b[:2] == b'BM' and struct.unpack_from('<H', b, 28)[0] == 24 and struct.unpack_from('<I', b, 30)[0] == 0
+              assert len(Path(name).stem) <= 8
+          tp2 = 'IE-Voices-Pack/IE-Voices-Pack.tp2'
+          assert source[tp2].count(b'BEGIN @53000') == 1
+          assert source[tp2].rfind(b'DESIGNATED 3000') > source[tp2].rfind(b'DESIGNATED 2100')
+          assert b'VERSION ~1.0~' in source[tp2]
+          assert source[tp2].count(b'README ~README.md~') == 1
+          entries = {}
+          for name, data in source.items():
+              if name == 'MANIFEST-SHA256.txt':
+                  continue
+              target = 'IE-Voices-Pack/' + name if name in docs else name
+              if name == tp2:
+                  data = data.replace(b'README ~README.md~', b'README ~IE-Voices-Pack/README.md~')
+              assert target not in entries
+              entries[target] = data
+          entries['IE-Voices-Pack/MANIFEST-SHA256.txt'] = ''.join(hashlib.sha256(data).hexdigest() + '  ' + name + '\n' for name, data in sorted(entries.items())).encode()
+          assert len(entries) == 7475
+          assert {n.split('/')[0] for n in entries} == {'IE-Voices-Pack', 'setup-IE-Voices-Pack.exe'}
+          out.parent.mkdir(parents=True, exist_ok=True)
+          with zipfile.ZipFile(out, 'w', compression=zipfile.ZIP_DEFLATED, compresslevel=9) as z:
+              for name, data in sorted(entries.items()):
+                  info = zipfile.ZipInfo(name, (2026, 10, 7, 0, 0, 0))
+                  info.create_system = 3
+                  info.external_attr = 0o100644 << 16
+                  info.compress_type = zipfile.ZIP_DEFLATED
+                  z.writestr(info, data, compresslevel=9)
+          with zipfile.ZipFile(out) as z:
+              assert z.testzip() is None
+              assert set(z.namelist()) == set(entries)
+              for name, data in entries.items():
+                  assert z.read(name) == data, name
+          digest = hashlib.sha256(out.read_bytes()).hexdigest()
+          out.with_name('IE-Voices-Pack-v1.0.sha256').write_text(digest + '  IE-Voices-Pack-v1.0.zip\n')
+          report = {'files': len(entries), 'bytes': out.stat().st_size, 'sha256': digest, 'custom_audio': len(audio), 'custom_portraits': len(portraits)}
+          out.with_name('custom-package-report.json').write_text(json.dumps(report))
+          print(json.dumps(report))
+          
+          PY
+          git rm -r .custom-upload .github/workflows/custom-integration.yml
+          git add IE-Voices-Pack README.md CHANGELOG.md CREDITS.md THIRD_PARTY.md MANIFEST-SHA256.txt setup-IE-Voices-Pack.exe
+          git config user.name Sauler89
+          git config user.email Sauler89@users.noreply.github.com
+          tree=$(git write-tree)
+          new=$(printf 'IE-Voices-Pack 1.0\n' | git commit-tree "$tree")
+          test "$(git cat-file -p "$new" | sed -n '/^parent /p' | wc -l)" = 0
+          gh release upload v1.0 /tmp/IE-Voices-Pack-v1.0-custom.zip --repo "$GITHUB_REPOSITORY" --clobber
+          gh api "repos/$GITHUB_REPOSITORY/releases/405613067" > /tmp/release-staged.json
+          python3 - <<'PY'
+          import json
+          r = json.load(open('/tmp/release-staged.json'))
+          asset = next(a for a in r['assets'] if a['name'] == 'IE-Voices-Pack-v1.0-custom.zip')
+          expected = json.load(open('/tmp/custom-package-report.json'))
+          assert asset['state'] == 'uploaded' and asset['size'] == expected['bytes']
+          assert asset['digest'] == 'sha256:' + expected['sha256']
+          open('/tmp/staged-asset-id', 'w').write(str(asset['id']))
+          PY
+          git push --atomic --force-with-lease=refs/heads/main:"$GITHUB_SHA" --force-with-lease=refs/tags/v1.0:"$base" origin "$new:refs/heads/main" "$new:refs/tags/v1.0"
+          gh api --method DELETE "repos/$GITHUB_REPOSITORY/releases/assets/618503156"
+          staged_id=$(cat /tmp/staged-asset-id)
+          gh api --method PATCH "repos/$GITHUB_REPOSITORY/releases/assets/$staged_id" -f name=IE-Voices-Pack-v1.0.zip > /tmp/renamed-asset.json
+          gh release upload v1.0 /tmp/IE-Voices-Pack-v1.0.sha256 --repo "$GITHUB_REPOSITORY" --clobber
+          cat > /tmp/release-notes.md <<'NOTES'
+          # IE-Voices-Pack 1.0
+          
+          205 English player voice sets for BG:EE, BGII:EE, EET and IWD:EE (2.6.6+).
+          
+          Includes all 17 supplied custom voice packs and their portraits. The final installer component offers all packs or an individual yes/no choice for each pack. Portraits follow the selected packs and include adapted 24-bit BMP resources for vanilla EE and Infinity UI++.
+          
+          Extract the ZIP into the game folder and run `setup-IE-Voices-Pack.exe` (the supplied WeiDU 249). Install the custom component after Infinity UI++; reinstall it if a later UI installation replaces `UI.MENU`.
+          
+          Original voice-pack conversions: **GraionDilach** and **AstroBryGuy / The Gate Project**. Custom packs retain their original author credits and source documentation.
+          Compilation and integration: **Sauler89**.
+          
+          Uninstall an earlier build of this compilation before installing this updated v1.0.
+          The ZIP contains `IE-Voices-Pack/` with all documentation and `setup-IE-Voices-Pack.exe`. See the included README.md, CREDITS.md and THIRD_PARTY.md for details.
+          NOTES
+          gh release edit v1.0 --repo "$GITHUB_REPOSITORY" --title 'IE-Voices-Pack 1.0' --notes-file /tmp/release-notes.md
+          if git ls-remote --exit-code --heads origin refs/heads/custom-pack-1-0 > /dev/null; then
+              git push origin --delete custom-pack-1-0
+          fi
+          printf 'Published root commit: %s\n' "$new"
+          cat /tmp/custom-package-report.json
