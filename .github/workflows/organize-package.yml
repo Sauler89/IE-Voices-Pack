@@ -1,0 +1,90 @@
+name: Organize IE-Voices-Pack 1.0 files
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/organize-package.yml']
+permissions:
+  contents: write
+concurrency:
+  group: organize-ie-voices-pack
+  cancel-in-progress: false
+jobs:
+  organize:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+      - name: Move documents and verify supplied WeiDU
+        shell: python
+        run: |
+          from pathlib import Path
+          import hashlib, zipfile, stat, re
+          root = Path.cwd()
+          mod = root / "IE-Voices-Pack"
+          installer = root / "setup-IE-Voices-Pack.exe"
+          assert hashlib.sha256(installer.read_bytes()).hexdigest() == "ad70f5897a6d0ba4b0d226f845a9b14cf345f56cc9697ca8d05cac9fe4932c1a", "Supplied WeiDU checksum mismatch"
+          before = {str(p.relative_to(root)): hashlib.sha256(p.read_bytes()).hexdigest() for p in mod.rglob("*") if p.is_file()}
+          assert len([p for p in before if p.endswith(".wav")]) == 6742
+          for name in ("README.md", "CHANGELOG.md", "CREDITS.md", "THIRD_PARTY.md"):
+              src, dst = root / name, mod / name
+              assert src.read_bytes() == dst.read_bytes(), f"Differing document copies: {name}"
+              src.unlink()
+          (root / "MANIFEST-SHA256.txt").unlink()
+          manifest = mod / "MANIFEST-SHA256.txt"
+          files = sorted([p for p in mod.rglob("*") if p.is_file()] + [installer], key=lambda p: str(p.relative_to(root)))
+          assert len(files) == 6803
+          manifest.write_text("".join(hashlib.sha256(p.read_bytes()).hexdigest() + "  " + str(p.relative_to(root)) + "\n" for p in files))
+          for rel, digest in before.items():
+              assert hashlib.sha256((root / rel).read_bytes()).hexdigest() == digest, rel
+          assert len(list(mod.rglob("*.wav"))) == 6742
+          expected = files + [manifest]
+          assert len(expected) == 6804
+          out = Path("/tmp/IE-Voices-Pack-v1.0-updated.zip")
+          with zipfile.ZipFile(out, "w", zipfile.ZIP_DEFLATED, compresslevel=9) as z:
+              for p in sorted(expected, key=lambda p: str(p.relative_to(root))):
+                  info = zipfile.ZipInfo(str(p.relative_to(root)), (2026, 10, 7, 0, 0, 0))
+                  info.compress_type = zipfile.ZIP_DEFLATED
+                  info.external_attr = (stat.S_IFREG | 0o644) << 16
+                  z.writestr(info, p.read_bytes())
+          with zipfile.ZipFile(out) as z:
+              assert set(z.namelist()) == {str(p.relative_to(root)) for p in expected}
+              for p in expected: assert z.read(str(p.relative_to(root))) == p.read_bytes()
+          digest = hashlib.sha256(out.read_bytes()).hexdigest()
+          Path("/tmp/IE-Voices-Pack-v1.0.sha256").write_text(digest + "  IE-Voices-Pack-v1.0.zip\n")
+          print("Verified supplied WeiDU 249.00, 6742 unchanged WAV files, all documents inside IE-Voices-Pack/.")
+          print("ZIP SHA-256:", digest)
+          
+      - name: Stage and verify updated release asset
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release upload v1.0 /tmp/IE-Voices-Pack-v1.0-updated.zip --repo "$GITHUB_REPOSITORY"
+          NEW_ASSET="$(gh api "repos/$GITHUB_REPOSITORY/releases/405613067" --jq '.assets[] | select(.name == "IE-Voices-Pack-v1.0-updated.zip") | .id')"
+          EXPECTED_DIGEST="$(cut -d' ' -f1 /tmp/IE-Voices-Pack-v1.0.sha256)"
+          test "$(gh api "repos/$GITHUB_REPOSITORY/releases/assets/$NEW_ASSET" --jq .digest)" = "sha256:$EXPECTED_DIGEST"
+          echo "NEW_ASSET=$NEW_ASSET" >> "$GITHUB_ENV"
+      - name: Update the single 1.0 commit and tag
+        run: |
+          git merge-base --is-ancestor origin/organize-package "$GITHUB_SHA"
+          test "$(git rev-parse v1.0)" = 740e6db9748592397bee5519162d4c1e752c507b
+          git config user.name 'Sauler89'
+          git config user.email '138236347+Sauler89@users.noreply.github.com'
+          git rm .github/workflows/organize-package.yml
+          git add -A -- IE-Voices-Pack setup-IE-Voices-Pack.exe README.md CHANGELOG.md CREDITS.md THIRD_PARTY.md MANIFEST-SHA256.txt
+          CLEAN_SHA="$(git commit-tree "$(git write-tree)" -m 'IE-Voices-Pack 1.0')"
+          test "$(git ls-tree -r --name-only "$CLEAN_SHA" | wc -l)" = 6804
+          git push --atomic --force-with-lease="refs/heads/main:$GITHUB_SHA" --force-with-lease="refs/tags/v1.0:740e6db9748592397bee5519162d4c1e752c507b" origin "$CLEAN_SHA:refs/heads/main" "$CLEAN_SHA:refs/tags/v1.0"
+      - name: Replace release package and checksum
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          test "$(gh api "repos/$GITHUB_REPOSITORY/releases/assets/618259247" --jq .name)" = IE-Voices-Pack-v1.0.zip
+          gh api --method DELETE "repos/$GITHUB_REPOSITORY/releases/assets/618259247"
+          gh api --method PATCH "repos/$GITHUB_REPOSITORY/releases/assets/$NEW_ASSET" -f name=IE-Voices-Pack-v1.0.zip --silent
+          gh release upload v1.0 /tmp/IE-Voices-Pack-v1.0.sha256 --repo "$GITHUB_REPOSITORY" --clobber
+          EXPECTED_DIGEST="$(cut -d' ' -f1 /tmp/IE-Voices-Pack-v1.0.sha256)"
+          test "$(gh api "repos/$GITHUB_REPOSITORY/releases/405613067" --jq '.assets[] | select(.name == "IE-Voices-Pack-v1.0.zip") | .digest')" = "sha256:$EXPECTED_DIGEST"
+          gh api --method DELETE "repos/$GITHUB_REPOSITORY/git/refs/heads/organize-package"
