@@ -1,0 +1,121 @@
+name: Audit and correct IE-Voices-Pack 1.0
+on:
+  push:
+    branches: [main]
+    paths: [.github/workflows/audit-release.yml]
+permissions:
+  contents: write
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Correct missing audio references and publish verified package
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse refs/tags/v1.0)" = "e2b1ec8501adc36468614f9a4e5f339f622ff239"
+          git merge-base --is-ancestor e2b1ec8501adc36468614f9a4e5f339f622ff239 HEAD
+          python - <<'PY'
+          from pathlib import Path
+          import re, hashlib
+          root=Path.cwd()
+          mod=root/'IE-Voices-Pack'
+          missing={'pst':{248:'zgpana2',653:'zgpignv_'},'nwn':{321:'zgnarid',1549:'zgn2hi3',2049:'zgn2ms3',3849:'zgn1nm3',5337:'zgn2goq'}}
+          for pack,entries in missing.items():
+              p=mod/f'sources/{pack}/english/setup.tra'
+              text=p.read_text()
+              for ref,res in entries.items():
+                  text,n=re.subn(r'(^[ \t]*@'+str(ref)+r'\s*=.*) \['+res+r'\]',r'\1',text,flags=re.M)
+                  assert n==1,(pack,ref,n)
+              p.write_text(text)
+              p=mod/f'lib/{pack}.tpa'
+              text=p.read_text()
+              for ref,res in entries.items():
+                  text,n=re.subn(r'^([ \t]*)(cd_\w+)[^\n]*RESOLVE_STR_REF\(@'+str(ref)+r'\)[^\n]*$',lambda m:m[1]+'// '+m[2]+' omitted: upstream audio '+res+'.wav is absent.',text,flags=re.M)
+                  assert n==(0 if ref==5337 else 1),(pack,ref,n)
+              p.write_text(text)
+          p=mod/'sources/nwn2/snd/aypurf/aypurf.tra'
+          text=p.read_text(); assert text.count('[aypurfj]')==1
+          p.write_text(text.replace(' [aypurfj]',''))
+          p=mod/'lib/nwn2-set.tpa'
+          text=p.read_text()
+          before='\n\nLAF cd_add_soundset'
+          after='''
+          
+          // Purfbin has no upstream action-2 audio clip. Leave that slot unset.
+          OUTER_SET ie_nwn2_action2 = "-1"
+          ACTION_IF FILE_EXISTS ~%MOD_FOLDER%/sources/nwn2/snd/%soundName%/sounds/%soundName%j.wav~ BEGIN
+            OUTER_SET ie_nwn2_action2 = RESOLVE_STR_REF(@2)
+          END
+          
+          LAF cd_add_soundset'''
+          assert text.count(before)==1
+          text=text.replace(before,after)
+          text,n=re.subn(r'cd_action2\s*= RESOLVE_STR_REF\(@2\)', 'cd_action2            = ie_nwn2_action2',text)
+          assert n==1
+          p.write_text(text)
+          p=mod/'CHANGELOG.md'
+          text=p.read_text();text+='- Omit seven legacy cues whose original audio files are absent; remove eight dangling audio references.\n'
+          p.write_text(text)
+          p=mod/'docs/SOURCES.md'
+          text=p.read_text();text+='\nEight references to absent upstream audio resources were removed; seven active cues are left unset. Existing audio files are unchanged.\n'
+          p.write_text(text)
+          manifest=mod/'MANIFEST-SHA256.txt'
+          files=sorted([p for p in mod.rglob('*') if p.is_file() and p!=manifest]+[root/'setup-IE-Voices-Pack.exe'],key=lambda p:str(p.relative_to(root)))
+          manifest.write_text(''.join(hashlib.sha256(p.read_bytes()).hexdigest()+'  '+str(p.relative_to(root))+'\n' for p in files))
+          print('Corrected eight absent audio references; original audio and installer preserved.')
+          PY
+          git rm -f .github/workflows/audit-release.yml
+          git add IE-Voices-Pack
+          git config user.name "Sauler89"
+          git config user.email "Sauler89@users.noreply.github.com"
+          tree_sha=$(git write-tree)
+          root_sha=$(printf '%s\n' "IE-Voices-Pack 1.0" | git commit-tree "$tree_sha")
+          python - <<'PY'
+          from pathlib import Path
+          import zipfile,hashlib,stat
+          root=Path.cwd()
+          files=sorted([p for p in (root/'IE-Voices-Pack').rglob('*') if p.is_file()]+[root/'setup-IE-Voices-Pack.exe'],key=lambda p:str(p.relative_to(root)))
+          assert len(files)==6804
+          out=Path('/tmp/IE-Voices-Pack-v1.0-audited.zip')
+          with zipfile.ZipFile(out,'w',zipfile.ZIP_DEFLATED,compresslevel=9) as z:
+              for p in files:
+                  info=zipfile.ZipInfo(str(p.relative_to(root)),(2026,10,7,0,0,0))
+                  info.compress_type=zipfile.ZIP_DEFLATED
+                  info.external_attr=(stat.S_IFREG|0o644)<<16
+                  z.writestr(info,p.read_bytes())
+          with zipfile.ZipFile(out) as z:
+              assert z.testzip() is None
+              assert {p.split('/')[0] for p in z.namelist()}=={'IE-Voices-Pack','setup-IE-Voices-Pack.exe'}
+              for p in files: assert z.read(str(p.relative_to(root)))==p.read_bytes()
+          exe=root/'setup-IE-Voices-Pack.exe'
+          assert hashlib.sha256(exe.read_bytes()).hexdigest()=='ad70f5897a6d0ba4b0d226f845a9b14cf345f56cc9697ca8d05cac9fe4932c1a'
+          digest=hashlib.sha256(out.read_bytes()).hexdigest()
+          Path('/tmp/IE-Voices-Pack-v1.0.sha256').write_text(digest+'  IE-Voices-Pack-v1.0.zip\n')
+          print('Verified ZIP:',len(files),'files. SHA256:',digest)
+          PY
+          gh release upload v1.0 /tmp/IE-Voices-Pack-v1.0-audited.zip
+          gh api repos/Sauler89/IE-Voices-Pack/releases/405613067/assets > /tmp/assets.json
+          python - <<'PY'
+          import json,hashlib
+          from pathlib import Path
+          assets=json.loads(Path('/tmp/assets.json').read_text())
+          a=next(x for x in assets if x['name']=='IE-Voices-Pack-v1.0-audited.zip')
+          p=Path('/tmp/IE-Voices-Pack-v1.0-audited.zip')
+          assert a['size']==p.stat().st_size
+          assert a['digest']=='sha256:'+hashlib.sha256(p.read_bytes()).hexdigest()
+          Path('/tmp/new-asset-id').write_text(str(a['id']))
+          PY
+          git push --atomic origin --force-with-lease=refs/heads/main:"$GITHUB_SHA" --force-with-lease=refs/tags/v1.0:e2b1ec8501adc36468614f9a4e5f339f622ff239 "$root_sha:refs/heads/main" "$root_sha:refs/tags/v1.0"
+          gh api -X DELETE repos/Sauler89/IE-Voices-Pack/releases/assets/618471001
+          new_asset_id=$(cat /tmp/new-asset-id)
+          gh api -X PATCH "repos/Sauler89/IE-Voices-Pack/releases/assets/$new_asset_id" -f name=IE-Voices-Pack-v1.0.zip --jq '.name'
+          gh release upload v1.0 /tmp/IE-Voices-Pack-v1.0.sha256 --clobber
+          git push origin --delete audit-release-1-0
+          printf 'Final root commit: %s\n' "$root_sha"
+          
