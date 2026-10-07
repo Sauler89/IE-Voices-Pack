@@ -1,40 +1,231 @@
-name: Inspect IE-Voices-Pack package paths
+name: Build and publish IE-Voices-Pack v1.2.0
 
 on:
   push:
     branches: [main]
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
-  inspect:
+  release:
+    if: github.event.head_commit.message == 'Build and publish IE-Voices-Pack v1.2.0'
     runs-on: ubuntu-latest
     steps:
-      - name: Download and extract release
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Download v1.1.0 package
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          mkdir -p audit/package
-          gh release download v1.1.0 --repo "${GITHUB_REPOSITORY}" --pattern 'IE-Voices-Pack-v1.1.0.zip' --dir audit
-          unzip -q audit/IE-Voices-Pack-v1.1.0.zip -d audit/package
+          mkdir -p build/package
+          gh release download v1.1.0 --repo "${GITHUB_REPOSITORY}" --pattern 'IE-Voices-Pack-v1.1.0.zip' --dir build
+          unzip -q build/IE-Voices-Pack-v1.1.0.zip -d build/package
+          find build/package/allvoices -type f -iname '*.wav' -print0 | sort -z | xargs -0 sha256sum > build/wav-before.sha256
+          sha256sum build/package/setup-allvoices.exe > build/setup-before.sha256
 
-      - name: Inspect rename-sensitive content
+      - name: Convert package to IE-Voices-Pack v1.2.0 English-only
+        shell: bash
         run: |
-          echo '=== ALL ALLVOICES TEXT REFERENCES ==='
-          grep -RIn --binary-files=without-match -i 'allvoices' audit/package/allvoices             --include='*.tp2' --include='*.tpa' --include='*.tph' --include='*.tra' --include='*.md' --include='*.txt' --include='*.ini' --include='*.lua' || true
+          rm -f build/package/allvoices/README-it.md
+          rm -rf build/package/allvoices/language/italian
 
-          echo '=== TP2 ==='
-          cat audit/package/allvoices/allvoices.tp2
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
 
-          echo '=== ENGLISH SETUP.TRA ==='
-          cat audit/package/allvoices/language/english/setup.tra
+          root = Path("build/package/allvoices")
+          tp2 = root / "allvoices.tp2"
+          text = tp2.read_text(encoding="utf-8")
+          text = re.sub(r"^VERSION ~[^~]+~$", "VERSION ~1.2.0~", text, flags=re.M)
+          text = re.sub(r"^README ~[^~]+~$", "README ~allvoices/README.md~", text, flags=re.M)
+          text = re.sub(r"^LANGUAGE ~Italiano~[^\n]*\n?", "", text, flags=re.M)
+          tp2.write_text(text, encoding="utf-8", newline="\n")
 
-          echo '=== README ==='
-          cat audit/package/allvoices/README.md
+          tra = root / "language/english/setup.tra"
+          text = tra.read_text(encoding="utf-8")
+          text = text.replace("Infinity Engine All Voices", "IE-Voices-Pack")
+          tra.write_text(text, encoding="utf-8", newline="\n")
 
-          echo '=== CHANGELOG ==='
-          cat audit/package/allvoices/CHANGELOG.md
+          sources = root / "docs/SOURCES.md"
+          text = sources.read_text(encoding="utf-8")
+          text = text.replace(
+              "grouping, duplicate checks, and the unified bilingual installer are specific to this collection.",
+              "grouping, duplicate checks, and the unified English-only installer are specific to this collection."
+          )
+          text = text.replace(
+              "The bundled `setup-allvoices.exe` is the WeiDU 249 executable",
+              "The bundled `setup-allvoices.exe` is intentionally retained as the technical WeiDU installer name for upgrade/uninstall compatibility with earlier releases. It is the WeiDU 249 executable"
+          )
+          sources.write_text(text, encoding="utf-8", newline="\n")
+          PY
 
-          echo '=== SOURCES ==='
-          cat audit/package/allvoices/docs/SOURCES.md
+          cat > build/package/allvoices/README.md <<'EOF'
+          # IE-Voices-Pack
+
+          **Version 1.2.0**
+
+          IE-Voices-Pack is a unified WeiDU collection of **188 English player voice sets** for modern Infinity Engine Enhanced Edition games.
+
+          ## Included voice sets
+
+          - Baldur's Gate: 18 base voice sets
+          - Baldur's Gate II: 9 base voice sets
+          - Baldur's Gate NPCs: 36 voice sets
+          - Icewind Dale / Heart of Winter: 30 voice sets
+          - Icewind Dale II: 12 voice sets
+          - Planescape: Torment: 8 character voice sets
+          - Neverwinter Nights: 59 voice sets
+          - Neverwinter Nights 2 / Mask of the Betrayer / Darkness over Daggerford: 16 named character voice sets
+
+          **Total: 188 voice sets.**
+
+          The 14 generic NWN2 sets named Female 1–7 and Male 1–7 are intentionally omitted. The 16 named NWN2/MotB/DoD characters are installed through one **NWN2 Voice Pack** component.
+
+          ## Compatibility
+
+          Intended for:
+
+          - Baldur's Gate: Enhanced Edition 2.6.6+
+          - Baldur's Gate II: Enhanced Edition 2.6.6+
+          - Enhanced Edition Trilogy (EET) on compatible 2.6.6+ games
+          - Icewind Dale: Enhanced Edition 2.6.6+
+
+          Classic Icewind Dale II and Planescape: Torment: Enhanced Edition are not supported target games.
+
+          On Steam/GOG Baldur's Gate: Enhanced Edition installations with Siege of Dragonspear packaged as DLC, run **DlcMerger** before installing WeiDU mods.
+
+          ## Installation
+
+          1. Extract both `setup-allvoices.exe` and the `allvoices` folder into the game directory containing `chitin.key`.
+          2. Run `setup-allvoices.exe`.
+          3. Select the desired components.
+          4. Run the same installer again whenever you want to change or uninstall components.
+
+          The installer interface is **English-only** in v1.2.0.
+
+          ### Why are the installer and folder still named "allvoices"?
+
+          `allvoices` is the internal WeiDU technical identifier used by earlier releases. It is intentionally preserved so existing v1.0.0/v1.1.0 installations can be upgraded, changed, or uninstalled safely. The public project and release name is **IE-Voices-Pack**.
+
+          ## Upgrading from v1.1.0
+
+          Extract v1.2.0 over the existing installation and run `setup-allvoices.exe`. Keeping the same internal WeiDU identifier preserves component history and upgrade compatibility.
+
+          ## Conflicts
+
+          Do not install the same voice content from both IE-Voices-Pack and the corresponding standalone voice-pack mod. The installer blocks duplicate installations that it can detect.
+
+          ## Credits
+
+          The majority of the included EE 2.6+ voice-pack work was created by **GraionDilach**. The NWN2 Soundsets material was created by **AstroBryGuy** and is now hosted/maintained by **The Gate Project**.
+
+          See `CREDITS.md`, `THIRD_PARTY.md`, and `docs/SOURCES.md` for detailed attribution, provenance, source revisions, and rights notices.
+
+          ## Rights notice
+
+          IE-Voices-Pack is an unofficial fan-made compilation. Original game audio, text, character names, and related assets remain the property of their respective rights holders. The project is not developed, supported, sponsored, or endorsed by Beamdog, BioWare, Black Isle Studios, Interplay Entertainment, Obsidian Entertainment, Ossian Studios, Hasbro, or Wizards of the Coast.
+          EOF
+
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path("build/package/allvoices/CHANGELOG.md")
+          old = p.read_text(encoding="utf-8")
+          entry = """# Changelog
+
+          ## 1.2.0 — 2026-10-07
+
+          - Renamed the public project and release identity to **IE-Voices-Pack**.
+          - Converted the package to English-only installer/documentation.
+          - Removed the Italian installer translation and `README-it.md`.
+          - Replaced remaining public-facing `Infinity Engine All Voices` references with `IE-Voices-Pack`.
+          - Added detailed `CREDITS.md` and `THIRD_PARTY.md` files to the package.
+          - Preserved the internal WeiDU technical identifier `allvoices` and `setup-allvoices.exe` for safe upgrades/uninstalls from earlier versions.
+          - Preserved all bundled voice audio files unchanged.
+
+          """
+          if old.startswith("# Changelog"):
+              old = old[len("# Changelog"):].lstrip("\n")
+          p.write_text(entry + old, encoding="utf-8", newline="\n")
+          PY
+
+          cp CREDITS.md build/package/allvoices/CREDITS.md
+          cp THIRD_PARTY.md build/package/allvoices/THIRD_PARTY.md
+
+      - name: Validate package integrity
+        shell: bash
+        run: |
+          find build/package/allvoices -type f -iname '*.wav' -print0 | sort -z | xargs -0 sha256sum > build/wav-after.sha256
+          sha256sum build/package/setup-allvoices.exe > build/setup-after.sha256
+
+          diff -u build/wav-before.sha256 build/wav-after.sha256
+          diff -u build/setup-before.sha256 build/setup-after.sha256
+
+          test "$(find build/package/allvoices -type f -iname '*.wav' | wc -l)" -eq 6742
+          test ! -e build/package/allvoices/README-it.md
+          test ! -d build/package/allvoices/language/italian
+
+          grep -q '^VERSION ~1.2.0~$' build/package/allvoices/allvoices.tp2
+          grep -q '^README ~allvoices/README.md~$' build/package/allvoices/allvoices.tp2
+          test "$(grep -c '^LANGUAGE ' build/package/allvoices/allvoices.tp2)" -eq 1
+          grep -q '^LANGUAGE ~English~' build/package/allvoices/allvoices.tp2
+
+          if grep -RIn --binary-files=without-match             --include='*.tp2' --include='*.tpa' --include='*.tph' --include='*.tra' --include='*.md' --include='*.txt' --include='*.ini' --include='*.lua'             'Infinity Engine All Voices' build/package; then
+            echo 'ERROR: old public project name still present'
+            exit 1
+          fi
+
+          if grep -RInEi --binary-files=without-match             --include='*.tp2' --include='*.tpa' --include='*.tph' --include='*.tra' --include='*.md' --include='*.txt' --include='*.ini' --include='*.lua'             'raccolta|compatibilit[aà]|contenuto|installazione|pacchett[oi]|vocal[ei]|gioch[io]|esclus[oi]|verifica del file|versione|seleziona|annulla|italian[oa]|ingles[ei]|personaggi nominati' build/package; then
+            echo 'ERROR: likely Italian text still present'
+            exit 1
+          fi
+
+          cd build/package
+          find . -type f ! -name 'MANIFEST-SHA256.txt' -print0 | sort -z | xargs -0 sha256sum | sed 's#  \./#  #' > MANIFEST-SHA256.txt
+          cd ../..
+
+      - name: Build release archive
+        run: |
+          cd build/package
+          zip -q -9 -r ../IE-Voices-Pack-v1.2.0.zip .
+          cd ../..
+          sha256sum build/IE-Voices-Pack-v1.2.0.zip | tee build/release.sha256
+
+      - name: Publish v1.2.0 release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          HASH="$(cut -d' ' -f1 build/release.sha256 | tr '[:lower:]' '[:upper:]')"
+          cat > build/release-notes.md <<EOF
+          # IE-Voices-Pack
+
+          **v1.2.0** is the public English-only maintenance release of IE-Voices-Pack.
+
+          ## Highlights
+
+          - 188 English player voice sets
+          - English-only installer and documentation
+          - Public project identity standardized as **IE-Voices-Pack**
+          - Detailed original-author credits and third-party notices included
+          - Internal WeiDU identifier `allvoices` retained for safe upgrade/uninstall compatibility
+          - All 6,742 bundled WAV files preserved unchanged from v1.1.0
+
+          ## Compatibility
+
+          - Baldur's Gate: Enhanced Edition 2.6.6+
+          - Baldur's Gate II: Enhanced Edition 2.6.6+
+          - Enhanced Edition Trilogy (EET)
+          - Icewind Dale: Enhanced Edition 2.6.6+
+
+          ## Credits
+
+          Original voice-pack conversion work: **GraionDilach** and **AstroBryGuy / The Gate Project**. See `CREDITS.md` and `THIRD_PARTY.md` in the repository and release package for full attribution.
+
+          ## SHA-256
+
+          `$HASH`
+          EOF
+
+          gh release create v1.2.0             build/IE-Voices-Pack-v1.2.0.zip             --repo "${GITHUB_REPOSITORY}"             --target main             --title 'IE-Voices-Pack'             --notes-file build/release-notes.md             --latest
