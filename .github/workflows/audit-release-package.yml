@@ -1,4 +1,4 @@
-name: Audit IE-Voices-Pack release package
+name: Inspect IE-Voices-Pack package paths
 
 on:
   push:
@@ -8,10 +8,10 @@ permissions:
   contents: read
 
 jobs:
-  audit:
+  inspect:
     runs-on: ubuntu-latest
     steps:
-      - name: Download release asset
+      - name: Download and extract release
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
@@ -19,40 +19,22 @@ jobs:
           gh release download v1.1.0 --repo "${GITHUB_REPOSITORY}" --pattern 'IE-Voices-Pack-v1.1.0.zip' --dir audit
           unzip -q audit/IE-Voices-Pack-v1.1.0.zip -d audit/package
 
-      - name: Build audit report
-        shell: bash
+      - name: Inspect rename-sensitive content
         run: |
-          {
-            echo '=== TOP LEVEL ==='
-            find audit/package -mindepth 1 -maxdepth 2 -printf '%P\n' | sort
-            echo
-            echo '=== FILE COUNTS ==='
-            echo "Total files: $(find audit/package -type f | wc -l)"
-            echo "WAV files: $(find audit/package -type f -iname '*.wav' | wc -l)"
-            echo "TP2 files: $(find audit/package -type f -iname '*.tp2' | wc -l)"
-            echo "TRA files: $(find audit/package -type f -iname '*.tra' | wc -l)"
-            echo "EXE files: $(find audit/package -type f -iname '*.exe' | wc -l)"
-            echo
-            echo '=== TEXT / INSTALLER FILES ==='
-            find audit/package -type f \( -iname '*.tp2' -o -iname '*.tra' -o -iname '*.ini' -o -iname '*.txt' -o -iname '*.md' -o -iname '*.lua' -o -iname '*.tpa' -o -iname '*.tph' -o -iname '*.json' \) -printf '%P\n' | sort
-            echo
-            echo '=== OLD PROJECT NAME REFERENCES ==='
-            grep -RInE --include='*.tp2' --include='*.tra' --include='*.ini' --include='*.txt' --include='*.md' --include='*.lua' --include='*.tpa' --include='*.tph' --include='*.json'               'Infinity Engine All Voices|Infinity-Engine-All-Voices|Infinity Engine Voices Pack|Infinity-Engine-Voices-Pack' audit/package || true
-            echo
-            echo '=== LIKELY ITALIAN TEXT ==='
-            grep -RInEi --include='*.tp2' --include='*.tra' --include='*.ini' --include='*.txt' --include='*.md' --include='*.lua' --include='*.tpa' --include='*.tph' --include='*.json'               'raccolta|compatibilit[aà]|contenuto|installazione|pacchett[oi]|vocal[ei]|gioch[io]|esclus[oi]|verifica del file|versione|seleziona|annulla|italian[oa]|ingles[ei]|personaggi nominati' audit/package || true
-            echo
-            echo '=== LANGUAGE DECLARATIONS ==='
-            grep -RInE --include='*.tp2' '^[[:space:]]*LANGUAGE|^[[:space:]]*VERSION|^[[:space:]]*BEGIN' audit/package | head -n 400 || true
-            echo
-            echo '=== ARCHIVE SHA256 ==='
-            sha256sum audit/IE-Voices-Pack-v1.1.0.zip
-          } > audit/audit-report.txt
+          echo '=== ALL ALLVOICES TEXT REFERENCES ==='
+          grep -RIn --binary-files=without-match -i 'allvoices' audit/package/allvoices             --include='*.tp2' --include='*.tpa' --include='*.tph' --include='*.tra' --include='*.md' --include='*.txt' --include='*.ini' --include='*.lua' || true
 
-          cat audit/audit-report.txt
+          echo '=== TP2 ==='
+          cat audit/package/allvoices/allvoices.tp2
 
-      - name: Upload audit report
-        uses: actions/upload-artifact@v4
-        with:
-          name: ie-voices-pack-audit
-          path: audit/audit-report.txt
+          echo '=== ENGLISH SETUP.TRA ==='
+          cat audit/package/allvoices/language/english/setup.tra
+
+          echo '=== README ==='
+          cat audit/package/allvoices/README.md
+
+          echo '=== CHANGELOG ==='
+          cat audit/package/allvoices/CHANGELOG.md
+
+          echo '=== SOURCES ==='
+          cat audit/package/allvoices/docs/SOURCES.md
