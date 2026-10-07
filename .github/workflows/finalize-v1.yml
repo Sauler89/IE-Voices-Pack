@@ -1,0 +1,44 @@
+name: Finalize IE-Voices-Pack 1.0
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/finalize-v1.yml']
+permissions:
+  contents: write
+jobs:
+  finalize:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+      - name: Verify prepared release and root commit
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          test "$(git ls-remote origin refs/heads/main | cut -f1)" = "$GITHUB_SHA"
+          test "$(git rev-parse v1.0)" = 740e6db9748592397bee5519162d4c1e752c507b
+          test "$(git rev-list --count v1.0)" = 1
+          for branch in release-v1-refresh finalize-v1-refresh; do
+            git merge-base --is-ancestor "origin/$branch" "$GITHUB_SHA"
+          done
+          test "$(gh api "repos/$GITHUB_REPOSITORY/releases/405613067" --jq .tag_name)" = v1.0
+          test "$(gh api "repos/$GITHUB_REPOSITORY/releases/405613067" --jq '.assets[] | select(.name == "IE-Voices-Pack-v1.0.zip") | .digest')" = sha256:f4ee90b591a5779a8830f08dc59ac3f0a650f456b6f94014858308ca5a635bc1
+          test "$(git ls-tree -r --name-only v1.0 | wc -l)" = 6808
+      - name: Set main to the clean commit and publish 1.0
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git push --force-with-lease="refs/heads/main:$GITHUB_SHA" origin 740e6db9748592397bee5519162d4c1e752c507b:refs/heads/main
+          gh api --method PATCH "repos/$GITHUB_REPOSITORY/releases/405613067" -F draft=false -f make_latest=true --silent
+          test "$(gh api "repos/$GITHUB_REPOSITORY/releases/latest" --jq .tag_name)" = v1.0
+      - name: Remove superseded releases, tags and temporary branches
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release delete v1.1.0 --repo "$GITHUB_REPOSITORY" --yes --cleanup-tag
+          gh release delete v1.2.0 --repo "$GITHUB_REPOSITORY" --yes --cleanup-tag
+          gh api --method DELETE "repos/$GITHUB_REPOSITORY/git/refs/heads/release-v1-refresh"
+          gh api --method DELETE "repos/$GITHUB_REPOSITORY/git/refs/heads/finalize-v1-refresh"
