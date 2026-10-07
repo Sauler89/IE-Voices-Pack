@@ -1,0 +1,155 @@
+name: Publish IE-Voices-Pack 1.0
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/reset-v1.yml']
+permissions:
+  contents: write
+concurrency:
+  group: publish-ie-voices-pack-v1
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+      - name: Build and verify renamed package
+        shell: python
+        run: |
+          from pathlib import Path
+          import hashlib, re, zipfile, stat
+          
+          root = Path.cwd()
+          old = root / "allvoices"
+          new = root / "IE-Voices-Pack"
+          assert old.is_dir() and not new.exists()
+          before_wav = {str(p.relative_to(old)): hashlib.sha256(p.read_bytes()).hexdigest() for p in old.rglob("*.wav")}
+          assert len(before_wav) == 6742
+          old.rename(new)
+          (root / "setup-allvoices.exe").rename(root / "setup-IE-Voices-Pack.exe")
+          (new / "allvoices.tp2").rename(new / "IE-Voices-Pack.tp2")
+          
+          tp2 = new / "IE-Voices-Pack.tp2"
+          text = tp2.read_text()
+          text = re.sub(r"// Hidden migration stubs.*?(?=BEGIN @52000)", "", text, flags=re.S)
+          text = text.replace("allvoices", "IE-Voices-Pack").replace("ALLVOICES", "IE-VOICES-PACK")
+          text = text.replace("VERSION ~1.2.0~", "VERSION ~1.0~")
+          text = re.sub(r"SUPPORT ~[^~]+~", "SUPPORT ~https://github.com/Sauler89~", text)
+          tp2.write_text(text)
+          
+          tra = new / "language/english/setup.tra"
+          text = tra.read_text()
+          text = re.sub(r"^@(52999|59003) = .*\n?", "", text, flags=re.M)
+          text = text.replace("version 2.6 or later.", "version 2.6.6 or later.")
+          tra.write_text(text)
+          
+          readme = "# IE-Voices-Pack\n\n**Version 1.0** — 188 English player voice sets in one WeiDU installer.\n\n## Contents\n\n| Voice pack | Sets |\n| --- | ---: |\n| Baldur's Gate | 18 |\n| Baldur's Gate II | 9 |\n| Baldur's Gate NPCs | 36 |\n| Icewind Dale / Heart of Winter | 30 |\n| Icewind Dale II | 12 |\n| Planescape: Torment | 8 |\n| Neverwinter Nights | 59 |\n| NWN2 / Mask of the Betrayer / Darkness over Daggerford | 16 |\n| **Total** | **188** |\n\nThe 14 generic NWN2 soundsets are excluded.\n\n## Compatibility\n\n- Baldur's Gate: Enhanced Edition and Siege of Dragonspear\n- Baldur's Gate II: Enhanced Edition\n- Enhanced Edition Trilogy (EET)\n- Icewind Dale: Enhanced Edition\n\nRequires **EE 2.6.6+**. Classic games and Planescape: Torment: Enhanced Edition are not supported.\nFor Steam/GOG Siege of Dragonspear, run [DlcMerger](https://github.com/Argent77/A7-DlcMerger) first when required.\n\n## Installation\n\n1. Download the release ZIP and extract `IE-Voices-Pack/` and `setup-IE-Voices-Pack.exe` into the game folder containing `chitin.key`.\n2. Run `setup-IE-Voices-Pack.exe` and select the desired packs.\n3. Choose a voice during character creation or customization.\n\nThe installer and voices are in English. Uninstall an earlier version of this compilation before installing v1.0. Do not install the same voices from their original packs as well.\n\n## Credits\n\nOriginal voice-pack conversions: **GraionDilach** and **AstroBryGuy / The Gate Project**.\nCompilation and integration: **Sauler89**.\n\nSee [full credits](CREDITS.md) and [third-party notices](THIRD_PARTY.md). Original audio and text remain the property of their respective rights holders.\n"
+          changelog = "# Changelog\n\n## 1.0\n\n- Initial IE-Voices-Pack release: 188 English player voice sets.\n- Eight selectable WeiDU components for EE 2.6.6+ and EET.\n"
+          for folder in (root, new):
+              (folder / "README.md").write_text(readme)
+              (folder / "CHANGELOG.md").write_text(changelog)
+          for name in ("CREDITS.md", "THIRD_PARTY.md"):
+              (new / name).write_bytes((root / name).read_bytes())
+          
+          sources = new / "docs/SOURCES.md"
+          text = sources.read_text()
+          text = re.sub(r"The bundled `setup-allvoices.exe`.*?(?=\n\nOriginal acknowledgements)", "The bundled `setup-IE-Voices-Pack.exe` is the WeiDU 249 executable supplied in the NWN2 Soundsets archive (original filename `weidu.exe`, file/product version `249.00`, SHA-256 `AD70F5897A6D0BA4B0D226F845A9B14CF345F56CC9697CA8D05CAC9FE4932C1A`).", text, flags=re.S)
+          sources.write_text(text)
+          
+          after_wav = {str(p.relative_to(new)): hashlib.sha256(p.read_bytes()).hexdigest() for p in new.rglob("*.wav")}
+          assert before_wav == after_wav
+          assert hashlib.sha256((root / "setup-IE-Voices-Pack.exe").read_bytes()).hexdigest() == "ad70f5897a6d0ba4b0d226f845a9b14cf345f56cc9697ca8d05cac9fe4932c1a"
+          assert text
+          assert len(re.findall(r"^BEGIN ", tp2.read_text(), re.M)) == 8
+          for p in new.rglob("*"):
+              if p.is_file() and p.suffix.lower() not in {".wav", ".exe"}:
+                  data = p.read_text(encoding="utf-8-sig")
+                  assert not re.search(r"allvoices|Infinity[ -]Engine[ -](?:All[ -])?Voices", data, re.I), str(p)
+          assert not any("allvoices" in str(p.relative_to(root)).lower() for p in new.rglob("*"))
+          for rel in re.findall(r"~(IE-Voices-Pack/[^~]+)~", tp2.read_text()):
+              assert (root / rel).exists(), rel
+          ids = set(re.findall(r"^@(\d+)\s*=", tra.read_text(), re.M))
+          refs = set(re.findall(r"@(\d+)", tp2.read_text()))
+          assert refs <= ids, refs - ids
+          manifest = root / "MANIFEST-SHA256.txt"
+          files = sorted([p for p in new.rglob("*") if p.is_file()] + [root / n for n in ("setup-IE-Voices-Pack.exe", "README.md", "CREDITS.md", "THIRD_PARTY.md", "CHANGELOG.md")], key=lambda p: str(p.relative_to(root)))
+          manifest.write_text("".join(hashlib.sha256(p.read_bytes()).hexdigest() + "  " + str(p.relative_to(root)) + "\n" for p in files))
+          assert len(files) == 6807
+          out = Path("/tmp/IE-Voices-Pack-v1.0.zip")
+          with zipfile.ZipFile(out, "w", zipfile.ZIP_DEFLATED, compresslevel=9) as z:
+              for p in files + [manifest]:
+                  info = zipfile.ZipInfo(str(p.relative_to(root)), (2026, 10, 7, 0, 0, 0))
+                  info.compress_type = zipfile.ZIP_DEFLATED
+                  info.external_attr = (stat.S_IFREG | 0o644) << 16
+                  z.writestr(info, p.read_bytes())
+          with zipfile.ZipFile(out) as z:
+              assert len(z.namelist()) == 6808
+              for p in files + [manifest]:
+                  assert z.read(str(p.relative_to(root))) == p.read_bytes()
+          digest = hashlib.sha256(out.read_bytes()).hexdigest()
+          Path("/tmp/IE-Voices-Pack-v1.0.sha256").write_text(digest + "  IE-Voices-Pack-v1.0.zip\n")
+          print("Verified 8 components, 188 voice sets retained, 6742 unchanged WAV files, 6808 packaged files.")
+          print("ZIP SHA-256:", digest)
+          
+      - name: Validate installer with WeiDU 249
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir /tmp/weidu249
+          gh release download v249.00 --repo WeiDUorg/weidu --pattern 'WeiDU-Linux-249-amd64.zip' --dir /tmp/weidu249
+          unzip -q /tmp/weidu249/WeiDU-Linux-249-amd64.zip -d /tmp/weidu249
+          WEIDU_BIN="$(find /tmp/weidu249 -type f -name weidu -print -quit)"
+          test -n "$WEIDU_BIN"
+          chmod +x "$WEIDU_BIN"
+          "$WEIDU_BIN" --nogame --case-exact --parse-check TP2 IE-Voices-Pack/IE-Voices-Pack.tp2
+          "$WEIDU_BIN" --nogame --case-exact --list-components IE-Voices-Pack/IE-Voices-Pack.tp2 0 > /tmp/components.txt
+          cat /tmp/components.txt
+          grep -q 'NWN2 Voice Pack' /tmp/components.txt
+      - name: Create clean initial commit and draft release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          test "$(git ls-remote origin refs/heads/main | cut -f1)" = "$GITHUB_SHA"
+          git merge-base --is-ancestor origin/release-v1-refresh "$GITHUB_SHA"
+          git config user.name 'Sauler89'
+          git config user.email '138236347+Sauler89@users.noreply.github.com'
+          git rm .github/workflows/reset-v1.yml
+          git add -A -- allvoices setup-allvoices.exe IE-Voices-Pack setup-IE-Voices-Pack.exe MANIFEST-SHA256.txt README.md CREDITS.md THIRD_PARTY.md CHANGELOG.md
+          CLEAN_SHA="$(git commit-tree "$(git write-tree)" -m 'IE-Voices-Pack 1.0')"
+          echo "CLEAN_SHA=$CLEAN_SHA" >> "$GITHUB_ENV"
+          git push origin "$CLEAN_SHA:refs/tags/v1.0"
+          cat > /tmp/notes.md <<'EOF'
+          # IE-Voices-Pack 1.0
+
+          188 English player voice sets for BG:EE, BGII:EE, EET and IWD:EE (2.6.6+).
+
+          Extract the ZIP into the game folder and run `setup-IE-Voices-Pack.exe`.
+
+          Original voice-pack conversions: **GraionDilach** and **AstroBryGuy / The Gate Project**.
+          Compilation and integration: **Sauler89**.
+
+          Uninstall an earlier version of this compilation before installing v1.0.
+          See README.md, CREDITS.md and THIRD_PARTY.md for details.
+          EOF
+          gh release create v1.0 /tmp/IE-Voices-Pack-v1.0.zip /tmp/IE-Voices-Pack-v1.0.sha256 --repo "$GITHUB_REPOSITORY" --verify-tag --draft --title 'IE-Voices-Pack 1.0' --notes-file /tmp/notes.md
+          EXPECTED_DIGEST="$(cut -d' ' -f1 /tmp/IE-Voices-Pack-v1.0.sha256)"
+          ACTUAL_DIGEST="$(gh api "repos/$GITHUB_REPOSITORY/releases/tags/v1.0" --jq '.assets[] | select(.name == "IE-Voices-Pack-v1.0.zip") | .digest')"
+          test "$ACTUAL_DIGEST" = "sha256:$EXPECTED_DIGEST"
+      - name: Replace main with one commit and publish 1.0
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git push --force-with-lease="refs/heads/main:$GITHUB_SHA" origin "$CLEAN_SHA:refs/heads/main"
+          gh release edit v1.0 --repo "$GITHUB_REPOSITORY" --draft=false --latest
+          test "$(gh api "repos/$GITHUB_REPOSITORY/releases/latest" --jq .tag_name)" = v1.0
+      - name: Remove superseded releases, tags and temporary branch
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release delete v1.1.0 --repo "$GITHUB_REPOSITORY" --yes --cleanup-tag
+          gh release delete v1.2.0 --repo "$GITHUB_REPOSITORY" --yes --cleanup-tag
+          gh api --method DELETE "repos/$GITHUB_REPOSITORY/git/refs/heads/release-v1-refresh"
