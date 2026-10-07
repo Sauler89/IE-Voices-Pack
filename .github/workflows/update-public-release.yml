@@ -1,0 +1,77 @@
+name: Update public release metadata
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  update-release:
+    if: github.event.head_commit.message == 'Update IE-Voices-Pack public release metadata'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Update release title and description
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          cat > /tmp/release-notes.md <<'EOF'
+          # IE-Voices-Pack
+
+          A unified collection of **188 English player voice sets** for modern Infinity Engine Enhanced Edition games.
+
+          ## Compatibility
+
+          - Baldur's Gate: Enhanced Edition 2.6.6+
+          - Baldur's Gate II: Enhanced Edition 2.6.6+
+          - Enhanced Edition Trilogy (EET)
+          - Icewind Dale: Enhanced Edition 2.6.6+
+
+          ## Included voice sets
+
+          - 18 Baldur's Gate voice sets
+          - 9 Baldur's Gate II voice sets
+          - 36 Baldur's Gate NPC voice sets
+          - 30 Icewind Dale voice sets
+          - 12 Icewind Dale II voice sets
+          - 8 Planescape: Torment voice sets
+          - 59 Neverwinter Nights voice sets
+          - 16 named Neverwinter Nights 2 / Mask of the Betrayer / Darkness over Daggerford voice sets
+
+          **Total: 188 voice sets**
+
+          The 14 generic NWN2 Female 1–7 and Male 1–7 soundsets are intentionally excluded.
+
+          ## Credits
+
+          This compilation integrates voice-pack work originally made available by **GraionDilach** and **AstroBryGuy / The Gate Project**. Full attribution and third-party notices are available in the repository's `CREDITS.md` and `THIRD_PARTY.md`.
+
+          This is an unofficial fan-made compilation and is not developed, supported, sponsored, or endorsed by Beamdog, BioWare, Black Isle Studios, Interplay Entertainment, Ossian Studios, Hasbro, or Wizards of the Coast.
+
+          ## File verification
+
+          SHA-256: `88B61D30B5371404193A380512C5E8F86CE3B0A10B6146C00FC795ECF478C2BE`
+          EOF
+
+          BODY="$(cat /tmp/release-notes.md)"
+          gh api --method PATCH "repos/${GITHUB_REPOSITORY}/releases/382491564" \
+            -f name='IE-Voices-Pack' \
+            -f body="$BODY"
+
+      - name: Rename release asset
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api --method PATCH "repos/${GITHUB_REPOSITORY}/releases/assets/543831352" \
+            -f name='IE-Voices-Pack-v1.1.0.zip'
+
+      - name: Remove this one-time workflow
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          SHA="$(gh api "repos/${GITHUB_REPOSITORY}/contents/.github/workflows/update-public-release.yml?ref=main" --jq .sha)"
+          gh api --method DELETE "repos/${GITHUB_REPOSITORY}/contents/.github/workflows/update-public-release.yml" \
+            -f message='Remove temporary release metadata workflow' \
+            -f sha="$SHA" \
+            -f branch='main'
