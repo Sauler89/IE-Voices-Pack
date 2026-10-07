@@ -1,0 +1,138 @@
+BACKUP ~weidu_external/IE-Voices-Pack/backup~
+SUPPORT ~https://github.com/Sauler89~
+VERSION ~1.0~
+README ~README.md~
+
+LANGUAGE ~English~ ~english~ ~IE-Voices-Pack/language/english/setup.tra~
+
+// Complete source-game packs
+
+BEGIN @51000
+DESIGNATED 1000
+LABEL IE-VOICES-PACK-BG
+GROUP @50000
+REQUIRE_PREDICATE GAME_IS ~bgee bg2ee iwdee eet~ @59000
+FORBID_COMPONENT ~zg_bg_voices/zg_bg_voices.tp2~ 0 @59001
+LOAD_TRA ~%MOD_FOLDER%/sources/bg/english/setup.tra~
+INCLUDE ~%MOD_FOLDER%/lib/bg.tpa~
+
+BEGIN @51001
+DESIGNATED 1100
+LABEL IE-VOICES-PACK-BG2
+GROUP @50000
+REQUIRE_PREDICATE GAME_IS ~bgee bg2ee iwdee eet~ @59000
+FORBID_COMPONENT ~zg_bg2_voices/zg_bg2_voices.tp2~ 0 @59001
+LOAD_TRA ~%MOD_FOLDER%/sources/bg2/english/setup.tra~
+INCLUDE ~%MOD_FOLDER%/lib/bg2.tpa~
+
+BEGIN @51002
+DESIGNATED 1200
+LABEL IE-VOICES-PACK-IWD
+GROUP @50000
+REQUIRE_PREDICATE GAME_IS ~bgee bg2ee iwdee eet~ @59000
+FORBID_COMPONENT ~zg_iwd_voices/zg_iwd_voices.tp2~ 0 @59001
+LOAD_TRA ~%MOD_FOLDER%/sources/iwd/english/setup.tra~
+INCLUDE ~%MOD_FOLDER%/lib/iwd.tpa~
+
+BEGIN @51003
+DESIGNATED 1300
+LABEL IE-VOICES-PACK-IWD2
+GROUP @50000
+REQUIRE_PREDICATE GAME_IS ~bgee bg2ee iwdee eet~ @59000
+FORBID_COMPONENT ~zg_iwd2_voices/zg_iwd2_voices.tp2~ 0 @59001
+LOAD_TRA ~%MOD_FOLDER%/sources/iwd2/english/setup.tra~
+INCLUDE ~%MOD_FOLDER%/lib/iwd2.tpa~
+
+BEGIN @51004
+DESIGNATED 1400
+LABEL IE-VOICES-PACK-BGNPC
+GROUP @50000
+REQUIRE_PREDICATE GAME_IS ~bgee bg2ee iwdee eet~ @59000
+FORBID_COMPONENT ~zg_bgnpc_voices/zg_bgnpc_voices.tp2~ 0 @59001
+LOAD_TRA ~%MOD_FOLDER%/sources/bgnpc/english/setup.tra~
+INCLUDE ~%MOD_FOLDER%/lib/bgnpc.tpa~
+
+BEGIN @51005
+DESIGNATED 1500
+LABEL IE-VOICES-PACK-PST
+GROUP @50000
+REQUIRE_PREDICATE GAME_IS ~bgee bg2ee iwdee eet~ @59000
+FORBID_COMPONENT ~zg_pst_voices/zg_pst_voices.tp2~ 0 @59001
+LOAD_TRA ~%MOD_FOLDER%/sources/pst/english/setup.tra~
+INCLUDE ~%MOD_FOLDER%/lib/pst.tpa~
+
+BEGIN @51006
+DESIGNATED 1600
+LABEL IE-VOICES-PACK-NWN
+GROUP @50000
+REQUIRE_PREDICATE GAME_IS ~bgee bg2ee iwdee eet~ @59000
+FORBID_COMPONENT ~zg_nwn_voices/zg_nwn_voices.tp2~ 0 @59001
+LOAD_TRA ~%MOD_FOLDER%/sources/nwn/english/setup.tra~
+INCLUDE ~%MOD_FOLDER%/lib/nwn.tpa~
+
+// Named NWN2 and premium-module characters only. Generic Female/Male sets are intentionally omitted.
+
+BEGIN @52000
+DESIGNATED 2100
+LABEL IE-VOICES-PACK-NWN2
+GROUP @50001
+REQUIRE_PREDICATE GAME_IS ~bgee bg2ee iwdee eet~ @59000
+FORBID_COMPONENT ~nwn2soundsets/nwn2soundsets.tp2~ 108 @59002
+FORBID_COMPONENT ~nwn2soundsets/nwn2soundsets.tp2~ 109 @59002
+FORBID_COMPONENT ~nwn2soundsets/nwn2soundsets.tp2~ 110 @59002
+FORBID_COMPONENT ~nwn2soundsets/nwn2soundsets.tp2~ 111 @59002
+FORBID_COMPONENT ~nwn2soundsets/nwn2soundsets.tp2~ 112 @59002
+FORBID_COMPONENT ~nwn2soundsets/nwn2soundsets.tp2~ 113 @59002
+FORBID_COMPONENT ~nwn2soundsets/nwn2soundsets.tp2~ 114 @59002
+FORBID_COMPONENT ~nwn2soundsets/nwn2soundsets.tp2~ 115 @59002
+FORBID_COMPONENT ~nwn2soundsets/nwn2soundsets.tp2~ 116 @59002
+FORBID_COMPONENT ~nwn2soundsets/nwn2soundsets.tp2~ 208 @59002
+FORBID_COMPONENT ~nwn2soundsets/nwn2soundsets.tp2~ 209 @59002
+FORBID_COMPONENT ~nwn2soundsets/nwn2soundsets.tp2~ 210 @59002
+FORBID_COMPONENT ~nwn2soundsets/nwn2soundsets.tp2~ 211 @59002
+FORBID_COMPONENT ~nwn2soundsets/nwn2soundsets.tp2~ 212 @59002
+FORBID_COMPONENT ~nwn2soundsets/nwn2soundsets.tp2~ 213 @59002
+FORBID_COMPONENT ~nwn2soundsets/nwn2soundsets.tp2~ 214 @59002
+
+INCLUDE ~%MOD_FOLDER%/sources/nwn2/lib/cd_add_soundset.tph~
+
+OUTER_SPRINT soundName ~aydove~
+INCLUDE ~%MOD_FOLDER%/lib/nwn2-set.tpa~
+OUTER_SPRINT soundName ~ayelan~
+INCLUDE ~%MOD_FOLDER%/lib/nwn2-set.tpa~
+OUTER_SPRINT soundName ~aynees~
+INCLUDE ~%MOD_FOLDER%/lib/nwn2-set.tpa~
+OUTER_SPRINT soundName ~ayqara~
+INCLUDE ~%MOD_FOLDER%/lib/nwn2-set.tpa~
+OUTER_SPRINT soundName ~aysafi~
+INCLUDE ~%MOD_FOLDER%/lib/nwn2-set.tpa~
+OUTER_SPRINT soundName ~ayshan~
+INCLUDE ~%MOD_FOLDER%/lib/nwn2-set.tpa~
+OUTER_SPRINT soundName ~ayzhja~
+INCLUDE ~%MOD_FOLDER%/lib/nwn2-set.tpa~
+OUTER_SPRINT soundName ~ayraeg~
+INCLUDE ~%MOD_FOLDER%/lib/nwn2-set.tpa~
+OUTER_SPRINT soundName ~ayveit~
+INCLUDE ~%MOD_FOLDER%/lib/nwn2-set.tpa~
+OUTER_SPRINT soundName ~ayamon~
+INCLUDE ~%MOD_FOLDER%/lib/nwn2-set.tpa~
+OUTER_SPRINT soundName ~aybish~
+INCLUDE ~%MOD_FOLDER%/lib/nwn2-set.tpa~
+OUTER_SPRINT soundName ~aycasa~
+INCLUDE ~%MOD_FOLDER%/lib/nwn2-set.tpa~
+OUTER_SPRINT soundName ~aygann~
+INCLUDE ~%MOD_FOLDER%/lib/nwn2-set.tpa~
+OUTER_SPRINT soundName ~aykhel~
+INCLUDE ~%MOD_FOLDER%/lib/nwn2-set.tpa~
+OUTER_SPRINT soundName ~aysand~
+INCLUDE ~%MOD_FOLDER%/lib/nwn2-set.tpa~
+OUTER_SPRINT soundName ~aypurf~
+INCLUDE ~%MOD_FOLDER%/lib/nwn2-set.tpa~
+
+// Custom packs are deliberately last and provide their own complete/selective menu.
+BEGIN @53000
+DESIGNATED 3000
+LABEL IE-VOICES-PACK-CUSTOM
+GROUP @50002
+REQUIRE_PREDICATE GAME_IS ~bgee bg2ee eet iwdee~ @59000
+INCLUDE ~%MOD_FOLDER%/lib/custom.tpa~

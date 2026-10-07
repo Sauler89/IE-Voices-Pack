@@ -1,0 +1,29 @@
+@0 = ~Gromnir Il-Khan Soundset~
+
+// Curated Gromnir player voicepack. Vacant slots are deliberately omitted.
+// battlecry1 <- GROM02 (Extracted game audio; authoritative CRE battlecry1)
+@1 = ~Good fun! HAH!~ [GROMVPa]
+// common1 <- GROM01 (Extracted game audio; authoritative CRE common1)
+@2 = ~What you wants with Gromnir?~ [GROMVPf]
+// common2 <- GROM07 (User Audacity cut from extracted game dialogue)
+@3 = ~Gromnir knows.~ [GROMVPg]
+// common3 <- GROM08 (User Audacity cut from extracted game dialogue)
+@4 = ~Gromnir knows the truth.~ [GROMVPh]
+// action1 <- GROM12 (User Audacity cut from extracted game dialogue)
+@5 = ~Gromnir knows.~ [GROMVPi]
+// damage1 <- GROM04 (Extracted game audio; authoritative CRE damage slot)
+@6 = ~~ [GROMVPl]
+// dying1 <- GROM05 (Extracted game audio; authoritative CRE dying slot)
+@7 = ~N-not... not possible...~ [GROMVPm]
+// action_rare1 <- GROM08 (User Audacity cut; SELECT_RARE1 event)
+@8 = ~We is no idiot!~ [GROMVPx]
+// battlecry2 <- GROM03 (Extracted game audio; authoritative CRE battlecry2)
+@9 = ~Fools to face me!~ [GROMVP8]
+// breaking_pt <- GROM06 (Extracted game audio; authoritative CRE breaking-point slot)
+@10 = ~Gromnir not stayin' here!~ [GROMVPj_]
+
+// Voice-menu display name
+@70 = ~Gromnir Il-Khan~
+
+// Unsupported-game prerequisite error
+@71 = ~This voicepack requires BG2:EE or Enhanced Edition Trilogy (EET).~

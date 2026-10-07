@@ -1,0 +1,42 @@
+@50000 = ~Complete voice packs~
+@50001 = ~Neverwinter Nights 2 characters~
+
+@51000 = ~Baldur's Gate: base voices (18 sets)~
+@51001 = ~Baldur's Gate II: base voices (9 sets)~
+@51002 = ~Icewind Dale: base and Heart of Winter voices (30 sets)~
+@51003 = ~Icewind Dale II: base voices (12 sets)~
+@51004 = ~Baldur's Gate: NPC voices (36 sets)~
+@51005 = ~Planescape: Torment: character voices (8 sets)~
+@51006 = ~Neverwinter Nights: base and character voices (59 sets)~
+
+@52000 = ~NWN2 Voice Pack~
+
+@59000 = ~This component requires Baldur's Gate: Enhanced Edition, Baldur's Gate II: Enhanced Edition, EET, or Icewind Dale: Enhanced Edition, version 2.6.6 or later.~
+@59001 = ~The corresponding original voice pack is already installed. Uninstall it before installing the same content from IE-Voices-Pack.~
+@59002 = ~The same NWN2 voice is already installed by NWN2 Soundsets. Uninstall that component first.~
+
+@50002 = ~Custom voice packs~
+@53000 = ~Custom voice packs and included portraits (17 sets)~
+@54000 = ~Custom packs: [1] Install all 17 voice packs and their available portraits; [2] Choose each pack individually.~
+@54001 = ~Enter 1 to install all packs, or 2 to choose them individually.~
+@54002 = ~Enter Y (yes) or N (no).~
+@54003 = ~No custom packs were selected. This component has not been installed.~
+@54004 = ~Custom packs installed: %ivp_selected_count%. Their included portraits can be selected in character creation or customization.~
+@59004 = ~Run DlcMerger before installing mods on an unmerged Siege of Dragonspear DLC archive.~
+@54101 = ~Install Archmage? [Y/N]~
+@54102 = ~Install Amelyssan? [Y/N]~
+@54103 = ~Install Christopher Lee and the included portraits? [Y/N]~
+@54104 = ~Install Dagoth Ur and the included portraits? [Y/N]~
+@54105 = ~Install DotA 2: Invoker? [Y/N]~
+@54106 = ~Install DotA 2: Puck? [Y/N]~
+@54107 = ~Install Filthy Frank? [Y/N]~
+@54108 = ~Install Greta? [Y/N]~
+@54109 = ~Install Gromnir Il-Khan? [Y/N]~
+@54110 = ~Install Illasera? [Y/N]~
+@54111 = ~Install Morpheus and the included portraits? [Y/N]~
+@54112 = ~Install Palpatine and the included portraits? [Y/N]~
+@54113 = ~Install Rondak (lawful good)? [Y/N]~
+@54114 = ~Install Safana (Siege of Dragonspear)? [Y/N]~
+@54115 = ~Install Shang Tsung and the included portraits? [Y/N]~
+@54116 = ~Install The Hound and the included portraits? [Y/N]~
+@54117 = ~Install Thrall and the included portraits? [Y/N]~

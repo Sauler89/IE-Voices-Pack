@@ -1,0 +1,64 @@
+slot,status,suffix,event,resref,package_file,source_file,source_resref,provenance,subtitle,correction,notes
+battlecry1,FILLED,a,Attack initiated,GROMVPa,cd_gromn/sounds/GROMVPa.wav,GROM02.WAV,GROM02,Extracted game audio; authoritative CRE battlecry1,Good fun! HAH!,"Decoded from Vorbis-in-WAV to PCM signed 16-bit mono at 22,050 Hz for the installer copy.",Preserves the original CRE event mapping.
+leader1,VACANT,b,Selected as party leader,,,,,,,,Vacant: no line explicitly acknowledges leadership.
+tired1,VACANT,c,Fatigued,,,,,,,,Vacant: no fatigue-specific line.
+bored1,VACANT,d,Idle too long,,,,,,,,Vacant: no idle or boredom-specific line.
+hurt1,VACANT,e,Low HP,,,,,,,,Vacant: no low-HP-specific line.
+common1,FILLED,f,Selection click,GROMVPf,cd_gromn/sounds/GROMVPf.wav,GROM01.WAV,GROM01,Extracted game audio; authoritative CRE common1,What you wants with Gromnir?,"Decoded from Vorbis-in-WAV to PCM signed 16-bit mono at 22,050 Hz for the installer copy.",Preserves the original CRE event mapping.
+common2,FILLED,g,Selection click,GROMVPg,cd_gromn/sounds/GROMVPg.wav,GROM07_CUT.wav,GROM07,User-approved Audacity cut from extracted GROM07 dialogue,Gromnir knows.,,"Primary conservative assignment; neutral refrain delivery."
+common3,FILLED,h,Selection click,GROMVPh,cd_gromn/sounds/GROMVPh.wav,GROM08_cut.wav,GROM08,User-approved Audacity cut from extracted GROM08 dialogue,Gromnir knows the truth.,,Subtitle records the complete spoken excerpt.
+action1,FILLED,i,Command acknowledged,GROMVPi,cd_gromn/sounds/GROMVPi.wav,GROM12_GROMNIR_KNOWS_ONLY.wav,GROM12,User-approved Audacity cut from extracted GROM12 dialogue,Gromnir knows.,,Short refrain used as a command acknowledgement.
+action2,VACANT,j,Command acknowledged,,,,,,,,Vacant in conservative map; a refrain cut is an optional future reuse.
+action3,VACANT,k,Command acknowledged,,,,,,,,Vacant in conservative map; a refrain cut is an optional future reuse.
+damage1,FILLED,l,Taking damage,GROMVPl,cd_gromn/sounds/GROMVPl.wav,GROM04.WAV,GROM04,Extracted game audio; authoritative CRE damage1,,"Decoded from Vorbis-in-WAV to PCM signed 16-bit mono at 22,050 Hz for the installer copy.",Preserves the original nonverbal CRE event mapping.
+dying1,FILLED,m,Death,GROMVPm,cd_gromn/sounds/GROMVPm.wav,GROM05.WAV,GROM05,Extracted game audio; authoritative CRE dying1,N-not... not possible...,"Decoded from Vorbis-in-WAV to PCM signed 16-bit mono at 22,050 Hz for the installer copy.",Preserves the original CRE event mapping.
+forest,VACANT,n,Entered a forest area,,,,,,,,Vacant: no forest-specific line.
+city,VACANT,o,Entered a city area,,,,,,,,Vacant: no city-specific line.
+dungeon,VACANT,p,Entered a dungeon area,,,,,,,,Vacant: no dungeon-specific line.
+day,VACANT,q,Daytime area response,,,,,,,,Vacant: no daytime-specific line.
+night,VACANT,r,Nighttime area response,,,,,,,,Vacant: no nighttime-specific line.
+action4,VACANT,s,Command acknowledged,,,,,,,,Vacant in conservative map; a refrain cut is an optional future reuse.
+action5,VACANT,t,Command acknowledged,,,,,,,,Vacant in conservative map; a refrain cut is an optional future reuse.
+action6,VACANT,u,Command acknowledged,,,,,,,,Vacant in conservative map; a refrain cut is an optional future reuse.
+action7,VACANT,v,Command acknowledged,,,,,,,,Vacant in conservative map; a refrain cut is an optional future reuse.
+gen_death1,VACANT,w,Party member died,,,,,,,,Vacant: no party-death reaction.
+action_rare1,FILLED,x,Rare selection response SELECT_RARE1,GROMVPx,cd_gromn/sounds/GROMVPx.wav,GROM08_WE_IS_NO_IDIOT.wav,GROM08,User-approved Audacity cut from extracted GROM08 dialogue,We is no idiot!,,Comic line assigned to the exact SELECT_RARE1 event.
+action_rare2,VACANT,y,Rare selection response SELECT_RARE2,,,,,,,,Vacant: the comic rare line is not duplicated by default.
+criticalhit,VACANT,z,Scored a critical hit,,,,,,,,Vacant: no critical-hit-specific line.
+common4,VACANT,0,Selection click,,,,,,,,Vacant in conservative map; a refrain cut is an optional future reuse.
+criticalmiss,VACANT,1,Critical miss,,,,,,,,Vacant: no critical-miss-specific line.
+immune,VACANT,2,Target immune to attack,,,,,,,,Vacant: no target-immunity reaction.
+inventory,VACANT,3,Inventory full,,,,,,,,Vacant: no inventory-full reaction.
+pickpocket,VACANT,4,Successfully picked a pocket,,,,,,,,Vacant: no pickpocket-specific line.
+shadows,VACANT,5,Successfully hid in shadows,,,,,,,,Vacant: no stealth-specific line.
+disrupted,VACANT,6,Spell disrupted,,,,,,,,Vacant: no spell-disruption-specific line.
+trap,VACANT,7,Successfully set a trap,,,,,,,,Vacant: no trap-setting-specific line.
+battlecry2,FILLED,8,Attack initiated,GROMVP8,cd_gromn/sounds/GROMVP8.wav,GROM03.WAV,GROM03,Extracted game audio; authoritative CRE battlecry2,Fools to face me!,"Decoded from Vorbis-in-WAV to PCM signed 16-bit mono at 22,050 Hz for the installer copy.",Preserves the original CRE event mapping.
+battlecry3,VACANT,9,Attack initiated,,,,,,,,Vacant in conservative map; GROM02 or GROM03 is an optional combat reuse.
+attack1,VACANT,c_,Melee or ranged attack,,,,,,,,Vacant in conservative map; GROM02 or GROM03 is an optional combat reuse.
+attack2,VACANT,d_,Melee or ranged attack,,,,,,,,Vacant in conservative map; GROM02 or GROM03 is an optional combat reuse.
+attack3,VACANT,e_,Melee or ranged attack,,,,,,,,Vacant in conservative map; GROM02 or GROM03 is an optional combat reuse.
+attack4,VACANT,f_,Melee or ranged attack,,,,,,,,Vacant in conservative map; GROM02 or GROM03 is an optional combat reuse.
+battlecry4,VACANT,g_,Attack initiated,,,,,,,,Vacant in conservative map; GROM02 or GROM03 is an optional combat reuse.
+battlecry5,VACANT,h_,Attack initiated,,,,,,,,Vacant in conservative map; GROM02 or GROM03 is an optional combat reuse.
+bored2,VACANT,i_,Idle too long,,,,,,,,Vacant: no idle or boredom-specific line.
+breaking_pt,FILLED,j_,Reputation too low; leaving party,GROMVPj_,cd_gromn/wav/GROMVPj_.wav,GROM06.WAV,GROM06,Extracted game audio; authoritative CRE breaking_pt,Gromnir not stayin' here!,"Decoded from Vorbis-in-WAV to PCM signed 16-bit mono at 22,050 Hz for the installer copy.",Preserves the original CRE event mapping.
+common5,VACANT,k_,Selection click,,,,,,,,Vacant in conservative map; a refrain cut is an optional future reuse.
+common6,VACANT,l_,Selection click,,,,,,,,Vacant in conservative map; a refrain cut is an optional future reuse.
+common7,VACANT,m_,Selection click,,,,,,,,Vacant in conservative map; a refrain cut is an optional future reuse.
+damage2,DISABLED,n_,Taking damage; disabled BG2EE v2.6 slot,,,,,,,,Do not fill: this extended damage slot is disabled because of the BG2EE v2.6 player-soundset issue.
+damage3,DISABLED,o_,Taking damage; disabled BG2EE v2.6 slot,,,,,,,,Do not fill: this extended damage slot is disabled because of the BG2EE v2.6 player-soundset issue.
+dying2,VACANT,p_,Death,,,,,,,,Vacant: dying1 already preserves the authoritative death line.
+gen_death2,VACANT,q_,Party member died,,,,,,,,Vacant: no party-death reaction.
+happy,VACANT,r_,High reputation reaction,,,,,,,,Vacant: no high-reputation reaction.
+hurt2,VACANT,s_,Low HP,,,,,,,,Vacant: no low-HP-specific line.
+leader2,VACANT,t_,Selected as party leader,,,,,,,,Vacant: no line explicitly acknowledges leadership.
+morale_break1,VACANT,u_,Panicked or fleeing,,,,,,,,Vacant: no panic or fleeing line was assigned.
+morale_break2,VACANT,v_,Panicked or fleeing,,,,,,,,Vacant: no panic or fleeing line was assigned.
+select_rare1,VACANT,w_,BG2EE rare selection response 1,,,,,,,,Vacant in conservative map; refrain variants are optional future candidates.
+select_rare2,VACANT,x_,BG2EE rare selection response 2,,,,,,,,Vacant in conservative map; refrain variants are optional future candidates.
+select_rare3,VACANT,y_,BG2EE rare selection response 3,,,,,,,,Vacant in conservative map; refrain variants are optional future candidates.
+select_rare4,VACANT,z_,BG2EE rare selection response 4,,,,,,,,Vacant in conservative map; refrain variants are optional future candidates.
+tired2,VACANT,4_,Fatigued,,,,,,,,Vacant: no fatigue-specific line.
+unhappy_1,VACANT,5_,Low reputation reaction,,,,,,,,Vacant: no low-reputation reaction.
+unhappy_2,VACANT,6_,Very low reputation reaction,,,,,,,,Vacant: no very-low-reputation reaction.

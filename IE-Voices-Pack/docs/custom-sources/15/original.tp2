@@ -1,0 +1,61 @@
+BACKUP ~cd_shang/backup~
+AUTHOR ~norQ~
+
+LANGUAGE ~English~ ~english~ ~%MOD_FOLDER%/english/setup.tra~
+
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////                                                  \\\\\
+///// Begin core component                             \\\\\
+/////                                                  \\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+
+BEGIN @0
+
+INCLUDE ~%MOD_FOLDER%/tph/cd_add_soundset.tph~ // includes the macro that does the work
+
+COPY ~%MOD_FOLDER%/sounds~ ~lang/en_us/sounds~ // change en_us to the appropriate language folder
+COPY ~%MOD_FOLDER%/wav~    ~override~
+
+LAF cd_add_soundset 
+  INT_VAR 
+cd_action1=RESOLVE_STR_REF(@1)
+cd_action2=RESOLVE_STR_REF(@2)
+cd_action3=RESOLVE_STR_REF(@3)
+cd_action4=RESOLVE_STR_REF(@4)
+cd_action5=RESOLVE_STR_REF(@5)
+cd_action6=RESOLVE_STR_REF(@6)
+cd_action7=RESOLVE_STR_REF(@7)
+cd_battlecry1=RESOLVE_STR_REF(@16)
+cd_battlecry2=RESOLVE_STR_REF(@17)
+cd_battlecry3=RESOLVE_STR_REF(@18)
+cd_battlecry4=RESOLVE_STR_REF(@19)
+cd_battlecry5=RESOLVE_STR_REF(@20)
+cd_common1=RESOLVE_STR_REF(@25)
+cd_common2=RESOLVE_STR_REF(@26)
+cd_common3=RESOLVE_STR_REF(@27)
+cd_common4=RESOLVE_STR_REF(@28)
+cd_common5=RESOLVE_STR_REF(@29)
+cd_common6=RESOLVE_STR_REF(@30)
+cd_common7=RESOLVE_STR_REF(@31)
+cd_criticalhit=RESOLVE_STR_REF(@32)
+cd_criticalmiss=RESOLVE_STR_REF(@33)
+cd_damage1=RESOLVE_STR_REF(@34)
+cd_dying1=RESOLVE_STR_REF(@40)
+cd_gen_death1=RESOLVE_STR_REF(@43)
+cd_hurt1=RESOLVE_STR_REF(@46)
+cd_hurt2=RESOLVE_STR_REF(@47)
+cd_immune=RESOLVE_STR_REF(@48)
+cd_select_rare1=RESOLVE_STR_REF(@56)
+cd_select_rare2=RESOLVE_STR_REF(@57)
+cd_select_rare3=RESOLVE_STR_REF(@58)
+cd_select_rare4=RESOLVE_STR_REF(@59)
+cd_select_rare5=RESOLVE_STR_REF(@60)
+cd_select_rare6=RESOLVE_STR_REF(@61)
+cd_select_rare7=RESOLVE_STR_REF(@62)
+cd_select_rare8=RESOLVE_STR_REF(@63)
+cd_shadows=RESOLVE_STR_REF(@64)
+cd_select_name = RESOLVE_STR_REF(@70)
+STR_VAR cd_name = "SHANG"
+END  

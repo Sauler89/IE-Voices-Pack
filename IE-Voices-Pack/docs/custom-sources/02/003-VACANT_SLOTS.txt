@@ -1,0 +1,61 @@
+AMELYSSAN PLAYER VOICEPACK — VACANCY CHECKLIST
+
+44 vacant usable slots are available if more suitable material is found.
+Vacant slots are silent; the installer contains no placeholder audio.
+
+STANDARD USABLE VACANCIES (22)
+- leader1
+- tired1
+- bored1
+- forest
+- city
+- dungeon
+- day
+- night
+- action5
+- action6
+- action7
+- gen_death1
+- action_rare1
+- action_rare2
+- common4
+- criticalmiss
+- immune
+- inventory
+- pickpocket
+- shadows
+- trap
+- battlecry3
+
+EXTENDED USABLE VACANCIES (22)
+- attack1
+- attack2
+- attack3
+- attack4
+- battlecry4
+- battlecry5
+- bored2
+- common5
+- common6
+- common7
+- dying2
+- gen_death2
+- happy
+- leader2
+- morale_break1
+- select_rare1
+- select_rare2
+- select_rare3
+- select_rare4
+- tired2
+- unhappy_1
+- unhappy_2
+
+DISABLED — DO NOT FILL IN THE CURRENT BG2EE v2.6 WORKFLOW
+damage2: disabled because of the v2.6 player-soundset issue.
+damage3: disabled because of the v2.6 player-soundset issue.
+
+Notes:
+bored1 and bored2 are deliberately vacant because the proposed bored line was rejected.
+Forest/city/dungeon/day/night and thief-specific events are deliberately left unforced.
+See SLOT_MANIFEST.csv for suffixes, exact engine events, assignments, and provenance.
