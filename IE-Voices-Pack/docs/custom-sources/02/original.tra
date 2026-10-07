@@ -1,0 +1,43 @@
+@0 = ~Amelyssan Soundset~
+
+// Curated Amelyssan player voicepack. Vacant slots are deliberately omitted.
+// battlecry1 <- MELISS02 (Extracted game audio; authoritative CRE battlecry1)
+@1 = ~Doom awaits thee!~ [AMELVPa]
+// hurt1 <- FINMEL27 (User Audacity cut from extracted game dialogue)
+@2 = ~No! Ugh—too strong!~ [AMELVPe]
+// common1 <- MELISS01 (Extracted game audio; authoritative CRE common1)
+@3 = ~Yes?~ [AMELVPf]
+// common2 <- MELISS07 (Extracted game dialogue)
+@4 = ~I am here. Speak quickly.~ [AMELVPg]
+// common3 <- SARMEL11 (User Audacity cut from extracted innocent-form dialogue)
+@5 = ~What is it you want?~ [AMELVPh]
+// action1 <- MELISS14 (User Audacity cut from extracted game dialogue)
+@6 = ~That is correct.~ [AMELVPi]
+// action2 <- MELISS10 (User Audacity cut from extracted game dialogue)
+@7 = ~True enough!~ [AMELVPj]
+// action3 <- MELISS10 (User Audacity cut from extracted game dialogue)
+@8 = ~So be it.~ [AMELVPk]
+// damage1 <- MELISS04 (Extracted game audio; authoritative CRE damage slot)
+@9 = ~~ [AMELVPl]
+// dying1 <- MELIS07 (Extracted game audio; authoritative MMEL animation death sound)
+@10 = ~~ [AMELVPm]
+// action4 <- SARMEL09 (User Audacity cut from extracted innocent-form dialogue)
+@11 = ~Your demand is not unreasonable.~ [AMELVPs]
+// criticalhit <- FINMEL26 (User Audacity cut from extracted final-Throne dialogue)
+@12 = ~Enough!~ [AMELVPz]
+// disrupted <- FINMEL34 (Extracted game dialogue/outtake; machine-only transcript)
+@13 = ~Damn you!~ [AMELVP6]
+// battlecry2 <- MELISS03 (Extracted game audio; authoritative CRE battlecry2)
+@14 = ~You shall suffer!~ [AMELVP8]
+// breaking_pt <- MELISS06 (Extracted game audio; authoritative CRE breaking-point slot)
+@15 = ~I must escape!~ [AMELVPj_]
+// hurt2 <- FINMEL32 (Extracted game dialogue/outtake; machine-only transcript)
+@16 = ~No, no.~ [AMELVPs_]
+// morale_break2 <- SARMEL04 (Extracted innocent-form dialogue)
+@17 = ~No! Put down your weapons! This is not necessary!~ [AMELVPv_]
+
+// Voice-menu display name
+@70 = ~Amelyssan~
+
+// Unsupported-game prerequisite error
+@71 = ~This voicepack requires BG2:EE or Enhanced Edition Trilogy (EET).~

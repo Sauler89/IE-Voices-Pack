@@ -1,0 +1,265 @@
+// Only component #3000 asks these questions. Answers are recorded by WeiDU for reinstalls.
+ACTION_IF FILE_EXISTS ~dlc/sod-dlc.zip~ OR FILE_EXISTS ~sod-dlc.zip~ BEGIN FAIL @59004 END
+INCLUDE ~%MOD_FOLDER%/lib/custom-soundset.tph~
+
+OUTER_SPRINT ivp_mode ~~
+PRINT @54000
+OUTER_WHILE !(~%ivp_mode%~ STRING_EQUAL_CASE ~1~ OR ~%ivp_mode%~ STRING_EQUAL_CASE ~2~) BEGIN
+    ACTION_READLN ivp_mode
+    ACTION_IF !(~%ivp_mode%~ STRING_EQUAL_CASE ~1~ OR ~%ivp_mode%~ STRING_EQUAL_CASE ~2~) BEGIN PRINT @54001 END
+END
+OUTER_SET ivp_selected_count = 0
+COPY ~%MOD_FOLDER%/sources/custom/soundset-registry.lua~ ~override/M_ivcsnd.lua~
+COPY ~%MOD_FOLDER%/sources/custom/portrait-registry.lua~ ~override/M_ivport.lua~
+
+OUTER_SPRINT ivp_choice_01 ~y~
+ACTION_IF ~%ivp_mode%~ STRING_EQUAL_CASE ~2~ BEGIN
+    OUTER_SPRINT ivp_choice_01 ~~
+    PRINT @54101
+    OUTER_WHILE !(~%ivp_choice_01%~ STRING_EQUAL_CASE ~y~ OR ~%ivp_choice_01%~ STRING_EQUAL_CASE ~yes~ OR ~%ivp_choice_01%~ STRING_EQUAL_CASE ~1~ OR ~%ivp_choice_01%~ STRING_EQUAL_CASE ~n~ OR ~%ivp_choice_01%~ STRING_EQUAL_CASE ~no~ OR ~%ivp_choice_01%~ STRING_EQUAL_CASE ~0~) BEGIN
+        ACTION_READLN ivp_choice_01
+        ACTION_IF !(~%ivp_choice_01%~ STRING_EQUAL_CASE ~y~ OR ~%ivp_choice_01%~ STRING_EQUAL_CASE ~yes~ OR ~%ivp_choice_01%~ STRING_EQUAL_CASE ~1~ OR ~%ivp_choice_01%~ STRING_EQUAL_CASE ~n~ OR ~%ivp_choice_01%~ STRING_EQUAL_CASE ~no~ OR ~%ivp_choice_01%~ STRING_EQUAL_CASE ~0~) BEGIN PRINT @54002 END
+    END
+END
+ACTION_IF (~%ivp_choice_01%~ STRING_EQUAL_CASE ~y~ OR ~%ivp_choice_01%~ STRING_EQUAL_CASE ~yes~ OR ~%ivp_choice_01%~ STRING_EQUAL_CASE ~1~) BEGIN
+    INCLUDE ~%MOD_FOLDER%/sources/custom/01/install.tpa~
+    OUTER_SET ivp_selected_count += 1
+END
+
+OUTER_SPRINT ivp_choice_02 ~y~
+ACTION_IF ~%ivp_mode%~ STRING_EQUAL_CASE ~2~ BEGIN
+    OUTER_SPRINT ivp_choice_02 ~~
+    PRINT @54102
+    OUTER_WHILE !(~%ivp_choice_02%~ STRING_EQUAL_CASE ~y~ OR ~%ivp_choice_02%~ STRING_EQUAL_CASE ~yes~ OR ~%ivp_choice_02%~ STRING_EQUAL_CASE ~1~ OR ~%ivp_choice_02%~ STRING_EQUAL_CASE ~n~ OR ~%ivp_choice_02%~ STRING_EQUAL_CASE ~no~ OR ~%ivp_choice_02%~ STRING_EQUAL_CASE ~0~) BEGIN
+        ACTION_READLN ivp_choice_02
+        ACTION_IF !(~%ivp_choice_02%~ STRING_EQUAL_CASE ~y~ OR ~%ivp_choice_02%~ STRING_EQUAL_CASE ~yes~ OR ~%ivp_choice_02%~ STRING_EQUAL_CASE ~1~ OR ~%ivp_choice_02%~ STRING_EQUAL_CASE ~n~ OR ~%ivp_choice_02%~ STRING_EQUAL_CASE ~no~ OR ~%ivp_choice_02%~ STRING_EQUAL_CASE ~0~) BEGIN PRINT @54002 END
+    END
+END
+ACTION_IF (~%ivp_choice_02%~ STRING_EQUAL_CASE ~y~ OR ~%ivp_choice_02%~ STRING_EQUAL_CASE ~yes~ OR ~%ivp_choice_02%~ STRING_EQUAL_CASE ~1~) BEGIN
+    INCLUDE ~%MOD_FOLDER%/sources/custom/02/install.tpa~
+    OUTER_SET ivp_selected_count += 1
+END
+
+OUTER_SPRINT ivp_choice_03 ~y~
+ACTION_IF ~%ivp_mode%~ STRING_EQUAL_CASE ~2~ BEGIN
+    OUTER_SPRINT ivp_choice_03 ~~
+    PRINT @54103
+    OUTER_WHILE !(~%ivp_choice_03%~ STRING_EQUAL_CASE ~y~ OR ~%ivp_choice_03%~ STRING_EQUAL_CASE ~yes~ OR ~%ivp_choice_03%~ STRING_EQUAL_CASE ~1~ OR ~%ivp_choice_03%~ STRING_EQUAL_CASE ~n~ OR ~%ivp_choice_03%~ STRING_EQUAL_CASE ~no~ OR ~%ivp_choice_03%~ STRING_EQUAL_CASE ~0~) BEGIN
+        ACTION_READLN ivp_choice_03
+        ACTION_IF !(~%ivp_choice_03%~ STRING_EQUAL_CASE ~y~ OR ~%ivp_choice_03%~ STRING_EQUAL_CASE ~yes~ OR ~%ivp_choice_03%~ STRING_EQUAL_CASE ~1~ OR ~%ivp_choice_03%~ STRING_EQUAL_CASE ~n~ OR ~%ivp_choice_03%~ STRING_EQUAL_CASE ~no~ OR ~%ivp_choice_03%~ STRING_EQUAL_CASE ~0~) BEGIN PRINT @54002 END
+    END
+END
+ACTION_IF (~%ivp_choice_03%~ STRING_EQUAL_CASE ~y~ OR ~%ivp_choice_03%~ STRING_EQUAL_CASE ~yes~ OR ~%ivp_choice_03%~ STRING_EQUAL_CASE ~1~) BEGIN
+    INCLUDE ~%MOD_FOLDER%/sources/custom/03/install.tpa~
+    OUTER_SET ivp_selected_count += 1
+END
+
+OUTER_SPRINT ivp_choice_04 ~y~
+ACTION_IF ~%ivp_mode%~ STRING_EQUAL_CASE ~2~ BEGIN
+    OUTER_SPRINT ivp_choice_04 ~~
+    PRINT @54104
+    OUTER_WHILE !(~%ivp_choice_04%~ STRING_EQUAL_CASE ~y~ OR ~%ivp_choice_04%~ STRING_EQUAL_CASE ~yes~ OR ~%ivp_choice_04%~ STRING_EQUAL_CASE ~1~ OR ~%ivp_choice_04%~ STRING_EQUAL_CASE ~n~ OR ~%ivp_choice_04%~ STRING_EQUAL_CASE ~no~ OR ~%ivp_choice_04%~ STRING_EQUAL_CASE ~0~) BEGIN
+        ACTION_READLN ivp_choice_04
+        ACTION_IF !(~%ivp_choice_04%~ STRING_EQUAL_CASE ~y~ OR ~%ivp_choice_04%~ STRING_EQUAL_CASE ~yes~ OR ~%ivp_choice_04%~ STRING_EQUAL_CASE ~1~ OR ~%ivp_choice_04%~ STRING_EQUAL_CASE ~n~ OR ~%ivp_choice_04%~ STRING_EQUAL_CASE ~no~ OR ~%ivp_choice_04%~ STRING_EQUAL_CASE ~0~) BEGIN PRINT @54002 END
+    END
+END
+ACTION_IF (~%ivp_choice_04%~ STRING_EQUAL_CASE ~y~ OR ~%ivp_choice_04%~ STRING_EQUAL_CASE ~yes~ OR ~%ivp_choice_04%~ STRING_EQUAL_CASE ~1~) BEGIN
+    INCLUDE ~%MOD_FOLDER%/sources/custom/04/install.tpa~
+    OUTER_SET ivp_selected_count += 1
+END
+
+OUTER_SPRINT ivp_choice_05 ~y~
+ACTION_IF ~%ivp_mode%~ STRING_EQUAL_CASE ~2~ BEGIN
+    OUTER_SPRINT ivp_choice_05 ~~
+    PRINT @54105
+    OUTER_WHILE !(~%ivp_choice_05%~ STRING_EQUAL_CASE ~y~ OR ~%ivp_choice_05%~ STRING_EQUAL_CASE ~yes~ OR ~%ivp_choice_05%~ STRING_EQUAL_CASE ~1~ OR ~%ivp_choice_05%~ STRING_EQUAL_CASE ~n~ OR ~%ivp_choice_05%~ STRING_EQUAL_CASE ~no~ OR ~%ivp_choice_05%~ STRING_EQUAL_CASE ~0~) BEGIN
+        ACTION_READLN ivp_choice_05
+        ACTION_IF !(~%ivp_choice_05%~ STRING_EQUAL_CASE ~y~ OR ~%ivp_choice_05%~ STRING_EQUAL_CASE ~yes~ OR ~%ivp_choice_05%~ STRING_EQUAL_CASE ~1~ OR ~%ivp_choice_05%~ STRING_EQUAL_CASE ~n~ OR ~%ivp_choice_05%~ STRING_EQUAL_CASE ~no~ OR ~%ivp_choice_05%~ STRING_EQUAL_CASE ~0~) BEGIN PRINT @54002 END
+    END
+END
+ACTION_IF (~%ivp_choice_05%~ STRING_EQUAL_CASE ~y~ OR ~%ivp_choice_05%~ STRING_EQUAL_CASE ~yes~ OR ~%ivp_choice_05%~ STRING_EQUAL_CASE ~1~) BEGIN
+    INCLUDE ~%MOD_FOLDER%/sources/custom/05/install.tpa~
+    OUTER_SET ivp_selected_count += 1
+END
+
+OUTER_SPRINT ivp_choice_06 ~y~
+ACTION_IF ~%ivp_mode%~ STRING_EQUAL_CASE ~2~ BEGIN
+    OUTER_SPRINT ivp_choice_06 ~~
+    PRINT @54106
+    OUTER_WHILE !(~%ivp_choice_06%~ STRING_EQUAL_CASE ~y~ OR ~%ivp_choice_06%~ STRING_EQUAL_CASE ~yes~ OR ~%ivp_choice_06%~ STRING_EQUAL_CASE ~1~ OR ~%ivp_choice_06%~ STRING_EQUAL_CASE ~n~ OR ~%ivp_choice_06%~ STRING_EQUAL_CASE ~no~ OR ~%ivp_choice_06%~ STRING_EQUAL_CASE ~0~) BEGIN
+        ACTION_READLN ivp_choice_06
+        ACTION_IF !(~%ivp_choice_06%~ STRING_EQUAL_CASE ~y~ OR ~%ivp_choice_06%~ STRING_EQUAL_CASE ~yes~ OR ~%ivp_choice_06%~ STRING_EQUAL_CASE ~1~ OR ~%ivp_choice_06%~ STRING_EQUAL_CASE ~n~ OR ~%ivp_choice_06%~ STRING_EQUAL_CASE ~no~ OR ~%ivp_choice_06%~ STRING_EQUAL_CASE ~0~) BEGIN PRINT @54002 END
+    END
+END
+ACTION_IF (~%ivp_choice_06%~ STRING_EQUAL_CASE ~y~ OR ~%ivp_choice_06%~ STRING_EQUAL_CASE ~yes~ OR ~%ivp_choice_06%~ STRING_EQUAL_CASE ~1~) BEGIN
+    INCLUDE ~%MOD_FOLDER%/sources/custom/06/install.tpa~
+    OUTER_SET ivp_selected_count += 1
+END
+
+OUTER_SPRINT ivp_choice_07 ~y~
+ACTION_IF ~%ivp_mode%~ STRING_EQUAL_CASE ~2~ BEGIN
+    OUTER_SPRINT ivp_choice_07 ~~
+    PRINT @54107
+    OUTER_WHILE !(~%ivp_choice_07%~ STRING_EQUAL_CASE ~y~ OR ~%ivp_choice_07%~ STRING_EQUAL_CASE ~yes~ OR ~%ivp_choice_07%~ STRING_EQUAL_CASE ~1~ OR ~%ivp_choice_07%~ STRING_EQUAL_CASE ~n~ OR ~%ivp_choice_07%~ STRING_EQUAL_CASE ~no~ OR ~%ivp_choice_07%~ STRING_EQUAL_CASE ~0~) BEGIN
+        ACTION_READLN ivp_choice_07
+        ACTION_IF !(~%ivp_choice_07%~ STRING_EQUAL_CASE ~y~ OR ~%ivp_choice_07%~ STRING_EQUAL_CASE ~yes~ OR ~%ivp_choice_07%~ STRING_EQUAL_CASE ~1~ OR ~%ivp_choice_07%~ STRING_EQUAL_CASE ~n~ OR ~%ivp_choice_07%~ STRING_EQUAL_CASE ~no~ OR ~%ivp_choice_07%~ STRING_EQUAL_CASE ~0~) BEGIN PRINT @54002 END
+    END
+END
+ACTION_IF (~%ivp_choice_07%~ STRING_EQUAL_CASE ~y~ OR ~%ivp_choice_07%~ STRING_EQUAL_CASE ~yes~ OR ~%ivp_choice_07%~ STRING_EQUAL_CASE ~1~) BEGIN
+    INCLUDE ~%MOD_FOLDER%/sources/custom/07/install.tpa~
+    OUTER_SET ivp_selected_count += 1
+END
+
+OUTER_SPRINT ivp_choice_08 ~y~
+ACTION_IF ~%ivp_mode%~ STRING_EQUAL_CASE ~2~ BEGIN
+    OUTER_SPRINT ivp_choice_08 ~~
+    PRINT @54108
+    OUTER_WHILE !(~%ivp_choice_08%~ STRING_EQUAL_CASE ~y~ OR ~%ivp_choice_08%~ STRING_EQUAL_CASE ~yes~ OR ~%ivp_choice_08%~ STRING_EQUAL_CASE ~1~ OR ~%ivp_choice_08%~ STRING_EQUAL_CASE ~n~ OR ~%ivp_choice_08%~ STRING_EQUAL_CASE ~no~ OR ~%ivp_choice_08%~ STRING_EQUAL_CASE ~0~) BEGIN
+        ACTION_READLN ivp_choice_08
+        ACTION_IF !(~%ivp_choice_08%~ STRING_EQUAL_CASE ~y~ OR ~%ivp_choice_08%~ STRING_EQUAL_CASE ~yes~ OR ~%ivp_choice_08%~ STRING_EQUAL_CASE ~1~ OR ~%ivp_choice_08%~ STRING_EQUAL_CASE ~n~ OR ~%ivp_choice_08%~ STRING_EQUAL_CASE ~no~ OR ~%ivp_choice_08%~ STRING_EQUAL_CASE ~0~) BEGIN PRINT @54002 END
+    END
+END
+ACTION_IF (~%ivp_choice_08%~ STRING_EQUAL_CASE ~y~ OR ~%ivp_choice_08%~ STRING_EQUAL_CASE ~yes~ OR ~%ivp_choice_08%~ STRING_EQUAL_CASE ~1~) BEGIN
+    INCLUDE ~%MOD_FOLDER%/sources/custom/08/install.tpa~
+    OUTER_SET ivp_selected_count += 1
+END
+
+OUTER_SPRINT ivp_choice_09 ~y~
+ACTION_IF ~%ivp_mode%~ STRING_EQUAL_CASE ~2~ BEGIN
+    OUTER_SPRINT ivp_choice_09 ~~
+    PRINT @54109
+    OUTER_WHILE !(~%ivp_choice_09%~ STRING_EQUAL_CASE ~y~ OR ~%ivp_choice_09%~ STRING_EQUAL_CASE ~yes~ OR ~%ivp_choice_09%~ STRING_EQUAL_CASE ~1~ OR ~%ivp_choice_09%~ STRING_EQUAL_CASE ~n~ OR ~%ivp_choice_09%~ STRING_EQUAL_CASE ~no~ OR ~%ivp_choice_09%~ STRING_EQUAL_CASE ~0~) BEGIN
+        ACTION_READLN ivp_choice_09
+        ACTION_IF !(~%ivp_choice_09%~ STRING_EQUAL_CASE ~y~ OR ~%ivp_choice_09%~ STRING_EQUAL_CASE ~yes~ OR ~%ivp_choice_09%~ STRING_EQUAL_CASE ~1~ OR ~%ivp_choice_09%~ STRING_EQUAL_CASE ~n~ OR ~%ivp_choice_09%~ STRING_EQUAL_CASE ~no~ OR ~%ivp_choice_09%~ STRING_EQUAL_CASE ~0~) BEGIN PRINT @54002 END
+    END
+END
+ACTION_IF (~%ivp_choice_09%~ STRING_EQUAL_CASE ~y~ OR ~%ivp_choice_09%~ STRING_EQUAL_CASE ~yes~ OR ~%ivp_choice_09%~ STRING_EQUAL_CASE ~1~) BEGIN
+    INCLUDE ~%MOD_FOLDER%/sources/custom/09/install.tpa~
+    OUTER_SET ivp_selected_count += 1
+END
+
+OUTER_SPRINT ivp_choice_10 ~y~
+ACTION_IF ~%ivp_mode%~ STRING_EQUAL_CASE ~2~ BEGIN
+    OUTER_SPRINT ivp_choice_10 ~~
+    PRINT @54110
+    OUTER_WHILE !(~%ivp_choice_10%~ STRING_EQUAL_CASE ~y~ OR ~%ivp_choice_10%~ STRING_EQUAL_CASE ~yes~ OR ~%ivp_choice_10%~ STRING_EQUAL_CASE ~1~ OR ~%ivp_choice_10%~ STRING_EQUAL_CASE ~n~ OR ~%ivp_choice_10%~ STRING_EQUAL_CASE ~no~ OR ~%ivp_choice_10%~ STRING_EQUAL_CASE ~0~) BEGIN
+        ACTION_READLN ivp_choice_10
+        ACTION_IF !(~%ivp_choice_10%~ STRING_EQUAL_CASE ~y~ OR ~%ivp_choice_10%~ STRING_EQUAL_CASE ~yes~ OR ~%ivp_choice_10%~ STRING_EQUAL_CASE ~1~ OR ~%ivp_choice_10%~ STRING_EQUAL_CASE ~n~ OR ~%ivp_choice_10%~ STRING_EQUAL_CASE ~no~ OR ~%ivp_choice_10%~ STRING_EQUAL_CASE ~0~) BEGIN PRINT @54002 END
+    END
+END
+ACTION_IF (~%ivp_choice_10%~ STRING_EQUAL_CASE ~y~ OR ~%ivp_choice_10%~ STRING_EQUAL_CASE ~yes~ OR ~%ivp_choice_10%~ STRING_EQUAL_CASE ~1~) BEGIN
+    INCLUDE ~%MOD_FOLDER%/sources/custom/10/install.tpa~
+    OUTER_SET ivp_selected_count += 1
+END
+
+OUTER_SPRINT ivp_choice_11 ~y~
+ACTION_IF ~%ivp_mode%~ STRING_EQUAL_CASE ~2~ BEGIN
+    OUTER_SPRINT ivp_choice_11 ~~
+    PRINT @54111
+    OUTER_WHILE !(~%ivp_choice_11%~ STRING_EQUAL_CASE ~y~ OR ~%ivp_choice_11%~ STRING_EQUAL_CASE ~yes~ OR ~%ivp_choice_11%~ STRING_EQUAL_CASE ~1~ OR ~%ivp_choice_11%~ STRING_EQUAL_CASE ~n~ OR ~%ivp_choice_11%~ STRING_EQUAL_CASE ~no~ OR ~%ivp_choice_11%~ STRING_EQUAL_CASE ~0~) BEGIN
+        ACTION_READLN ivp_choice_11
+        ACTION_IF !(~%ivp_choice_11%~ STRING_EQUAL_CASE ~y~ OR ~%ivp_choice_11%~ STRING_EQUAL_CASE ~yes~ OR ~%ivp_choice_11%~ STRING_EQUAL_CASE ~1~ OR ~%ivp_choice_11%~ STRING_EQUAL_CASE ~n~ OR ~%ivp_choice_11%~ STRING_EQUAL_CASE ~no~ OR ~%ivp_choice_11%~ STRING_EQUAL_CASE ~0~) BEGIN PRINT @54002 END
+    END
+END
+ACTION_IF (~%ivp_choice_11%~ STRING_EQUAL_CASE ~y~ OR ~%ivp_choice_11%~ STRING_EQUAL_CASE ~yes~ OR ~%ivp_choice_11%~ STRING_EQUAL_CASE ~1~) BEGIN
+    INCLUDE ~%MOD_FOLDER%/sources/custom/11/install.tpa~
+    OUTER_SET ivp_selected_count += 1
+END
+
+OUTER_SPRINT ivp_choice_12 ~y~
+ACTION_IF ~%ivp_mode%~ STRING_EQUAL_CASE ~2~ BEGIN
+    OUTER_SPRINT ivp_choice_12 ~~
+    PRINT @54112
+    OUTER_WHILE !(~%ivp_choice_12%~ STRING_EQUAL_CASE ~y~ OR ~%ivp_choice_12%~ STRING_EQUAL_CASE ~yes~ OR ~%ivp_choice_12%~ STRING_EQUAL_CASE ~1~ OR ~%ivp_choice_12%~ STRING_EQUAL_CASE ~n~ OR ~%ivp_choice_12%~ STRING_EQUAL_CASE ~no~ OR ~%ivp_choice_12%~ STRING_EQUAL_CASE ~0~) BEGIN
+        ACTION_READLN ivp_choice_12
+        ACTION_IF !(~%ivp_choice_12%~ STRING_EQUAL_CASE ~y~ OR ~%ivp_choice_12%~ STRING_EQUAL_CASE ~yes~ OR ~%ivp_choice_12%~ STRING_EQUAL_CASE ~1~ OR ~%ivp_choice_12%~ STRING_EQUAL_CASE ~n~ OR ~%ivp_choice_12%~ STRING_EQUAL_CASE ~no~ OR ~%ivp_choice_12%~ STRING_EQUAL_CASE ~0~) BEGIN PRINT @54002 END
+    END
+END
+ACTION_IF (~%ivp_choice_12%~ STRING_EQUAL_CASE ~y~ OR ~%ivp_choice_12%~ STRING_EQUAL_CASE ~yes~ OR ~%ivp_choice_12%~ STRING_EQUAL_CASE ~1~) BEGIN
+    INCLUDE ~%MOD_FOLDER%/sources/custom/12/install.tpa~
+    OUTER_SET ivp_selected_count += 1
+END
+
+OUTER_SPRINT ivp_choice_13 ~y~
+ACTION_IF ~%ivp_mode%~ STRING_EQUAL_CASE ~2~ BEGIN
+    OUTER_SPRINT ivp_choice_13 ~~
+    PRINT @54113
+    OUTER_WHILE !(~%ivp_choice_13%~ STRING_EQUAL_CASE ~y~ OR ~%ivp_choice_13%~ STRING_EQUAL_CASE ~yes~ OR ~%ivp_choice_13%~ STRING_EQUAL_CASE ~1~ OR ~%ivp_choice_13%~ STRING_EQUAL_CASE ~n~ OR ~%ivp_choice_13%~ STRING_EQUAL_CASE ~no~ OR ~%ivp_choice_13%~ STRING_EQUAL_CASE ~0~) BEGIN
+        ACTION_READLN ivp_choice_13
+        ACTION_IF !(~%ivp_choice_13%~ STRING_EQUAL_CASE ~y~ OR ~%ivp_choice_13%~ STRING_EQUAL_CASE ~yes~ OR ~%ivp_choice_13%~ STRING_EQUAL_CASE ~1~ OR ~%ivp_choice_13%~ STRING_EQUAL_CASE ~n~ OR ~%ivp_choice_13%~ STRING_EQUAL_CASE ~no~ OR ~%ivp_choice_13%~ STRING_EQUAL_CASE ~0~) BEGIN PRINT @54002 END
+    END
+END
+ACTION_IF (~%ivp_choice_13%~ STRING_EQUAL_CASE ~y~ OR ~%ivp_choice_13%~ STRING_EQUAL_CASE ~yes~ OR ~%ivp_choice_13%~ STRING_EQUAL_CASE ~1~) BEGIN
+    INCLUDE ~%MOD_FOLDER%/sources/custom/13/install.tpa~
+    OUTER_SET ivp_selected_count += 1
+END
+
+OUTER_SPRINT ivp_choice_14 ~y~
+ACTION_IF ~%ivp_mode%~ STRING_EQUAL_CASE ~2~ BEGIN
+    OUTER_SPRINT ivp_choice_14 ~~
+    PRINT @54114
+    OUTER_WHILE !(~%ivp_choice_14%~ STRING_EQUAL_CASE ~y~ OR ~%ivp_choice_14%~ STRING_EQUAL_CASE ~yes~ OR ~%ivp_choice_14%~ STRING_EQUAL_CASE ~1~ OR ~%ivp_choice_14%~ STRING_EQUAL_CASE ~n~ OR ~%ivp_choice_14%~ STRING_EQUAL_CASE ~no~ OR ~%ivp_choice_14%~ STRING_EQUAL_CASE ~0~) BEGIN
+        ACTION_READLN ivp_choice_14
+        ACTION_IF !(~%ivp_choice_14%~ STRING_EQUAL_CASE ~y~ OR ~%ivp_choice_14%~ STRING_EQUAL_CASE ~yes~ OR ~%ivp_choice_14%~ STRING_EQUAL_CASE ~1~ OR ~%ivp_choice_14%~ STRING_EQUAL_CASE ~n~ OR ~%ivp_choice_14%~ STRING_EQUAL_CASE ~no~ OR ~%ivp_choice_14%~ STRING_EQUAL_CASE ~0~) BEGIN PRINT @54002 END
+    END
+END
+ACTION_IF (~%ivp_choice_14%~ STRING_EQUAL_CASE ~y~ OR ~%ivp_choice_14%~ STRING_EQUAL_CASE ~yes~ OR ~%ivp_choice_14%~ STRING_EQUAL_CASE ~1~) BEGIN
+    INCLUDE ~%MOD_FOLDER%/sources/custom/14/install.tpa~
+    OUTER_SET ivp_selected_count += 1
+END
+
+OUTER_SPRINT ivp_choice_15 ~y~
+ACTION_IF ~%ivp_mode%~ STRING_EQUAL_CASE ~2~ BEGIN
+    OUTER_SPRINT ivp_choice_15 ~~
+    PRINT @54115
+    OUTER_WHILE !(~%ivp_choice_15%~ STRING_EQUAL_CASE ~y~ OR ~%ivp_choice_15%~ STRING_EQUAL_CASE ~yes~ OR ~%ivp_choice_15%~ STRING_EQUAL_CASE ~1~ OR ~%ivp_choice_15%~ STRING_EQUAL_CASE ~n~ OR ~%ivp_choice_15%~ STRING_EQUAL_CASE ~no~ OR ~%ivp_choice_15%~ STRING_EQUAL_CASE ~0~) BEGIN
+        ACTION_READLN ivp_choice_15
+        ACTION_IF !(~%ivp_choice_15%~ STRING_EQUAL_CASE ~y~ OR ~%ivp_choice_15%~ STRING_EQUAL_CASE ~yes~ OR ~%ivp_choice_15%~ STRING_EQUAL_CASE ~1~ OR ~%ivp_choice_15%~ STRING_EQUAL_CASE ~n~ OR ~%ivp_choice_15%~ STRING_EQUAL_CASE ~no~ OR ~%ivp_choice_15%~ STRING_EQUAL_CASE ~0~) BEGIN PRINT @54002 END
+    END
+END
+ACTION_IF (~%ivp_choice_15%~ STRING_EQUAL_CASE ~y~ OR ~%ivp_choice_15%~ STRING_EQUAL_CASE ~yes~ OR ~%ivp_choice_15%~ STRING_EQUAL_CASE ~1~) BEGIN
+    INCLUDE ~%MOD_FOLDER%/sources/custom/15/install.tpa~
+    OUTER_SET ivp_selected_count += 1
+END
+
+OUTER_SPRINT ivp_choice_16 ~y~
+ACTION_IF ~%ivp_mode%~ STRING_EQUAL_CASE ~2~ BEGIN
+    OUTER_SPRINT ivp_choice_16 ~~
+    PRINT @54116
+    OUTER_WHILE !(~%ivp_choice_16%~ STRING_EQUAL_CASE ~y~ OR ~%ivp_choice_16%~ STRING_EQUAL_CASE ~yes~ OR ~%ivp_choice_16%~ STRING_EQUAL_CASE ~1~ OR ~%ivp_choice_16%~ STRING_EQUAL_CASE ~n~ OR ~%ivp_choice_16%~ STRING_EQUAL_CASE ~no~ OR ~%ivp_choice_16%~ STRING_EQUAL_CASE ~0~) BEGIN
+        ACTION_READLN ivp_choice_16
+        ACTION_IF !(~%ivp_choice_16%~ STRING_EQUAL_CASE ~y~ OR ~%ivp_choice_16%~ STRING_EQUAL_CASE ~yes~ OR ~%ivp_choice_16%~ STRING_EQUAL_CASE ~1~ OR ~%ivp_choice_16%~ STRING_EQUAL_CASE ~n~ OR ~%ivp_choice_16%~ STRING_EQUAL_CASE ~no~ OR ~%ivp_choice_16%~ STRING_EQUAL_CASE ~0~) BEGIN PRINT @54002 END
+    END
+END
+ACTION_IF (~%ivp_choice_16%~ STRING_EQUAL_CASE ~y~ OR ~%ivp_choice_16%~ STRING_EQUAL_CASE ~yes~ OR ~%ivp_choice_16%~ STRING_EQUAL_CASE ~1~) BEGIN
+    INCLUDE ~%MOD_FOLDER%/sources/custom/16/install.tpa~
+    OUTER_SET ivp_selected_count += 1
+END
+
+OUTER_SPRINT ivp_choice_17 ~y~
+ACTION_IF ~%ivp_mode%~ STRING_EQUAL_CASE ~2~ BEGIN
+    OUTER_SPRINT ivp_choice_17 ~~
+    PRINT @54117
+    OUTER_WHILE !(~%ivp_choice_17%~ STRING_EQUAL_CASE ~y~ OR ~%ivp_choice_17%~ STRING_EQUAL_CASE ~yes~ OR ~%ivp_choice_17%~ STRING_EQUAL_CASE ~1~ OR ~%ivp_choice_17%~ STRING_EQUAL_CASE ~n~ OR ~%ivp_choice_17%~ STRING_EQUAL_CASE ~no~ OR ~%ivp_choice_17%~ STRING_EQUAL_CASE ~0~) BEGIN
+        ACTION_READLN ivp_choice_17
+        ACTION_IF !(~%ivp_choice_17%~ STRING_EQUAL_CASE ~y~ OR ~%ivp_choice_17%~ STRING_EQUAL_CASE ~yes~ OR ~%ivp_choice_17%~ STRING_EQUAL_CASE ~1~ OR ~%ivp_choice_17%~ STRING_EQUAL_CASE ~n~ OR ~%ivp_choice_17%~ STRING_EQUAL_CASE ~no~ OR ~%ivp_choice_17%~ STRING_EQUAL_CASE ~0~) BEGIN PRINT @54002 END
+    END
+END
+ACTION_IF (~%ivp_choice_17%~ STRING_EQUAL_CASE ~y~ OR ~%ivp_choice_17%~ STRING_EQUAL_CASE ~yes~ OR ~%ivp_choice_17%~ STRING_EQUAL_CASE ~1~) BEGIN
+    INCLUDE ~%MOD_FOLDER%/sources/custom/17/install.tpa~
+    OUTER_SET ivp_selected_count += 1
+END
+
+ACTION_IF ivp_selected_count = 0 BEGIN FAIL @54003 END
+
+// Re-add portraits after Infinity UI++ rebuilds its defaults on the start screen.
+ACTION_IF FILE_EXISTS_IN_GAME ~UI.MENU~ BEGIN
+    COPY_EXISTING ~UI.MENU~ ~override~
+        PATCH_IF (INDEX_BUFFER (~function rgGetGameEnginePortraits~) >= 0) AND (INDEX_BUFFER (~-- IE-Voices-Pack custom portraits~) < 0) BEGIN
+            REPLACE_TEXTUALLY ~^\([ %TAB%]*\)rgGetGameEnginePortraits()[ %TAB%]*$~
+                ~\1rgGetGameEnginePortraits()
+\1if type(ivpRegisterCustomPortraits) == 'function' then ivpRegisterCustomPortraits() end -- IE-Voices-Pack custom portraits~
+        END
+    BUT_ONLY_IF_IT_CHANGES
+END
+PRINT @54004
