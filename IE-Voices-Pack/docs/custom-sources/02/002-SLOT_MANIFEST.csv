@@ -1,0 +1,64 @@
+﻿slot,status,suffix,event,resref,package_file,source_file,source_resref,provenance,subtitle,correction,notes
+battlecry1,FILLED,a,Attack initiated,AMELVPa,cd_amely/sounds/AMELVPa.wav,MELISS02.WAV,MELISS02,Extracted game audio; authoritative CRE battlecry1,Doom awaits thee!,,
+leader1,VACANT,b,Selected as party leader,,,,,,,,Vacant usable slot; available for a future addition.
+tired1,VACANT,c,Fatigued,,,,,,,,Vacant usable slot; available for a future addition.
+bored1,VACANT,d,Idle too long,,,,,,,,Intentionally vacant: the proposed bored line was not liked.
+hurt1,FILLED,e,Low HP,AMELVPe,cd_amely/sounds/AMELVPe.wav,MellyNoUghTooStrong.wav,FINMEL27,User Audacity cut from extracted game dialogue,No! Ugh—too strong!,Apply a 25 ms tail fade to the package copy.,Approved low-HP response.
+common1,FILLED,f,Selection click,AMELVPf,cd_amely/sounds/AMELVPf.wav,MELISS01.WAV,MELISS01,Extracted game audio; authoritative CRE common1,Yes?,,
+common2,FILLED,g,Selection click,AMELVPg,cd_amely/sounds/AMELVPg.wav,MELISS07.WAV,MELISS07,Extracted game dialogue,I am here. Speak quickly.,,
+common3,FILLED,h,Selection click,AMELVPh,cd_amely/sounds/AMELVPh.wav,MellyCommon3.wav,SARMEL11,User Audacity cut from extracted innocent-form dialogue,What is it you want?,,
+action1,FILLED,i,Command acknowledged,AMELVPi,cd_amely/sounds/AMELVPi.wav,MellyAction1.wav,MELISS14,User Audacity cut from extracted game dialogue,That is correct.,,
+action2,FILLED,j,Command acknowledged,AMELVPj,cd_amely/sounds/AMELVPj.wav,MellyTrueEnough.wav,MELISS10,User Audacity cut from extracted game dialogue,True enough!,,
+action3,FILLED,k,Command acknowledged,AMELVPk,cd_amely/sounds/AMELVPk.wav,MellySoBeIt.wav,MELISS10,User Audacity cut from extracted game dialogue,So be it.,Raise the package copy by 11 dB; source peak leaves clipping headroom.,Approved action acknowledgement.
+damage1,FILLED,l,Taking damage,AMELVPl,cd_amely/sounds/AMELVPl.wav,MELISS04.WAV,MELISS04,Extracted game audio; authoritative CRE damage slot,,,
+dying1,FILLED,m,Death,AMELVPm,cd_amely/sounds/AMELVPm.wav,MELIS07.WAV,MELIS07,Extracted game audio; authoritative MMEL animation death sound,,,
+forest,VACANT,n,Entered a forest area,,,,,,,,"Intentionally vacant: no short, natural environmental line was selected."
+city,VACANT,o,Entered a city area,,,,,,,,"Intentionally vacant: no short, natural environmental line was selected."
+dungeon,VACANT,p,Entered a dungeon area,,,,,,,,"Intentionally vacant: no short, natural environmental line was selected."
+day,VACANT,q,Daytime area response,,,,,,,,"Intentionally vacant: no short, natural environmental line was selected."
+night,VACANT,r,Nighttime area response,,,,,,,,"Intentionally vacant: no short, natural environmental line was selected."
+action4,FILLED,s,Command acknowledged,AMELVPs,cd_amely/sounds/AMELVPs.wav,MellyYourDemandIsNotUnreasonable.wav,SARMEL09,User Audacity cut from extracted innocent-form dialogue,Your demand is not unreasonable.,,
+action5,VACANT,t,Command acknowledged,,,,,,,,Vacant usable slot; available for a future addition.
+action6,VACANT,u,Command acknowledged,,,,,,,,Vacant usable slot; available for a future addition.
+action7,VACANT,v,Command acknowledged,,,,,,,,Vacant usable slot; available for a future addition.
+gen_death1,VACANT,w,Party member died,,,,,,,,Vacant usable slot; available for a future addition.
+action_rare1,VACANT,x,Rare selection response SELECT_RARE1,,,,,,,,Vacant usable slot; available for a future addition.
+action_rare2,VACANT,y,Rare selection response SELECT_RARE2,,,,,,,,Vacant usable slot; available for a future addition.
+criticalhit,FILLED,z,Scored a critical hit,AMELVPz,cd_amely/sounds/AMELVPz.wav,MellyEnough.wav,FINMEL26,User Audacity cut from extracted final-Throne dialogue,Enough!,Trim the package copy to about 0.91 s and apply a tiny ending fade.,Creative critical-hit assignment.
+common4,VACANT,0,Selection click,,,,,,,,Vacant usable slot; available for a future addition.
+criticalmiss,VACANT,1,Critical miss,,,,,,,,Vacant usable slot; available for a future addition.
+immune,VACANT,2,Target immune to attack,,,,,,,,Vacant usable slot; available for a future addition.
+inventory,VACANT,3,Inventory full,,,,,,,,Vacant usable slot; available for a future addition.
+pickpocket,VACANT,4,Successfully picked a pocket,,,,,,,,Intentionally vacant: thief-specific event does not suit this character concept.
+shadows,VACANT,5,Successfully hid in shadows,,,,,,,,Intentionally vacant: thief-specific event does not suit this character concept.
+disrupted,FILLED,6,Spell disrupted,AMELVP6,cd_amely/sounds/AMELVP6.wav,FINMEL34.WAV,FINMEL34,Extracted game dialogue/outtake; machine-only transcript,Damn you!,,Machine-only transcript was human-auditioned and approved as a creative spell-disruption assignment.
+trap,VACANT,7,Successfully set a trap,,,,,,,,Intentionally vacant: thief-specific event does not suit this character concept.
+battlecry2,FILLED,8,Attack initiated,AMELVP8,cd_amely/sounds/AMELVP8.wav,MELISS03.WAV,MELISS03,Extracted game audio; authoritative CRE battlecry2,You shall suffer!,,
+battlecry3,VACANT,9,Attack initiated,,,,,,,,Vacant usable slot; available for a future addition.
+attack1,VACANT,c_,Melee or ranged attack,,,,,,,,Vacant usable slot; available for a future addition.
+attack2,VACANT,d_,Melee or ranged attack,,,,,,,,Vacant usable slot; available for a future addition.
+attack3,VACANT,e_,Melee or ranged attack,,,,,,,,Vacant usable slot; available for a future addition.
+attack4,VACANT,f_,Melee or ranged attack,,,,,,,,Vacant usable slot; available for a future addition.
+battlecry4,VACANT,g_,Attack initiated,,,,,,,,Vacant usable slot; available for a future addition.
+battlecry5,VACANT,h_,Attack initiated,,,,,,,,Vacant usable slot; available for a future addition.
+bored2,VACANT,i_,Idle too long,,,,,,,,Intentionally vacant: the proposed bored line was not liked.
+breaking_pt,FILLED,j_,Reputation too low; leaving party,AMELVPj_,cd_amely/wav/AMELVPj_.wav,MELISS06.WAV,MELISS06,Extracted game audio; authoritative CRE breaking-point slot,I must escape!,,
+common5,VACANT,k_,Selection click,,,,,,,,Vacant usable slot; available for a future addition.
+common6,VACANT,l_,Selection click,,,,,,,,Vacant usable slot; available for a future addition.
+common7,VACANT,m_,Selection click,,,,,,,,Vacant usable slot; available for a future addition.
+damage2,DISABLED,n_,Taking damage; disabled BG2EE v2.6 slot,,,,,,,,Do not fill: this extended damage slot is disabled because of the BG2EE v2.6 player-soundset issue.
+damage3,DISABLED,o_,Taking damage; disabled BG2EE v2.6 slot,,,,,,,,Do not fill: this extended damage slot is disabled because of the BG2EE v2.6 player-soundset issue.
+dying2,VACANT,p_,Death,,,,,,,,Vacant usable slot; available for a future addition.
+gen_death2,VACANT,q_,Party member died,,,,,,,,Vacant usable slot; available for a future addition.
+happy,VACANT,r_,High reputation reaction,,,,,,,,Vacant usable slot; available for a future addition.
+hurt2,FILLED,s_,Low HP,AMELVPs_,cd_amely/wav/AMELVPs_.wav,FINMEL32.WAV,FINMEL32,Extracted game dialogue/outtake; machine-only transcript,"No, no.",,Machine-only transcript was human-auditioned and approved as the optional second low-HP response.
+leader2,VACANT,t_,Selected as party leader,,,,,,,,Vacant usable slot; available for a future addition.
+morale_break1,VACANT,u_,Panicked or fleeing,,,,,,,,Vacant usable slot; available for a future addition.
+morale_break2,FILLED,v_,Panicked or fleeing,AMELVPv_,cd_amely/wav/AMELVPv_.wav,SARMEL04.WAV,SARMEL04,Extracted innocent-form dialogue,No! Put down your weapons! This is not necessary!,,"Loose semantic fit: Amelyssan addresses others, while the engine event means she is panicking or fleeing."
+select_rare1,VACANT,w_,BG2EE rare selection response 1,,,,,,,,Vacant usable slot; available for a future addition.
+select_rare2,VACANT,x_,BG2EE rare selection response 2,,,,,,,,Vacant usable slot; available for a future addition.
+select_rare3,VACANT,y_,BG2EE rare selection response 3,,,,,,,,Vacant usable slot; available for a future addition.
+select_rare4,VACANT,z_,BG2EE rare selection response 4,,,,,,,,Vacant usable slot; available for a future addition.
+tired2,VACANT,4_,Fatigued,,,,,,,,Vacant usable slot; available for a future addition.
+unhappy_1,VACANT,5_,Low reputation reaction,,,,,,,,Vacant usable slot; available for a future addition.
+unhappy_2,VACANT,6_,Very low reputation reaction,,,,,,,,Vacant usable slot; available for a future addition.
