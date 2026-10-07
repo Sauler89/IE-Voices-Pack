@@ -1,0 +1,44 @@
+# IE-Voices-Pack
+
+**Version 1.0** — 188 English player voice sets in one WeiDU installer.
+
+## Contents
+
+| Voice pack | Sets |
+| --- | ---: |
+| Baldur's Gate | 18 |
+| Baldur's Gate II | 9 |
+| Baldur's Gate NPCs | 36 |
+| Icewind Dale / Heart of Winter | 30 |
+| Icewind Dale II | 12 |
+| Planescape: Torment | 8 |
+| Neverwinter Nights | 59 |
+| NWN2 / Mask of the Betrayer / Darkness over Daggerford | 16 |
+| **Total** | **188** |
+
+The 14 generic NWN2 soundsets are excluded.
+
+## Compatibility
+
+- Baldur's Gate: Enhanced Edition and Siege of Dragonspear
+- Baldur's Gate II: Enhanced Edition
+- Enhanced Edition Trilogy (EET)
+- Icewind Dale: Enhanced Edition
+
+Requires **EE 2.6.6+**. Classic games and Planescape: Torment: Enhanced Edition are not supported.
+For Steam/GOG Siege of Dragonspear, run [DlcMerger](https://github.com/Argent77/A7-DlcMerger) first when required.
+
+## Installation
+
+1. Download the release ZIP and extract `IE-Voices-Pack/` and `setup-IE-Voices-Pack.exe` into the game folder containing `chitin.key`.
+2. Run `setup-IE-Voices-Pack.exe` and select the desired packs.
+3. Choose a voice during character creation or customization.
+
+The installer and voices are in English. Uninstall an earlier version of this compilation before installing v1.0. Do not install the same voices from their original packs as well.
+
+## Credits
+
+Original voice-pack conversions: **GraionDilach** and **AstroBryGuy / The Gate Project**.
+Compilation and integration: **Sauler89**.
+
+See [full credits](CREDITS.md) and [third-party notices](THIRD_PARTY.md). Original audio and text remain the property of their respective rights holders.
