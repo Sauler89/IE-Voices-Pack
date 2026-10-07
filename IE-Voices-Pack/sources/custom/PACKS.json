@@ -1,0 +1,4118 @@
+[
+  {
+    "id": "01",
+    "name": "Archmage",
+    "prefix": "IVC01",
+    "archive": "ARCHM_soundset_mod.zip",
+    "archive_sha256": "8e6341d714bbe91e921677ebcf545f8d2f4bbfe2173dbfd87bdbd141d35769d2",
+    "audio": [
+      {
+        "slot": "cd_action1",
+        "reference": 1,
+        "resource": "IVC01i",
+        "original": "ARCHM/sounds/ARCHMi.wav",
+        "subtitle": "Hardly worth the effort."
+      },
+      {
+        "slot": "cd_action2",
+        "reference": 2,
+        "resource": "IVC01j",
+        "original": "ARCHM/sounds/ARCHMj.wav",
+        "subtitle": "Ha ha ha ha!"
+      },
+      {
+        "slot": "cd_action3",
+        "reference": 3,
+        "resource": "IVC01k",
+        "original": "ARCHM/sounds/ARCHMk.wav",
+        "subtitle": "Bold."
+      },
+      {
+        "slot": "cd_action4",
+        "reference": 4,
+        "resource": "IVC01s",
+        "original": "ARCHM/sounds/ARCHMs.wav",
+        "subtitle": "Almost too easy."
+      },
+      {
+        "slot": "cd_action5",
+        "reference": 5,
+        "resource": "IVC01t",
+        "original": "ARCHM/sounds/ARCHMt.wav",
+        "subtitle": "Witness the end."
+      },
+      {
+        "slot": "cd_action_rare1",
+        "reference": 6,
+        "resource": "IVC01x",
+        "original": "ARCHM/sounds/ARCHMx.wav",
+        "subtitle": "The time for reckoning has come."
+      },
+      {
+        "slot": "cd_battlecry1",
+        "reference": 7,
+        "resource": "IVC01a",
+        "original": "ARCHM/sounds/ARCHMa.wav",
+        "subtitle": "Doom has come to this world!"
+      },
+      {
+        "slot": "cd_battlecry2",
+        "reference": 8,
+        "resource": "IVC018",
+        "original": "ARCHM/sounds/ARCHM8.wav",
+        "subtitle": "Fools!"
+      },
+      {
+        "slot": "cd_battlecry3",
+        "reference": 9,
+        "resource": "IVC019",
+        "original": "ARCHM/sounds/ARCHM9.wav",
+        "subtitle": "Damn you!"
+      },
+      {
+        "slot": "cd_battlecry4",
+        "reference": 10,
+        "resource": "IVC01g_",
+        "original": "ARCHM/wav/ARCHMg_.wav",
+        "subtitle": "Weak."
+      },
+      {
+        "slot": "cd_battlecry5",
+        "reference": 11,
+        "resource": "IVC01h_",
+        "original": "ARCHM/wav/ARCHMh_.wav",
+        "subtitle": "You are mine."
+      },
+      {
+        "slot": "cd_breaking_pt",
+        "reference": 12,
+        "resource": "IVC01j_",
+        "original": "ARCHM/wav/ARCHMj_.wav",
+        "subtitle": "The Legion has returned to consume this world!"
+      },
+      {
+        "slot": "cd_common1",
+        "reference": 13,
+        "resource": "IVC01f",
+        "original": "ARCHM/sounds/ARCHMf.wav",
+        "subtitle": "Hahaha."
+      },
+      {
+        "slot": "cd_common2",
+        "reference": 14,
+        "resource": "IVC01g",
+        "original": "ARCHM/sounds/ARCHMg.wav",
+        "subtitle": "Are there none left to stand against the Legion?"
+      },
+      {
+        "slot": "cd_common3",
+        "reference": 15,
+        "resource": "IVC01h",
+        "original": "ARCHM/sounds/ARCHMh.wav",
+        "subtitle": "At last."
+      },
+      {
+        "slot": "cd_common4",
+        "reference": 16,
+        "resource": "IVC010",
+        "original": "ARCHM/sounds/ARCHM0.wav",
+        "subtitle": "The final hour has come."
+      },
+      {
+        "slot": "cd_criticalhit",
+        "reference": 17,
+        "resource": "IVC01z",
+        "original": "ARCHM/sounds/ARCHMz.wav",
+        "subtitle": "Kill!"
+      },
+      {
+        "slot": "cd_criticalmiss",
+        "reference": 18,
+        "resource": "IVC011",
+        "original": "ARCHM/sounds/ARCHM1.wav",
+        "subtitle": "Hahahahaha."
+      },
+      {
+        "slot": "cd_damage1",
+        "reference": 19,
+        "resource": "IVC01l",
+        "original": "ARCHM/sounds/ARCHMl.wav",
+        "subtitle": "Fool!"
+      },
+      {
+        "slot": "cd_dying1",
+        "reference": 20,
+        "resource": "IVC01m",
+        "original": "ARCHM/sounds/ARCHMm.wav",
+        "subtitle": "[death cry]"
+      },
+      {
+        "slot": "cd_happy",
+        "reference": 21,
+        "resource": "IVC01r_",
+        "original": "ARCHM/wav/ARCHMr_.wav",
+        "subtitle": "You have done well."
+      },
+      {
+        "slot": "cd_immune",
+        "reference": 22,
+        "resource": "IVC012",
+        "original": "ARCHM/sounds/ARCHM2.wav",
+        "subtitle": "I wonder why Mannoroth even bothered with you."
+      },
+      {
+        "slot": "cd_inventory",
+        "reference": 23,
+        "resource": "IVC013",
+        "original": "ARCHM/sounds/ARCHM3.wav",
+        "subtitle": "I've had fun scouring your wretched nations."
+      },
+      {
+        "slot": "cd_leader1",
+        "reference": 24,
+        "resource": "IVC01b",
+        "original": "ARCHM/sounds/ARCHMb.wav",
+        "subtitle": "Tremble, mortals, and despair!"
+      },
+      {
+        "slot": "cd_select_rare1",
+        "reference": 25,
+        "resource": "IVC01w_",
+        "original": "ARCHM/wav/ARCHMw_.wav",
+        "subtitle": "Fool!"
+      },
+      {
+        "slot": "cd_select_rare2",
+        "reference": 26,
+        "resource": "IVC01x_",
+        "original": "ARCHM/wav/ARCHMx_.wav",
+        "subtitle": "We would have launched this invasion centuries ago..."
+      },
+      {
+        "slot": "cd_trap",
+        "reference": 27,
+        "resource": "IVC017",
+        "original": "ARCHM/sounds/ARCHM7.wav",
+        "subtitle": "Soon, I will order the invasion to begin."
+      },
+      {
+        "slot": "cd_unhappy_1",
+        "reference": 28,
+        "resource": "IVC015_",
+        "original": "ARCHM/wav/ARCHM5_.wav",
+        "subtitle": "Wretched little whelp."
+      },
+      {
+        "slot": "cd_unhappy_2",
+        "reference": 29,
+        "resource": "IVC016_",
+        "original": "ARCHM/wav/ARCHM6_.wav",
+        "subtitle": "You may still prove useful to us."
+      }
+    ],
+    "portraits": [],
+    "omitted_source_placeholders": []
+  },
+  {
+    "id": "02",
+    "name": "Amelyssan",
+    "prefix": "IVC02",
+    "archive": "Amelyssan-Voicepack.zip",
+    "archive_sha256": "54d24ae4f85a62f314623dbf4dd26ead8eb6fa050ede5d3c6a697a8adc921bb8",
+    "audio": [
+      {
+        "slot": "cd_battlecry1",
+        "reference": 1,
+        "resource": "IVC02a",
+        "original": "Amelyssan-Voicepack/cd_amely/sounds/AMELVPa.wav",
+        "subtitle": "Doom awaits thee!"
+      },
+      {
+        "slot": "cd_hurt1",
+        "reference": 2,
+        "resource": "IVC02e",
+        "original": "Amelyssan-Voicepack/cd_amely/sounds/AMELVPe.wav",
+        "subtitle": "No! Ugh\u2014too strong!"
+      },
+      {
+        "slot": "cd_common1",
+        "reference": 3,
+        "resource": "IVC02f",
+        "original": "Amelyssan-Voicepack/cd_amely/sounds/AMELVPf.wav",
+        "subtitle": "Yes?"
+      },
+      {
+        "slot": "cd_common2",
+        "reference": 4,
+        "resource": "IVC02g",
+        "original": "Amelyssan-Voicepack/cd_amely/sounds/AMELVPg.wav",
+        "subtitle": "I am here. Speak quickly."
+      },
+      {
+        "slot": "cd_common3",
+        "reference": 5,
+        "resource": "IVC02h",
+        "original": "Amelyssan-Voicepack/cd_amely/sounds/AMELVPh.wav",
+        "subtitle": "What is it you want?"
+      },
+      {
+        "slot": "cd_action1",
+        "reference": 6,
+        "resource": "IVC02i",
+        "original": "Amelyssan-Voicepack/cd_amely/sounds/AMELVPi.wav",
+        "subtitle": "That is correct."
+      },
+      {
+        "slot": "cd_action2",
+        "reference": 7,
+        "resource": "IVC02j",
+        "original": "Amelyssan-Voicepack/cd_amely/sounds/AMELVPj.wav",
+        "subtitle": "True enough!"
+      },
+      {
+        "slot": "cd_action3",
+        "reference": 8,
+        "resource": "IVC02k",
+        "original": "Amelyssan-Voicepack/cd_amely/sounds/AMELVPk.wav",
+        "subtitle": "So be it."
+      },
+      {
+        "slot": "cd_damage1",
+        "reference": 9,
+        "resource": "IVC02l",
+        "original": "Amelyssan-Voicepack/cd_amely/sounds/AMELVPl.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_dying1",
+        "reference": 10,
+        "resource": "IVC02m",
+        "original": "Amelyssan-Voicepack/cd_amely/sounds/AMELVPm.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_action4",
+        "reference": 11,
+        "resource": "IVC02s",
+        "original": "Amelyssan-Voicepack/cd_amely/sounds/AMELVPs.wav",
+        "subtitle": "Your demand is not unreasonable."
+      },
+      {
+        "slot": "cd_criticalhit",
+        "reference": 12,
+        "resource": "IVC02z",
+        "original": "Amelyssan-Voicepack/cd_amely/sounds/AMELVPz.wav",
+        "subtitle": "Enough!"
+      },
+      {
+        "slot": "cd_disrupted",
+        "reference": 13,
+        "resource": "IVC026",
+        "original": "Amelyssan-Voicepack/cd_amely/sounds/AMELVP6.wav",
+        "subtitle": "Damn you!"
+      },
+      {
+        "slot": "cd_battlecry2",
+        "reference": 14,
+        "resource": "IVC028",
+        "original": "Amelyssan-Voicepack/cd_amely/sounds/AMELVP8.wav",
+        "subtitle": "You shall suffer!"
+      },
+      {
+        "slot": "cd_breaking_pt",
+        "reference": 15,
+        "resource": "IVC02j_",
+        "original": "Amelyssan-Voicepack/cd_amely/wav/AMELVPj_.wav",
+        "subtitle": "I must escape!"
+      },
+      {
+        "slot": "cd_hurt2",
+        "reference": 16,
+        "resource": "IVC02s_",
+        "original": "Amelyssan-Voicepack/cd_amely/wav/AMELVPs_.wav",
+        "subtitle": "No, no."
+      },
+      {
+        "slot": "cd_morale_break2",
+        "reference": 17,
+        "resource": "IVC02v_",
+        "original": "Amelyssan-Voicepack/cd_amely/wav/AMELVPv_.wav",
+        "subtitle": "No! Put down your weapons! This is not necessary!"
+      }
+    ],
+    "portraits": [],
+    "omitted_source_placeholders": []
+  },
+  {
+    "id": "03",
+    "name": "Christopher Lee",
+    "prefix": "IVC03",
+    "archive": "Christopher-Lee-BG-Soundset.zip",
+    "archive_sha256": "b26961e207e2ce137290e0aa40c5d95f3cf155b5de7db8db41896df91aaf93af",
+    "audio": [
+      {
+        "slot": "cd_action1",
+        "reference": 1,
+        "resource": "IVC03i",
+        "original": "Soundset/CHRLEE/sounds/CHRLEEi.wav",
+        "subtitle": "Nothing will stand in our way!"
+      },
+      {
+        "slot": "cd_action2",
+        "reference": 2,
+        "resource": "IVC03j",
+        "original": "Soundset/CHRLEE/sounds/CHRLEEj.wav",
+        "subtitle": "Victory is at hand!"
+      },
+      {
+        "slot": "cd_action3",
+        "reference": 3,
+        "resource": "IVC03k",
+        "original": "Soundset/CHRLEE/sounds/CHRLEEk.wav",
+        "subtitle": "This way!"
+      },
+      {
+        "slot": "cd_action4",
+        "reference": 4,
+        "resource": "IVC03s",
+        "original": "Soundset/CHRLEE/sounds/CHRLEEs.wav",
+        "subtitle": "His gaze pierces cloud, shadow, earth and flesh."
+      },
+      {
+        "slot": "cd_action5",
+        "reference": 5,
+        "resource": "IVC03t",
+        "original": "Soundset/CHRLEE/sounds/CHRLEEt.wav",
+        "subtitle": "You do not know pain, you do not know fear!"
+      },
+      {
+        "slot": "cd_action6",
+        "reference": 6,
+        "resource": "IVC03u",
+        "original": "Soundset/CHRLEE/sounds/CHRLEEu.wav",
+        "subtitle": "We have only to remove those who oppose us."
+      },
+      {
+        "slot": "cd_action7",
+        "reference": 7,
+        "resource": "IVC03v",
+        "original": "Soundset/CHRLEE/sounds/CHRLEEv.wav",
+        "subtitle": "There would be no dawn for men."
+      },
+      {
+        "slot": "cd_action_rare1",
+        "reference": 8,
+        "resource": "IVC03x",
+        "original": "Soundset/CHRLEE/sounds/CHRLEEx.wav",
+        "subtitle": "Do you know how the orcs first came to being? They were elves once."
+      },
+      {
+        "slot": "cd_action_rare2",
+        "reference": 9,
+        "resource": "IVC03y",
+        "original": "Soundset/CHRLEE/sounds/CHRLEEy.wav",
+        "subtitle": "One ill turn deserves another. It is over."
+      },
+      {
+        "slot": "cd_battlecry1",
+        "reference": 10,
+        "resource": "IVC03a",
+        "original": "Soundset/CHRLEE/sounds/CHRLEEa.wav",
+        "subtitle": "Stain the land with blood of our enemies!"
+      },
+      {
+        "slot": "cd_battlecry2",
+        "reference": 11,
+        "resource": "IVC038",
+        "original": "Soundset/CHRLEE/sounds/CHRLEE8.wav",
+        "subtitle": "You have elected the way of pain!"
+      },
+      {
+        "slot": "cd_battlecry3",
+        "reference": 12,
+        "resource": "IVC039",
+        "original": "Soundset/CHRLEE/sounds/CHRLEE9.wav",
+        "subtitle": "You are all going to die!"
+      },
+      {
+        "slot": "cd_battlecry4",
+        "reference": 13,
+        "resource": "IVC03g_",
+        "original": "Soundset/CHRLEE/wav/CHRLEEg_.wav",
+        "subtitle": "Leave none alive!"
+      },
+      {
+        "slot": "cd_battlecry5",
+        "reference": 14,
+        "resource": "IVC03h_",
+        "original": "Soundset/CHRLEE/wav/CHRLEEh_.wav",
+        "subtitle": "So you have chosen... death!"
+      },
+      {
+        "slot": "cd_bored1",
+        "reference": 15,
+        "resource": "IVC03d",
+        "original": "Soundset/CHRLEE/sounds/CHRLEEd.wav",
+        "subtitle": "Time? What time do you think we have?"
+      },
+      {
+        "slot": "cd_city",
+        "reference": 16,
+        "resource": "IVC03o",
+        "original": "Soundset/CHRLEE/sounds/CHRLEEo.wav",
+        "subtitle": "What is the house of Rohan but a thatched barn where brigands drink in the reek and rats roll on the floor with the dogs?"
+      },
+      {
+        "slot": "cd_common1",
+        "reference": 17,
+        "resource": "IVC03f",
+        "original": "Soundset/CHRLEE/sounds/CHRLEEf.wav",
+        "subtitle": "We have work to do."
+      },
+      {
+        "slot": "cd_common2",
+        "reference": 18,
+        "resource": "IVC03g",
+        "original": "Soundset/CHRLEE/sounds/CHRLEEg.wav",
+        "subtitle": "You are sure of this?"
+      },
+      {
+        "slot": "cd_common3",
+        "reference": 19,
+        "resource": "IVC03h",
+        "original": "Soundset/CHRLEE/sounds/CHRLEEh.wav",
+        "subtitle": "The hour grows late."
+      },
+      {
+        "slot": "cd_common4",
+        "reference": 20,
+        "resource": "IVC030",
+        "original": "Soundset/CHRLEE/sounds/CHRLEE0.wav",
+        "subtitle": "Whom do you serve?"
+      },
+      {
+        "slot": "cd_common5",
+        "reference": 21,
+        "resource": "IVC03k_",
+        "original": "Soundset/CHRLEE/wav/CHRLEEk_.wav",
+        "subtitle": "It would be wise, my friend."
+      },
+      {
+        "slot": "cd_common6",
+        "reference": 22,
+        "resource": "IVC03l_",
+        "original": "Soundset/CHRLEE/wav/CHRLEEl_.wav",
+        "subtitle": "The world is changing."
+      },
+      {
+        "slot": "cd_criticalhit",
+        "reference": 23,
+        "resource": "IVC03z",
+        "original": "Soundset/CHRLEE/sounds/CHRLEEz.wav",
+        "subtitle": "As you see my powers are far beyond yours!"
+      },
+      {
+        "slot": "cd_criticalmiss",
+        "reference": 24,
+        "resource": "IVC031",
+        "original": "Soundset/CHRLEE/sounds/CHRLEE1.wav",
+        "subtitle": "Good! Twice the pride, double the fall!"
+      },
+      {
+        "slot": "cd_damage1",
+        "reference": 25,
+        "resource": "IVC03l",
+        "original": "Soundset/CHRLEE/sounds/CHRLEEl.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_day",
+        "reference": 26,
+        "resource": "IVC03q",
+        "original": "Soundset/CHRLEE/sounds/CHRLEEq.wav",
+        "subtitle": "One ring to rule them all, one ring to find them, One ring to bring them all, and in the darkness bind them."
+      },
+      {
+        "slot": "cd_disrupted",
+        "reference": 27,
+        "resource": "IVC036",
+        "original": "Soundset/CHRLEE/sounds/CHRLEE6.wav",
+        "subtitle": "Surely you can do better!"
+      },
+      {
+        "slot": "cd_dungeon",
+        "reference": 28,
+        "resource": "IVC03p",
+        "original": "Soundset/CHRLEE/sounds/CHRLEEp.wav",
+        "subtitle": "Something fester in heart of Middle-Earth. Something that you have failed to see."
+      },
+      {
+        "slot": "cd_dying1",
+        "reference": 29,
+        "resource": "IVC03m",
+        "original": "Soundset/CHRLEE/sounds/CHRLEEm.wav",
+        "subtitle": "Save your pity and your mercy I have no use for it!"
+      },
+      {
+        "slot": "cd_forest",
+        "reference": 30,
+        "resource": "IVC03n",
+        "original": "Soundset/CHRLEE/sounds/CHRLEEn.wav",
+        "subtitle": "The old world will burn in the fires of industry. Forrest will fall. New order will rise."
+      },
+      {
+        "slot": "cd_gen_death1",
+        "reference": 31,
+        "resource": "IVC03w",
+        "original": "Soundset/CHRLEE/sounds/CHRLEEw.wav",
+        "subtitle": "I'm sure you did the best you could. We will discuss your failure later."
+      },
+      {
+        "slot": "cd_hurt1",
+        "reference": 32,
+        "resource": "IVC03e",
+        "original": "Soundset/CHRLEE/sounds/CHRLEEe.wav",
+        "subtitle": "Brave, but foolish!"
+      },
+      {
+        "slot": "cd_immune",
+        "reference": 33,
+        "resource": "IVC032",
+        "original": "Soundset/CHRLEE/sounds/CHRLEE2.wav",
+        "subtitle": "Does he seek to humble me with his new found piety!"
+      },
+      {
+        "slot": "cd_inventory",
+        "reference": 34,
+        "resource": "IVC033",
+        "original": "Soundset/CHRLEE/sounds/CHRLEE3.wav",
+        "subtitle": "Your love of the halfling's leaf has clearly slowed your mind."
+      },
+      {
+        "slot": "cd_leader1",
+        "reference": 35,
+        "resource": "IVC03b",
+        "original": "Soundset/CHRLEE/sounds/CHRLEEb.wav",
+        "subtitle": "New power is rising! It's victory is at hand!"
+      },
+      {
+        "slot": "cd_night",
+        "reference": 36,
+        "resource": "IVC03r",
+        "original": "Soundset/CHRLEE/sounds/CHRLEEr.wav",
+        "subtitle": "We will drive the machine of war with the sword and the spear and the iron fist of the orc."
+      },
+      {
+        "slot": "cd_pickpocket",
+        "reference": 37,
+        "resource": "IVC034",
+        "original": "Soundset/CHRLEE/sounds/CHRLEE4.wav",
+        "subtitle": "That is why you have come, is it not?"
+      },
+      {
+        "slot": "cd_select_rare1",
+        "reference": 38,
+        "resource": "IVC03w_",
+        "original": "Soundset/CHRLEE/wav/CHRLEEw_.wav",
+        "subtitle": "Time? What time do you think we have?"
+      },
+      {
+        "slot": "cd_select_rare2",
+        "reference": 39,
+        "resource": "IVC03x_",
+        "original": "Soundset/CHRLEE/wav/CHRLEEx_.wav",
+        "subtitle": "I want them armed and ready to march within two weeks!"
+      },
+      {
+        "slot": "cd_select_rare3",
+        "reference": 40,
+        "resource": "IVC03y_",
+        "original": "Soundset/CHRLEE/wav/CHRLEEy_.wav",
+        "subtitle": "The hour is later then you think."
+      },
+      {
+        "slot": "cd_select_rare4",
+        "reference": 41,
+        "resource": "IVC03z_",
+        "original": "Soundset/CHRLEE/wav/CHRLEEz_.wav",
+        "subtitle": "Hunt them down! Do not stop until they are found!"
+      },
+      {
+        "slot": "cd_shadows",
+        "reference": 42,
+        "resource": "IVC035",
+        "original": "Soundset/CHRLEE/sounds/CHRLEE5.wav",
+        "subtitle": "Move on!"
+      },
+      {
+        "slot": "cd_tired1",
+        "reference": 43,
+        "resource": "IVC03c",
+        "original": "Soundset/CHRLEE/sounds/CHRLEEc.wav",
+        "subtitle": "You've interfered with our affairs for the last time."
+      },
+      {
+        "slot": "cd_trap",
+        "reference": 44,
+        "resource": "IVC037",
+        "original": "Soundset/CHRLEE/sounds/CHRLEE7.wav",
+        "subtitle": "Why should we fear to use it?"
+      }
+    ],
+    "portraits": [
+      "IVP0301",
+      "IVP0302"
+    ],
+    "omitted_source_placeholders": []
+  },
+  {
+    "id": "04",
+    "name": "Dagoth Ur",
+    "prefix": "IVC04",
+    "archive": "Dagoth-Ur-BG-Soundset.zip",
+    "archive_sha256": "34b55f482b25f176d8e565d12174267705ce81badf9d33a2a6724174b1839e82",
+    "audio": [
+      {
+        "slot": "cd_action1",
+        "reference": 1,
+        "resource": "IVC04i",
+        "original": "Soundset/DAGOTH/sounds/dagothi.wav",
+        "subtitle": "Through fire and war."
+      },
+      {
+        "slot": "cd_action2",
+        "reference": 2,
+        "resource": "IVC04j",
+        "original": "Soundset/DAGOTH/sounds/dagothj.wav",
+        "subtitle": "How can you kill a God?"
+      },
+      {
+        "slot": "cd_action3",
+        "reference": 3,
+        "resource": "IVC04k",
+        "original": "Soundset/DAGOTH/sounds/dagothk.wav",
+        "subtitle": "What a fool you are."
+      },
+      {
+        "slot": "cd_action4",
+        "reference": 4,
+        "resource": "IVC04s",
+        "original": "Soundset/DAGOTH/sounds/dagoths.wav",
+        "subtitle": "What a grand and intoxicating innocence!"
+      },
+      {
+        "slot": "cd_action5",
+        "reference": 5,
+        "resource": "IVC04t",
+        "original": "Soundset/DAGOTH/sounds/dagotht.wav",
+        "subtitle": "Is this how you honor the Sixth House and the tribe unmourned?"
+      },
+      {
+        "slot": "cd_action6",
+        "reference": 6,
+        "resource": "IVC04u",
+        "original": "Soundset/DAGOTH/sounds/dagothu.wav",
+        "subtitle": "I wait for you there, where we last met, countless ages ago."
+      },
+      {
+        "slot": "cd_action7",
+        "reference": 7,
+        "resource": "IVC04v",
+        "original": "Soundset/DAGOTH/sounds/dagothv.wav",
+        "subtitle": "Omnipotent. Omniscient. Sovereign. Immutable."
+      },
+      {
+        "slot": "cd_action_rare1",
+        "reference": 8,
+        "resource": "IVC04x",
+        "original": "Soundset/DAGOTH/sounds/dagothx.wav",
+        "subtitle": "Together let us free the cursed false Gods."
+      },
+      {
+        "slot": "cd_action_rare2",
+        "reference": 9,
+        "resource": "IVC04y",
+        "original": "Soundset/DAGOTH/sounds/dagothy.wav",
+        "subtitle": "How could you be so naive?"
+      },
+      {
+        "slot": "cd_action_rare3",
+        "reference": 10,
+        "resource": "IVC04a_",
+        "original": "Soundset/DAGOTH/wav/dagotha_.wav",
+        "subtitle": "Come, Nerevar, friend or traitor, come."
+      },
+      {
+        "slot": "cd_battlecry1",
+        "reference": 11,
+        "resource": "IVC04a",
+        "original": "Soundset/DAGOTH/sounds/dagotha.wav",
+        "subtitle": "Hah-hah-hah-hah-hah!"
+      },
+      {
+        "slot": "cd_battlecry2",
+        "reference": 12,
+        "resource": "IVC048",
+        "original": "Soundset/DAGOTH/sounds/dagoth8.wav",
+        "subtitle": "There is no escape!"
+      },
+      {
+        "slot": "cd_battlecry3",
+        "reference": 13,
+        "resource": "IVC049",
+        "original": "Soundset/DAGOTH/sounds/dagoth9.wav",
+        "subtitle": "Come. Lay down your weapons. It is not too late for my mercy."
+      },
+      {
+        "slot": "cd_bored1",
+        "reference": 14,
+        "resource": "IVC04d",
+        "original": "Soundset/DAGOTH/sounds/dagothd.wav",
+        "subtitle": "This is taking too long..."
+      },
+      {
+        "slot": "cd_city",
+        "reference": 15,
+        "resource": "IVC04o",
+        "original": "Soundset/DAGOTH/sounds/dagotho.wav",
+        "subtitle": "Welcome, Moon-and-Star, to this place where destiny is made."
+      },
+      {
+        "slot": "cd_common1",
+        "reference": 16,
+        "resource": "IVC04f",
+        "original": "Soundset/DAGOTH/sounds/dagothf.wav",
+        "subtitle": "Dagoth Ur welcomes you."
+      },
+      {
+        "slot": "cd_common2",
+        "reference": 17,
+        "resource": "IVC04g",
+        "original": "Soundset/DAGOTH/sounds/dagothg.wav",
+        "subtitle": "Persistent, arn't you?"
+      },
+      {
+        "slot": "cd_common3",
+        "reference": 18,
+        "resource": "IVC04h",
+        "original": "Soundset/DAGOTH/sounds/dagothh.wav",
+        "subtitle": "I'm a God."
+      },
+      {
+        "slot": "cd_common4",
+        "reference": 19,
+        "resource": "IVC040",
+        "original": "Soundset/DAGOTH/sounds/dagoth0.wav",
+        "subtitle": "Shame on you, hah-hah-hah."
+      },
+      {
+        "slot": "cd_criticalhit",
+        "reference": 20,
+        "resource": "IVC04z",
+        "original": "Soundset/DAGOTH/sounds/dagothz.wav",
+        "subtitle": "Hah-hah-hah-hah. Oh, dear me."
+      },
+      {
+        "slot": "cd_criticalmiss",
+        "reference": 21,
+        "resource": "IVC041",
+        "original": "Soundset/DAGOTH/sounds/dagoth1.wav",
+        "subtitle": "Come on!"
+      },
+      {
+        "slot": "cd_damage1",
+        "reference": 22,
+        "resource": "IVC04l",
+        "original": "Soundset/DAGOTH/sounds/dagothl.wav",
+        "subtitle": "Stupid..."
+      },
+      {
+        "slot": "cd_day",
+        "reference": 23,
+        "resource": "IVC04q",
+        "original": "Soundset/DAGOTH/sounds/dagothq.wav",
+        "subtitle": "Together we shall speak for the Law and the Land!"
+      },
+      {
+        "slot": "cd_disrupted",
+        "reference": 24,
+        "resource": "IVC046",
+        "original": "Soundset/DAGOTH/sounds/dagoth6.wav",
+        "subtitle": "FOOL!"
+      },
+      {
+        "slot": "cd_dungeon",
+        "reference": 25,
+        "resource": "IVC04p",
+        "original": "Soundset/DAGOTH/sounds/dagothp.wav",
+        "subtitle": "No Recall or Intervention can work in this place."
+      },
+      {
+        "slot": "cd_dying1",
+        "reference": 26,
+        "resource": "IVC04m",
+        "original": "Soundset/DAGOTH/sounds/dagothm.wav",
+        "subtitle": "This is the end. The bitter, bitter end."
+      },
+      {
+        "slot": "cd_forest",
+        "reference": 27,
+        "resource": "IVC04n",
+        "original": "Soundset/DAGOTH/sounds/dagothn.wav",
+        "subtitle": "You are a stubborn thing..."
+      },
+      {
+        "slot": "cd_gen_death1",
+        "reference": 28,
+        "resource": "IVC04w",
+        "original": "Soundset/DAGOTH/sounds/dagothw.wav",
+        "subtitle": "Better luck on your next incarnation."
+      },
+      {
+        "slot": "cd_hurt1",
+        "reference": 29,
+        "resource": "IVC04e",
+        "original": "Soundset/DAGOTH/sounds/dagothe.wav",
+        "subtitle": "I surrender! I surrender! Hah-hah-hah-hah-hah!"
+      },
+      {
+        "slot": "cd_immune",
+        "reference": 30,
+        "resource": "IVC042",
+        "original": "Soundset/DAGOTH/sounds/dagoth2.wav",
+        "subtitle": "Damn this thing..."
+      },
+      {
+        "slot": "cd_inventory",
+        "reference": 31,
+        "resource": "IVC043",
+        "original": "Soundset/DAGOTH/sounds/dagoth3.wav",
+        "subtitle": "What are you doing?"
+      },
+      {
+        "slot": "cd_leader1",
+        "reference": 32,
+        "resource": "IVC04b",
+        "original": "Soundset/DAGOTH/sounds/dagothb.wav",
+        "subtitle": "How sweet it is to be a god!"
+      },
+      {
+        "slot": "cd_night",
+        "reference": 33,
+        "resource": "IVC04r",
+        "original": "Soundset/DAGOTH/sounds/dagothr.wav",
+        "subtitle": "Welcome, Moon-and-Star."
+      },
+      {
+        "slot": "cd_pickpocket",
+        "reference": 34,
+        "resource": "IVC044",
+        "original": "Soundset/DAGOTH/sounds/dagoth4.wav",
+        "subtitle": "I have need of it."
+      },
+      {
+        "slot": "cd_shadows",
+        "reference": 35,
+        "resource": "IVC045",
+        "original": "Soundset/DAGOTH/sounds/dagoth5.wav",
+        "subtitle": "Come to me openly, and not by stealth."
+      },
+      {
+        "slot": "cd_tired1",
+        "reference": 36,
+        "resource": "IVC04c",
+        "original": "Soundset/DAGOTH/sounds/dagothc.wav",
+        "subtitle": "This is getting tiresome..."
+      },
+      {
+        "slot": "cd_trap",
+        "reference": 37,
+        "resource": "IVC047",
+        "original": "Soundset/DAGOTH/sounds/dagoth7.wav",
+        "subtitle": "Forgive me but I am enjoying this."
+      }
+    ],
+    "portraits": [
+      "IVP0401",
+      "IVP0402"
+    ],
+    "omitted_source_placeholders": []
+  },
+  {
+    "id": "05",
+    "name": "DotA 2: Invoker",
+    "prefix": "IVC05",
+    "archive": "DotA 2 Invoker voice pack.zip",
+    "archive_sha256": "c8236548c405ea1f3cefdd6f18bd722eb4a2ff35b39bdbd4e94a1211e5181347",
+    "audio": [
+      {
+        "slot": "cd_action1",
+        "reference": 1,
+        "resource": "IVC05i",
+        "original": "invoker/sounds/invokei.wav",
+        "subtitle": "Yes!"
+      },
+      {
+        "slot": "cd_action2",
+        "reference": 2,
+        "resource": "IVC05j",
+        "original": "invoker/sounds/invokej.wav",
+        "subtitle": "Of course."
+      },
+      {
+        "slot": "cd_action3",
+        "reference": 3,
+        "resource": "IVC05k",
+        "original": "invoker/sounds/invokek.wav",
+        "subtitle": "I proceed."
+      },
+      {
+        "slot": "cd_action4",
+        "reference": 4,
+        "resource": "IVC05s",
+        "original": "invoker/sounds/invokes.wav",
+        "subtitle": "Throughout the aeons I have been known by many names...but my true name of power...is Carl."
+      },
+      {
+        "slot": "cd_action5",
+        "reference": 5,
+        "resource": "IVC05t",
+        "original": "invoker/sounds/invoket.wav",
+        "subtitle": "Behold before you, the illustrious, the imperious, ingenious arch-mage... Carl."
+      },
+      {
+        "slot": "cd_action6",
+        "reference": 6,
+        "resource": "IVC05u",
+        "original": "invoker/sounds/invokeu.wav",
+        "subtitle": "Oh, they'll rue the day they crossed me!"
+      },
+      {
+        "slot": "cd_action7",
+        "reference": 7,
+        "resource": "IVC05v",
+        "original": "invoker/sounds/invokev.wav",
+        "subtitle": "Like a match already dim and damp, your mind snuffs out."
+      },
+      {
+        "slot": "cd_battlecry1",
+        "reference": 8,
+        "resource": "IVC05a",
+        "original": "invoker/sounds/invokea.wav",
+        "subtitle": "An honor to fight me."
+      },
+      {
+        "slot": "cd_battlecry2",
+        "reference": 9,
+        "resource": "IVC058",
+        "original": "invoker/sounds/invoke8.wav",
+        "subtitle": "Attack!"
+      },
+      {
+        "slot": "cd_battlecry3",
+        "reference": 10,
+        "resource": "IVC059",
+        "original": "invoker/sounds/invoke9.wav",
+        "subtitle": "You dare fight me?"
+      },
+      {
+        "slot": "cd_bored1",
+        "reference": 11,
+        "resource": "IVC05d",
+        "original": "invoker/sounds/invoked.wav",
+        "subtitle": "This bores me."
+      },
+      {
+        "slot": "cd_city",
+        "reference": 12,
+        "resource": "IVC05o",
+        "original": "invoker/sounds/invokeo.wav",
+        "subtitle": "Whatever that was, twas scarcely worth my notice."
+      },
+      {
+        "slot": "cd_common1",
+        "reference": 13,
+        "resource": "IVC05f",
+        "original": "invoker/sounds/invokef.wav",
+        "subtitle": "Behold!"
+      },
+      {
+        "slot": "cd_common2",
+        "reference": 14,
+        "resource": "IVC05g",
+        "original": "invoker/sounds/invokeg.wav",
+        "subtitle": "Invoker!"
+      },
+      {
+        "slot": "cd_common3",
+        "reference": 15,
+        "resource": "IVC05h",
+        "original": "invoker/sounds/invokeh.wav",
+        "subtitle": "Be mindful of your purpose."
+      },
+      {
+        "slot": "cd_common4",
+        "reference": 16,
+        "resource": "IVC050",
+        "original": "invoker/sounds/invoke0.wav",
+        "subtitle": "All can be known, and known by me."
+      },
+      {
+        "slot": "cd_criticalhit",
+        "reference": 17,
+        "resource": "IVC05z",
+        "original": "invoker/sounds/invokez.wav",
+        "subtitle": "*Maniacally laughter*"
+      },
+      {
+        "slot": "cd_criticalmiss",
+        "reference": 18,
+        "resource": "IVC051",
+        "original": "invoker/sounds/invoke1.wav",
+        "subtitle": "Shitty wizard!"
+      },
+      {
+        "slot": "cd_damage1",
+        "reference": 19,
+        "resource": "IVC05l",
+        "original": "invoker/sounds/invokel.wav",
+        "subtitle": "*Grunts*"
+      },
+      {
+        "slot": "cd_day",
+        "reference": 20,
+        "resource": "IVC05q",
+        "original": "invoker/sounds/invokeq.wav",
+        "subtitle": "Whosoever stands against me, stands briefly."
+      },
+      {
+        "slot": "cd_disrupted",
+        "reference": 21,
+        "resource": "IVC056",
+        "original": "invoker/sounds/invoke6.wav",
+        "subtitle": "Traitorous sorcery."
+      },
+      {
+        "slot": "cd_dungeon",
+        "reference": 22,
+        "resource": "IVC05p",
+        "original": "invoker/sounds/invokep.wav",
+        "subtitle": "You'd have done better to clothe yourself in knowledge, for all the good your scraps of armor did you."
+      },
+      {
+        "slot": "cd_dying1",
+        "reference": 23,
+        "resource": "IVC05m",
+        "original": "invoker/sounds/invokem.wav",
+        "subtitle": "Darkness and ignorance take you all!"
+      },
+      {
+        "slot": "cd_forest",
+        "reference": 24,
+        "resource": "IVC05n",
+        "original": "invoker/sounds/invoken.wav",
+        "subtitle": "I must have stepped on something."
+      },
+      {
+        "slot": "cd_gen_death1",
+        "reference": 25,
+        "resource": "IVC05w",
+        "original": "invoker/sounds/invokew.wav",
+        "subtitle": "Fools die... as you well know."
+      },
+      {
+        "slot": "cd_hurt1",
+        "reference": 26,
+        "resource": "IVC05e",
+        "original": "invoker/sounds/invokee.wav",
+        "subtitle": "Can't you see I'm under attack?!"
+      },
+      {
+        "slot": "cd_immune",
+        "reference": 27,
+        "resource": "IVC052",
+        "original": "invoker/sounds/invoke2.wav",
+        "subtitle": "Did I miscast?"
+      },
+      {
+        "slot": "cd_inventory",
+        "reference": 28,
+        "resource": "IVC053",
+        "original": "invoker/sounds/invoke3.wav",
+        "subtitle": "What need have I for this?"
+      },
+      {
+        "slot": "cd_leader1",
+        "reference": 29,
+        "resource": "IVC05b",
+        "original": "invoker/sounds/invokeb.wav",
+        "subtitle": "It falls to me to inform you that this one is in the bag!"
+      },
+      {
+        "slot": "cd_night",
+        "reference": 30,
+        "resource": "IVC05r",
+        "original": "invoker/sounds/invoker.wav",
+        "subtitle": "Cause for my enemies to dwell on me exclusively!"
+      },
+      {
+        "slot": "cd_pickpocket",
+        "reference": 31,
+        "resource": "IVC054",
+        "original": "invoker/sounds/invoke4.wav",
+        "subtitle": "*Chuckles*"
+      },
+      {
+        "slot": "cd_shadows",
+        "reference": 32,
+        "resource": "IVC055",
+        "original": "invoker/sounds/invoke5.wav",
+        "subtitle": "I slip from sight."
+      },
+      {
+        "slot": "cd_tired1",
+        "reference": 33,
+        "resource": "IVC05c",
+        "original": "invoker/sounds/invokec.wav",
+        "subtitle": "'Tis tedious."
+      },
+      {
+        "slot": "cd_trap",
+        "reference": 34,
+        "resource": "IVC057",
+        "original": "invoker/sounds/invoke7.wav",
+        "subtitle": "I'm betwixt myself."
+      }
+    ],
+    "portraits": [],
+    "omitted_source_placeholders": [
+      {
+        "slot": "cd_action_rare1",
+        "reference": 8,
+        "resource": "bobx"
+      },
+      {
+        "slot": "cd_action_rare2",
+        "reference": 9,
+        "resource": "boby"
+      },
+      {
+        "slot": "cd_attack1",
+        "reference": 12,
+        "resource": "bobc_"
+      },
+      {
+        "slot": "cd_attack2",
+        "reference": 13,
+        "resource": "bobd_"
+      },
+      {
+        "slot": "cd_attack3",
+        "reference": 14,
+        "resource": "bobe_"
+      },
+      {
+        "slot": "cd_attack4",
+        "reference": 15,
+        "resource": "bobf_"
+      },
+      {
+        "slot": "cd_battlecry4",
+        "reference": 19,
+        "resource": "bobg_"
+      },
+      {
+        "slot": "cd_battlecry5",
+        "reference": 20,
+        "resource": "bobh_"
+      },
+      {
+        "slot": "cd_bored2",
+        "reference": 22,
+        "resource": "bobi_"
+      },
+      {
+        "slot": "cd_breaking_pt",
+        "reference": 23,
+        "resource": "bobj_"
+      },
+      {
+        "slot": "cd_common5",
+        "reference": 29,
+        "resource": "bobk_"
+      },
+      {
+        "slot": "cd_common6",
+        "reference": 30,
+        "resource": "bobl_"
+      },
+      {
+        "slot": "cd_common7",
+        "reference": 31,
+        "resource": "bobm_"
+      },
+      {
+        "slot": "cd_damage2",
+        "reference": 35,
+        "resource": "bobn_"
+      },
+      {
+        "slot": "cd_damage3",
+        "reference": 36,
+        "resource": "bobo_"
+      },
+      {
+        "slot": "cd_dying2",
+        "reference": 41,
+        "resource": "bobp_"
+      },
+      {
+        "slot": "cd_gen_death2",
+        "reference": 44,
+        "resource": "bobq_"
+      },
+      {
+        "slot": "cd_happy",
+        "reference": 45,
+        "resource": "bobr_"
+      },
+      {
+        "slot": "cd_hurt2",
+        "reference": 47,
+        "resource": "bobs_"
+      },
+      {
+        "slot": "cd_leader2",
+        "reference": 51,
+        "resource": "bobt_"
+      },
+      {
+        "slot": "cd_morale_break1",
+        "reference": 52,
+        "resource": "bobu_"
+      },
+      {
+        "slot": "cd_morale_break2",
+        "reference": 53,
+        "resource": "bobv_"
+      },
+      {
+        "slot": "cd_select_rare1",
+        "reference": 56,
+        "resource": "bobw_"
+      },
+      {
+        "slot": "cd_select_rare2",
+        "reference": 57,
+        "resource": "bobx_"
+      },
+      {
+        "slot": "cd_select_rare3",
+        "reference": 58,
+        "resource": "boby_"
+      },
+      {
+        "slot": "cd_select_rare4",
+        "reference": 59,
+        "resource": "bobz_"
+      },
+      {
+        "slot": "cd_tired2",
+        "reference": 66,
+        "resource": "bob4_"
+      },
+      {
+        "slot": "cd_unhappy_1",
+        "reference": 68,
+        "resource": "bob5_"
+      },
+      {
+        "slot": "cd_unhappy_2",
+        "reference": 69,
+        "resource": "bob6_"
+      }
+    ]
+  },
+  {
+    "id": "06",
+    "name": "DotA 2: Puck",
+    "prefix": "IVC06",
+    "archive": "DotA 2 puck voice pack.zip",
+    "archive_sha256": "d4bb9d6ebafeacac48961fe443300ff3ff83124bd752d85c01c99635d7e96990",
+    "audio": [
+      {
+        "slot": "cd_action1",
+        "reference": 1,
+        "resource": "IVC06i",
+        "original": "puck/sounds/pucki.wav",
+        "subtitle": "It's in the bag!"
+      },
+      {
+        "slot": "cd_action2",
+        "reference": 2,
+        "resource": "IVC06j",
+        "original": "puck/sounds/puckj.wav",
+        "subtitle": "I venture forth."
+      },
+      {
+        "slot": "cd_action3",
+        "reference": 3,
+        "resource": "IVC06k",
+        "original": "puck/sounds/puckk.wav",
+        "subtitle": "Absolutely."
+      },
+      {
+        "slot": "cd_action4",
+        "reference": 4,
+        "resource": "IVC06s",
+        "original": "puck/sounds/pucks.wav",
+        "subtitle": "With alacrity."
+      },
+      {
+        "slot": "cd_action5",
+        "reference": 5,
+        "resource": "IVC06t",
+        "original": "puck/sounds/puckt.wav",
+        "subtitle": "Commendable notion."
+      },
+      {
+        "slot": "cd_action6",
+        "reference": 6,
+        "resource": "IVC06u",
+        "original": "puck/sounds/pucku.wav",
+        "subtitle": "Very well."
+      },
+      {
+        "slot": "cd_action7",
+        "reference": 7,
+        "resource": "IVC06v",
+        "original": "puck/sounds/puckv.wav",
+        "subtitle": "Interesting."
+      },
+      {
+        "slot": "cd_battlecry1",
+        "reference": 8,
+        "resource": "IVC06a",
+        "original": "puck/sounds/pucka.wav",
+        "subtitle": "After them!"
+      },
+      {
+        "slot": "cd_battlecry2",
+        "reference": 9,
+        "resource": "IVC068",
+        "original": "puck/sounds/puck8.wav",
+        "subtitle": "Stay and amuse me!"
+      },
+      {
+        "slot": "cd_battlecry3",
+        "reference": 10,
+        "resource": "IVC069",
+        "original": "puck/sounds/puck9.wav",
+        "subtitle": "Destroy!"
+      },
+      {
+        "slot": "cd_bored1",
+        "reference": 11,
+        "resource": "IVC06d",
+        "original": "puck/sounds/puckd.wav",
+        "subtitle": "Let the world end now, it matters not to me."
+      },
+      {
+        "slot": "cd_city",
+        "reference": 12,
+        "resource": "IVC06o",
+        "original": "puck/sounds/pucko.wav",
+        "subtitle": "I find myself strangely drawn to this odd configuration of activity."
+      },
+      {
+        "slot": "cd_common1",
+        "reference": 13,
+        "resource": "IVC06f",
+        "original": "puck/sounds/puckf.wav",
+        "subtitle": "Behold!"
+      },
+      {
+        "slot": "cd_common2",
+        "reference": 14,
+        "resource": "IVC06g",
+        "original": "puck/sounds/puckg.wav",
+        "subtitle": "Here I am!"
+      },
+      {
+        "slot": "cd_common3",
+        "reference": 15,
+        "resource": "IVC06h",
+        "original": "puck/sounds/puckh.wav",
+        "subtitle": "What is this, a game of some sort?"
+      },
+      {
+        "slot": "cd_common4",
+        "reference": 16,
+        "resource": "IVC060",
+        "original": "puck/sounds/puck0.wav",
+        "subtitle": "I have time in abundance."
+      },
+      {
+        "slot": "cd_criticalhit",
+        "reference": 17,
+        "resource": "IVC06z",
+        "original": "puck/sounds/puckz.wav",
+        "subtitle": "Ha ha!"
+      },
+      {
+        "slot": "cd_criticalmiss",
+        "reference": 18,
+        "resource": "IVC061",
+        "original": "puck/sounds/puck1.wav",
+        "subtitle": "Uhrrn!"
+      },
+      {
+        "slot": "cd_damage1",
+        "reference": 19,
+        "resource": "IVC06l",
+        "original": "puck/sounds/puckl.wav",
+        "subtitle": "Huh!"
+      },
+      {
+        "slot": "cd_day",
+        "reference": 20,
+        "resource": "IVC06q",
+        "original": "puck/sounds/puckq.wav",
+        "subtitle": "A dark interval, and now a bright one."
+      },
+      {
+        "slot": "cd_disrupted",
+        "reference": 21,
+        "resource": "IVC066",
+        "original": "puck/sounds/puck6.wav",
+        "subtitle": "Crummy wizard!"
+      },
+      {
+        "slot": "cd_dungeon",
+        "reference": 22,
+        "resource": "IVC06p",
+        "original": "puck/sounds/puckp.wav",
+        "subtitle": "Ah, gambits and exploits await."
+      },
+      {
+        "slot": "cd_dying1",
+        "reference": 23,
+        "resource": "IVC06m",
+        "original": "puck/sounds/puckm.wav",
+        "subtitle": "A midsummer nightmare."
+      },
+      {
+        "slot": "cd_forest",
+        "reference": 24,
+        "resource": "IVC06n",
+        "original": "puck/sounds/puckn.wav",
+        "subtitle": "What is this nature you speak of?"
+      },
+      {
+        "slot": "cd_gen_death1",
+        "reference": 25,
+        "resource": "IVC06w",
+        "original": "puck/sounds/puckw.wav",
+        "subtitle": "Presumably a pity."
+      },
+      {
+        "slot": "cd_hurt1",
+        "reference": 26,
+        "resource": "IVC06e",
+        "original": "puck/sounds/pucke.wav",
+        "subtitle": "I am under attack!"
+      },
+      {
+        "slot": "cd_immune",
+        "reference": 27,
+        "resource": "IVC062",
+        "original": "puck/sounds/puck2.wav",
+        "subtitle": "A disturbing lapse!"
+      },
+      {
+        "slot": "cd_inventory",
+        "reference": 28,
+        "resource": "IVC063",
+        "original": "puck/sounds/puck3.wav",
+        "subtitle": "You might wish to retract your last move."
+      },
+      {
+        "slot": "cd_leader1",
+        "reference": 29,
+        "resource": "IVC06b",
+        "original": "puck/sounds/puckb.wav",
+        "subtitle": "I am unfamiliar with this feeling. Is it joy?"
+      },
+      {
+        "slot": "cd_pickpocket",
+        "reference": 30,
+        "resource": "IVC064",
+        "original": "puck/sounds/puck4.wav",
+        "subtitle": "Not yours!"
+      },
+      {
+        "slot": "cd_shadows",
+        "reference": 31,
+        "resource": "IVC065",
+        "original": "puck/sounds/puck5.wav",
+        "subtitle": "Regrettably, I remove myself from sight."
+      },
+      {
+        "slot": "cd_tired1",
+        "reference": 32,
+        "resource": "IVC06c",
+        "original": "puck/sounds/puckc.wav",
+        "subtitle": "I do enjoy an occasional blink."
+      },
+      {
+        "slot": "cd_trap",
+        "reference": 33,
+        "resource": "IVC067",
+        "original": "puck/sounds/puck7.wav",
+        "subtitle": "Patience, my prize."
+      }
+    ],
+    "portraits": [],
+    "omitted_source_placeholders": [
+      {
+        "slot": "cd_night",
+        "reference": 54,
+        "resource": "puckr"
+      }
+    ]
+  },
+  {
+    "id": "07",
+    "name": "Filthy Frank",
+    "prefix": "IVC07",
+    "archive": "FilthyFrank.zip",
+    "archive_sha256": "a8db71c5cb0425e5ab8597053e99399a4810559e07645cdd57f8d1df2801cb9f",
+    "audio": [
+      {
+        "slot": "cd_immune",
+        "reference": 1,
+        "resource": "IVC072",
+        "original": "FilthyFrank/FRNK2.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_tired1",
+        "reference": 2,
+        "resource": "IVC07c",
+        "original": "FilthyFrank/FRNKc.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_inventory",
+        "reference": 3,
+        "resource": "IVC073",
+        "original": "FilthyFrank/FRNK3.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_action6",
+        "reference": 4,
+        "resource": "IVC07u",
+        "original": "FilthyFrank/FRNKu.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_shadows",
+        "reference": 5,
+        "resource": "IVC075",
+        "original": "FilthyFrank/FRNK5.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_common1",
+        "reference": 6,
+        "resource": "IVC07f",
+        "original": "FilthyFrank/FRNKf.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_battlecry2",
+        "reference": 7,
+        "resource": "IVC078",
+        "original": "FilthyFrank/FRNK8.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_day",
+        "reference": 8,
+        "resource": "IVC07q",
+        "original": "FilthyFrank/FRNKq.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_dying1",
+        "reference": 9,
+        "resource": "IVC07m",
+        "original": "FilthyFrank/FRNKm.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_action5",
+        "reference": 10,
+        "resource": "IVC07t",
+        "original": "FilthyFrank/FRNKt.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_city",
+        "reference": 11,
+        "resource": "IVC07o",
+        "original": "FilthyFrank/FRNKo.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_action2",
+        "reference": 12,
+        "resource": "IVC07j",
+        "original": "FilthyFrank/FRNKj.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_battlecry1",
+        "reference": 13,
+        "resource": "IVC07a",
+        "original": "FilthyFrank/FRNKa.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_criticalhit",
+        "reference": 14,
+        "resource": "IVC07z",
+        "original": "FilthyFrank/FRNKz.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_common3",
+        "reference": 15,
+        "resource": "IVC07h",
+        "original": "FilthyFrank/FRNKh.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_disrupted",
+        "reference": 16,
+        "resource": "IVC076",
+        "original": "FilthyFrank/FRNK6.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_leader1",
+        "reference": 17,
+        "resource": "IVC07b",
+        "original": "FilthyFrank/FRNKb.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_criticalmiss",
+        "reference": 18,
+        "resource": "IVC071",
+        "original": "FilthyFrank/FRNK1.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_gen_death1",
+        "reference": 19,
+        "resource": "IVC07w",
+        "original": "FilthyFrank/FRNKw.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_damage1",
+        "reference": 20,
+        "resource": "IVC07l",
+        "original": "FilthyFrank/FRNKl.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_hurt1",
+        "reference": 21,
+        "resource": "IVC07e",
+        "original": "FilthyFrank/FRNKe.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_night",
+        "reference": 22,
+        "resource": "IVC07r",
+        "original": "FilthyFrank/FRNKr.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_common4",
+        "reference": 23,
+        "resource": "IVC070",
+        "original": "FilthyFrank/FRNK0.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_action1",
+        "reference": 24,
+        "resource": "IVC07i",
+        "original": "FilthyFrank/FRNKi.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_action4",
+        "reference": 25,
+        "resource": "IVC07s",
+        "original": "FilthyFrank/FRNKs.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_bored1",
+        "reference": 26,
+        "resource": "IVC07d",
+        "original": "FilthyFrank/FRNKd.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_action7",
+        "reference": 27,
+        "resource": "IVC07v",
+        "original": "FilthyFrank/FRNKv.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_common2",
+        "reference": 28,
+        "resource": "IVC07g",
+        "original": "FilthyFrank/FRNKg.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_pickpocket",
+        "reference": 29,
+        "resource": "IVC074",
+        "original": "FilthyFrank/FRNK4.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_battlecry3",
+        "reference": 30,
+        "resource": "IVC079",
+        "original": "FilthyFrank/FRNK9.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_forest",
+        "reference": 31,
+        "resource": "IVC07n",
+        "original": "FilthyFrank/FRNKn.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_action3",
+        "reference": 32,
+        "resource": "IVC07k",
+        "original": "FilthyFrank/FRNKk.wav",
+        "subtitle": ""
+      }
+    ],
+    "portraits": [],
+    "omitted_source_placeholders": []
+  },
+  {
+    "id": "08",
+    "name": "Greta",
+    "prefix": "IVC08",
+    "archive": "Greta.rar",
+    "archive_sha256": "ae0973b961b8e1df5b9cc0987fb4ce239e0c8d643ea2a3254590f5353132490a",
+    "audio": [
+      {
+        "slot": "cd_battlecry2",
+        "reference": 1,
+        "resource": "IVC088",
+        "original": "Greta/GRETA8.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_gen_death1",
+        "reference": 2,
+        "resource": "IVC08w",
+        "original": "Greta/GRETAw.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_trap",
+        "reference": 3,
+        "resource": "IVC087",
+        "original": "Greta/GRETA7.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_action3",
+        "reference": 4,
+        "resource": "IVC08k",
+        "original": "Greta/GRETAk.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_tired1",
+        "reference": 5,
+        "resource": "IVC08c",
+        "original": "Greta/GRETAc.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_common1",
+        "reference": 6,
+        "resource": "IVC08f",
+        "original": "Greta/GRETAf.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_immune",
+        "reference": 7,
+        "resource": "IVC082",
+        "original": "Greta/GRETA2.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_criticalhit",
+        "reference": 8,
+        "resource": "IVC08z",
+        "original": "Greta/GRETAz.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_disrupted",
+        "reference": 9,
+        "resource": "IVC086",
+        "original": "Greta/GRETA6.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_action4",
+        "reference": 10,
+        "resource": "IVC08s",
+        "original": "Greta/GRETAs.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_battlecry3",
+        "reference": 11,
+        "resource": "IVC089",
+        "original": "Greta/GRETA9.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_shadows",
+        "reference": 12,
+        "resource": "IVC085",
+        "original": "Greta/GRETA5.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_hurt1",
+        "reference": 13,
+        "resource": "IVC08e",
+        "original": "Greta/GRETAe.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_dying1",
+        "reference": 14,
+        "resource": "IVC08m",
+        "original": "Greta/GRETAm.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_inventory",
+        "reference": 15,
+        "resource": "IVC083",
+        "original": "Greta/GRETA3.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_action6",
+        "reference": 16,
+        "resource": "IVC08u",
+        "original": "Greta/GRETAu.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_criticalmiss",
+        "reference": 17,
+        "resource": "IVC081",
+        "original": "Greta/GRETA1.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_pickpocket",
+        "reference": 18,
+        "resource": "IVC084",
+        "original": "Greta/GRETA4.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_action5",
+        "reference": 19,
+        "resource": "IVC08t",
+        "original": "Greta/GRETAt.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_damage1",
+        "reference": 20,
+        "resource": "IVC08l",
+        "original": "Greta/GRETAl.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_action1",
+        "reference": 21,
+        "resource": "IVC08i",
+        "original": "Greta/GRETAi.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_battlecry1",
+        "reference": 22,
+        "resource": "IVC08a",
+        "original": "Greta/GRETAa.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_common2",
+        "reference": 23,
+        "resource": "IVC08g",
+        "original": "Greta/GRETAg.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_action2",
+        "reference": 24,
+        "resource": "IVC08j",
+        "original": "Greta/GRETAj.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_leader1",
+        "reference": 25,
+        "resource": "IVC08b",
+        "original": "Greta/GRETAb.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_common3",
+        "reference": 26,
+        "resource": "IVC08h",
+        "original": "Greta/GRETAh.wav",
+        "subtitle": ""
+      }
+    ],
+    "portraits": [],
+    "omitted_source_placeholders": []
+  },
+  {
+    "id": "09",
+    "name": "Gromnir Il-Khan",
+    "prefix": "IVC09",
+    "archive": "Gromnir-Voicepack.zip",
+    "archive_sha256": "70198792b48bab14a12c5dc70f5593636717f454df3cd516c1d33c8141a92ec0",
+    "audio": [
+      {
+        "slot": "cd_battlecry1",
+        "reference": 1,
+        "resource": "IVC09a",
+        "original": "Gromnir-Voicepack/cd_gromn/sounds/GROMVPa.wav",
+        "subtitle": "Good fun! HAH!"
+      },
+      {
+        "slot": "cd_common1",
+        "reference": 2,
+        "resource": "IVC09f",
+        "original": "Gromnir-Voicepack/cd_gromn/sounds/GROMVPf.wav",
+        "subtitle": "What you wants with Gromnir?"
+      },
+      {
+        "slot": "cd_common2",
+        "reference": 3,
+        "resource": "IVC09g",
+        "original": "Gromnir-Voicepack/cd_gromn/sounds/GROMVPg.wav",
+        "subtitle": "Gromnir knows."
+      },
+      {
+        "slot": "cd_common3",
+        "reference": 4,
+        "resource": "IVC09h",
+        "original": "Gromnir-Voicepack/cd_gromn/sounds/GROMVPh.wav",
+        "subtitle": "Gromnir knows the truth."
+      },
+      {
+        "slot": "cd_action1",
+        "reference": 5,
+        "resource": "IVC09i",
+        "original": "Gromnir-Voicepack/cd_gromn/sounds/GROMVPi.wav",
+        "subtitle": "Gromnir knows."
+      },
+      {
+        "slot": "cd_damage1",
+        "reference": 6,
+        "resource": "IVC09l",
+        "original": "Gromnir-Voicepack/cd_gromn/sounds/GROMVPl.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_dying1",
+        "reference": 7,
+        "resource": "IVC09m",
+        "original": "Gromnir-Voicepack/cd_gromn/sounds/GROMVPm.wav",
+        "subtitle": "N-not... not possible..."
+      },
+      {
+        "slot": "cd_action_rare1",
+        "reference": 8,
+        "resource": "IVC09x",
+        "original": "Gromnir-Voicepack/cd_gromn/sounds/GROMVPx.wav",
+        "subtitle": "We is no idiot!"
+      },
+      {
+        "slot": "cd_battlecry2",
+        "reference": 9,
+        "resource": "IVC098",
+        "original": "Gromnir-Voicepack/cd_gromn/sounds/GROMVP8.wav",
+        "subtitle": "Fools to face me!"
+      },
+      {
+        "slot": "cd_breaking_pt",
+        "reference": 10,
+        "resource": "IVC09j_",
+        "original": "Gromnir-Voicepack/cd_gromn/wav/GROMVPj_.wav",
+        "subtitle": "Gromnir not stayin' here!"
+      }
+    ],
+    "portraits": [],
+    "omitted_source_placeholders": []
+  },
+  {
+    "id": "10",
+    "name": "Illasera",
+    "prefix": "IVC10",
+    "archive": "Illasera.zip",
+    "archive_sha256": "8fee2cb713c2d837802848a85ab894ab3272e4beeefea74d7cc67016a658fde6",
+    "audio": [
+      {
+        "slot": "cd_common1",
+        "reference": 1,
+        "resource": "IVC10f",
+        "original": "Illasera/selection 1.mp3",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_common2",
+        "reference": 2,
+        "resource": "IVC10g",
+        "original": "Illasera/selection variation 1.mp3",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_common3",
+        "reference": 3,
+        "resource": "IVC10h",
+        "original": "Illasera/selection variation 2.mp3",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_common4",
+        "reference": 4,
+        "resource": "IVC100",
+        "original": "Illasera/maybe selection.mp3",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_action1",
+        "reference": 5,
+        "resource": "IVC10i",
+        "original": "Illasera/moving.mp3",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_action2",
+        "reference": 6,
+        "resource": "IVC10j",
+        "original": "Illasera/with all haste 2.mp3",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_action3",
+        "reference": 7,
+        "resource": "IVC10k",
+        "original": "Illasera/quickly.mp3",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_action4",
+        "reference": 8,
+        "resource": "IVC10s",
+        "original": "Illasera/I see the path.mp3",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_battlecry1",
+        "reference": 9,
+        "resource": "IVC10a",
+        "original": "Illasera/I have you now.mp3",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_battlecry2",
+        "reference": 10,
+        "resource": "IVC108",
+        "original": "Illasera/die, fools.WAV",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_battlecry3",
+        "reference": 11,
+        "resource": "IVC109",
+        "original": "Illasera/attack variation 1.mp3",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_battlecry4",
+        "reference": 12,
+        "resource": "IVC10g_",
+        "original": "Illasera/attack variation 2.mp3",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_battlecry5",
+        "reference": 13,
+        "resource": "IVC10h_",
+        "original": "Illasera/blood 1.mp3",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_attack1",
+        "reference": 14,
+        "resource": "IVC10c_",
+        "original": "Illasera/blood 2.mp3",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_criticalmiss",
+        "reference": 15,
+        "resource": "IVC101",
+        "original": "Illasera/critical miss 1.mp3",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_damage1",
+        "reference": 16,
+        "resource": "IVC10l",
+        "original": "Illasera/damage taken.WAV",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_dying1",
+        "reference": 17,
+        "resource": "IVC10m",
+        "original": "Illasera/death.WAV",
+        "subtitle": ""
+      }
+    ],
+    "portraits": [],
+    "omitted_source_placeholders": []
+  },
+  {
+    "id": "11",
+    "name": "Morpheus",
+    "prefix": "IVC11",
+    "archive": "MORPHEUS PACK.7z",
+    "archive_sha256": "d91d944d77c7e114d82ebb828695849a6effcb854c9fa69e3898cc237e924093",
+    "audio": [
+      {
+        "slot": "cd_action1",
+        "reference": 1,
+        "resource": "IVC11i",
+        "original": "morpheus/MORPH/sounds/MORPHi.wav",
+        "subtitle": "Follow me."
+      },
+      {
+        "slot": "cd_action2",
+        "reference": 2,
+        "resource": "IVC11j",
+        "original": "morpheus/MORPH/sounds/MORPHj.wav",
+        "subtitle": "I know exactly what you mean."
+      },
+      {
+        "slot": "cd_action3",
+        "reference": 3,
+        "resource": "IVC11k",
+        "original": "morpheus/MORPH/sounds/MORPHk.wav",
+        "subtitle": "I can only show you the door. You're the one that has to walk through it."
+      },
+      {
+        "slot": "cd_action4",
+        "reference": 4,
+        "resource": "IVC11s",
+        "original": "morpheus/MORPH/sounds/MORPHs.wav",
+        "subtitle": "You think that's air you're breathing now?"
+      },
+      {
+        "slot": "cd_action5",
+        "reference": 5,
+        "resource": "IVC11t",
+        "original": "morpheus/MORPH/sounds/MORPHt.wav",
+        "subtitle": "Welcome to the desert of the real."
+      },
+      {
+        "slot": "cd_action6",
+        "reference": 6,
+        "resource": "IVC11u",
+        "original": "morpheus/MORPH/sounds/MORPHu.wav",
+        "subtitle": "All I'm offering is the truth. Nothing more."
+      },
+      {
+        "slot": "cd_action7",
+        "reference": 7,
+        "resource": "IVC11v",
+        "original": "morpheus/MORPH/sounds/MORPHv.wav",
+        "subtitle": "Yes."
+      },
+      {
+        "slot": "cd_action_rare1",
+        "reference": 8,
+        "resource": "IVC11x",
+        "original": "morpheus/MORPH/sounds/MORPHx.wav",
+        "subtitle": "We well know that the reason that most of us are here is because of our... affinity for disobedience."
+      },
+      {
+        "slot": "cd_action_rare2",
+        "reference": 9,
+        "resource": "IVC11y",
+        "original": "morpheus/MORPH/sounds/MORPHy.wav",
+        "subtitle": "I'll show you how deep the rabbit hole goes."
+      },
+      {
+        "slot": "cd_battlecry1",
+        "reference": 10,
+        "resource": "IVC11a",
+        "original": "morpheus/MORPH/sounds/MORPHa.wav",
+        "subtitle": "That sounds exactly like the thinking of a machine to me."
+      },
+      {
+        "slot": "cd_battlecry2",
+        "reference": 11,
+        "resource": "IVC118",
+        "original": "morpheus/MORPH/sounds/MORPH8.wav",
+        "subtitle": "Don't think you are, know you are."
+      },
+      {
+        "slot": "cd_battlecry3",
+        "reference": 12,
+        "resource": "IVC119",
+        "original": "morpheus/MORPH/sounds/MORPH9.wav",
+        "subtitle": "Then hit me. If you can."
+      },
+      {
+        "slot": "cd_battlecry4",
+        "reference": 13,
+        "resource": "IVC11g_",
+        "original": "morpheus/MORPH/wav/MORPHg_.wav",
+        "subtitle": "Free your mind."
+      },
+      {
+        "slot": "cd_battlecry5",
+        "reference": 14,
+        "resource": "IVC11h_",
+        "original": "morpheus/MORPH/wav/MORPHh_.wav",
+        "subtitle": "You have to let it all go. Fear, doubt, and disbelief."
+      },
+      {
+        "slot": "cd_bored1",
+        "reference": 15,
+        "resource": "IVC11d",
+        "original": "morpheus/MORPH/sounds/MORPHd.wav",
+        "subtitle": "Some of you believe as I believe, some of you do not. But those of you that do, know we are nearing the end of our struggle."
+      },
+      {
+        "slot": "cd_city",
+        "reference": 16,
+        "resource": "IVC11o",
+        "original": "morpheus/MORPH/sounds/MORPHo.wav",
+        "subtitle": "What is The Matrix? Control. The Matrix is a computer generated dream world."
+      },
+      {
+        "slot": "cd_common1",
+        "reference": 17,
+        "resource": "IVC11f",
+        "original": "morpheus/MORPH/sounds/MORPHf.wav",
+        "subtitle": "I wasn't aware that my actions required any explanation."
+      },
+      {
+        "slot": "cd_common2",
+        "reference": 18,
+        "resource": "IVC11g",
+        "original": "morpheus/MORPH/sounds/MORPHg.wav",
+        "subtitle": "What?"
+      },
+      {
+        "slot": "cd_common3",
+        "reference": 19,
+        "resource": "IVC11h",
+        "original": "morpheus/MORPH/sounds/MORPHh.wav",
+        "subtitle": "At last."
+      },
+      {
+        "slot": "cd_common4",
+        "reference": 20,
+        "resource": "IVC110",
+        "original": "morpheus/MORPH/sounds/MORPH0.wav",
+        "subtitle": "As you no doubt have guessed, I am Morpheus."
+      },
+      {
+        "slot": "cd_common6",
+        "reference": 21,
+        "resource": "IVC11l_",
+        "original": "morpheus/MORPH/wav/MORPHl_.wav",
+        "subtitle": "That's right, I am."
+      },
+      {
+        "slot": "cd_criticalhit",
+        "reference": 22,
+        "resource": "IVC11z",
+        "original": "morpheus/MORPH/sounds/MORPHz.wav",
+        "subtitle": "He's beginning to believe!"
+      },
+      {
+        "slot": "cd_criticalmiss",
+        "reference": 23,
+        "resource": "IVC111",
+        "original": "morpheus/MORPH/sounds/MORPH1.wav",
+        "subtitle": "I don't believe it to be a matter of hope. It is simply a matter of time."
+      },
+      {
+        "slot": "cd_damage1",
+        "reference": 24,
+        "resource": "IVC11l",
+        "original": "morpheus/MORPH/sounds/MORPHl.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_day",
+        "reference": 25,
+        "resource": "IVC11q",
+        "original": "morpheus/MORPH/sounds/MORPHq.wav",
+        "subtitle": "Unfortunately, no one can be told what the Matrix is. You have to see it for yourself."
+      },
+      {
+        "slot": "cd_disrupted",
+        "reference": 26,
+        "resource": "IVC116",
+        "original": "morpheus/MORPH/sounds/MORPH6.wav",
+        "subtitle": "Come on. Stop trying to hit me and hit me!"
+      },
+      {
+        "slot": "cd_dungeon",
+        "reference": 27,
+        "resource": "IVC11p",
+        "original": "morpheus/MORPH/sounds/MORPHp.wav",
+        "subtitle": "My apologies to all. As you are undoubtedly aware, it has become increasingly difficult to locate a secure broadcast position."
+      },
+      {
+        "slot": "cd_dying1",
+        "reference": 28,
+        "resource": "IVC11m",
+        "original": "morpheus/MORPH/sounds/MORPHm.wav",
+        "subtitle": "I believe very soon the prophecy will be fulfilled and this war will end."
+      },
+      {
+        "slot": "cd_forest",
+        "reference": 29,
+        "resource": "IVC11n",
+        "original": "morpheus/MORPH/sounds/MORPHn.wav",
+        "subtitle": "What is \"real\"? How do you define \"real\"? If you're talking about what you can feel, what you can smell, what you can taste and see, then 'real' is simply electrical signals interpreted by your brain."
+      },
+      {
+        "slot": "cd_gen_death1",
+        "reference": 30,
+        "resource": "IVC11w",
+        "original": "morpheus/MORPH/sounds/MORPHw.wav",
+        "subtitle": "I didn't say it would be easy, I just said it would be the truth."
+      },
+      {
+        "slot": "cd_hurt1",
+        "reference": 31,
+        "resource": "IVC11e",
+        "original": "morpheus/MORPH/sounds/MORPHe.wav",
+        "subtitle": "Faith, it seems, is not without a sense of irony."
+      },
+      {
+        "slot": "cd_immune",
+        "reference": 32,
+        "resource": "IVC112",
+        "original": "morpheus/MORPH/sounds/MORPH2.wav",
+        "subtitle": "You have the look of a man who accepts what he sees because he's expecting to wake up"
+      },
+      {
+        "slot": "cd_inventory",
+        "reference": 33,
+        "resource": "IVC113",
+        "original": "morpheus/MORPH/sounds/MORPH3.wav",
+        "subtitle": "I'm sure it is."
+      },
+      {
+        "slot": "cd_leader1",
+        "reference": 34,
+        "resource": "IVC11b",
+        "original": "morpheus/MORPH/sounds/MORPHb.wav",
+        "subtitle": "The prophecy will be fulfilled soon. But before it can be, The Oracle must be consulted."
+      },
+      {
+        "slot": "cd_night",
+        "reference": 35,
+        "resource": "IVC11r",
+        "original": "morpheus/MORPH/sounds/MORPHr.wav",
+        "subtitle": "We've survived by hiding from them, by running from them. But they are the gatekeepers. They are guarding all the doors, they are holding all the keys. Which means that sooner or later, someone is going to have to fight them."
+      },
+      {
+        "slot": "cd_pickpocket",
+        "reference": 36,
+        "resource": "IVC114",
+        "original": "morpheus/MORPH/sounds/MORPH4.wav",
+        "subtitle": "I'm trying to tell you that when you're ready, you won't have to."
+      },
+      {
+        "slot": "cd_select_rare2",
+        "reference": 37,
+        "resource": "IVC11x_",
+        "original": "morpheus/MORPH/wav/MORPHx_.wav",
+        "subtitle": "What was said was for you and for you alone."
+      },
+      {
+        "slot": "cd_select_rare3",
+        "reference": 38,
+        "resource": "IVC11y_",
+        "original": "morpheus/MORPH/wav/MORPHy_.wav",
+        "subtitle": "How would you know the difference between the dream world and the real world?"
+      },
+      {
+        "slot": "cd_shadows",
+        "reference": 39,
+        "resource": "IVC115",
+        "original": "morpheus/MORPH/sounds/MORPH5.wav",
+        "subtitle": "Adaptation, improvisation."
+      },
+      {
+        "slot": "cd_tired1",
+        "reference": 40,
+        "resource": "IVC11c",
+        "original": "morpheus/MORPH/sounds/MORPHc.wav",
+        "subtitle": "I imagine that right now, you're feeling a bit like Alice. Hmm? Tumbling down the rabbit hole? "
+      },
+      {
+        "slot": "cd_trap",
+        "reference": 41,
+        "resource": "IVC117",
+        "original": "morpheus/MORPH/sounds/MORPH7.wav",
+        "subtitle": "Do you believe it now?"
+      }
+    ],
+    "portraits": [
+      "IVP1101",
+      "IVP1102"
+    ],
+    "omitted_source_placeholders": []
+  },
+  {
+    "id": "12",
+    "name": "Palpatine",
+    "prefix": "IVC12",
+    "archive": "Palpatine-BG-Soundset.zip",
+    "archive_sha256": "5eade664555f098470a798f4bb9b3541710dae1d524230983a876bf7ab993a18",
+    "audio": [
+      {
+        "slot": "cd_action1",
+        "reference": 1,
+        "resource": "IVC12i",
+        "original": "Soundset/PALP0/sounds/PALP0i.wav",
+        "subtitle": "So be it."
+      },
+      {
+        "slot": "cd_action2",
+        "reference": 2,
+        "resource": "IVC12j",
+        "original": "Soundset/PALP0/sounds/PALP0j.wav",
+        "subtitle": "Execute Order 66."
+      },
+      {
+        "slot": "cd_action3",
+        "reference": 3,
+        "resource": "IVC12k",
+        "original": "Soundset/PALP0/sounds/PALP0k.wav",
+        "subtitle": "Good."
+      },
+      {
+        "slot": "cd_action4",
+        "reference": 4,
+        "resource": "IVC12s",
+        "original": "Soundset/PALP0/sounds/PALP0s.wav",
+        "subtitle": "Dew it."
+      },
+      {
+        "slot": "cd_action5",
+        "reference": 5,
+        "resource": "IVC12t",
+        "original": "Soundset/PALP0/sounds/PALP0t.wav",
+        "subtitle": "It's treason, then."
+      },
+      {
+        "slot": "cd_action6",
+        "reference": 6,
+        "resource": "IVC12u",
+        "original": "Soundset/PALP0/sounds/PALP0u.wav",
+        "subtitle": "Patience, my friend."
+      },
+      {
+        "slot": "cd_action7",
+        "reference": 7,
+        "resource": "IVC12v",
+        "original": "Soundset/PALP0/sounds/PALP0v.wav",
+        "subtitle": "I can feel your anger."
+      },
+      {
+        "slot": "cd_battlecry1",
+        "reference": 8,
+        "resource": "IVC12a",
+        "original": "Soundset/PALP0/sounds/PALP0a.wav",
+        "subtitle": "Aaaaaaaah!"
+      },
+      {
+        "slot": "cd_battlecry2",
+        "reference": 9,
+        "resource": "IVC128",
+        "original": "Soundset/PALP0/sounds/PALP08.wav",
+        "subtitle": "Die."
+      },
+      {
+        "slot": "cd_battlecry3",
+        "reference": 10,
+        "resource": "IVC129",
+        "original": "Soundset/PALP0/sounds/PALP09.wav",
+        "subtitle": "Now you will experience the full power of the Dark Side."
+      },
+      {
+        "slot": "cd_bored1",
+        "reference": 11,
+        "resource": "IVC12d",
+        "original": "Soundset/PALP0/sounds/PALP0d.wav",
+        "subtitle": "Use my knowledge, I beg you."
+      },
+      {
+        "slot": "cd_city",
+        "reference": 12,
+        "resource": "IVC12o",
+        "original": "Soundset/PALP0/sounds/PALP0o.wav",
+        "subtitle": "Once more the Sith will rule the galaxy."
+      },
+      {
+        "slot": "cd_common1",
+        "reference": 13,
+        "resource": "IVC12f",
+        "original": "Soundset/PALP0/sounds/PALP0f.wav",
+        "subtitle": "Ah yes."
+      },
+      {
+        "slot": "cd_common2",
+        "reference": 14,
+        "resource": "IVC12g",
+        "original": "Soundset/PALP0/sounds/PALP0g.wav",
+        "subtitle": "Yeeees."
+      },
+      {
+        "slot": "cd_common3",
+        "reference": 15,
+        "resource": "IVC12h",
+        "original": "Soundset/PALP0/sounds/PALP0h.wav",
+        "subtitle": "In time you will call me... Master."
+      },
+      {
+        "slot": "cd_common4",
+        "reference": 16,
+        "resource": "IVC120",
+        "original": "Soundset/PALP0/sounds/PALP00.wav",
+        "subtitle": "Hahahahahahahahaha!"
+      },
+      {
+        "slot": "cd_criticalhit",
+        "reference": 17,
+        "resource": "IVC12z",
+        "original": "Soundset/PALP0/sounds/PALP0z.wav",
+        "subtitle": "Unlimited pooooweeeerr!!"
+      },
+      {
+        "slot": "cd_criticalmiss",
+        "reference": 18,
+        "resource": "IVC121",
+        "original": "Soundset/PALP0/sounds/PALP01.wav",
+        "subtitle": "No. No! No!"
+      },
+      {
+        "slot": "cd_damage1",
+        "reference": 19,
+        "resource": "IVC12l",
+        "original": "Soundset/PALP0/sounds/PALP0l.wav",
+        "subtitle": "Your feeble skills have no match for the power of the Dark Side!"
+      },
+      {
+        "slot": "cd_day",
+        "reference": 20,
+        "resource": "IVC12q",
+        "original": "Soundset/PALP0/sounds/PALP0q.wav",
+        "subtitle": "The time has come."
+      },
+      {
+        "slot": "cd_disrupted",
+        "reference": 21,
+        "resource": "IVC126",
+        "original": "Soundset/PALP0/sounds/PALP06.wav",
+        "subtitle": "Oh no!"
+      },
+      {
+        "slot": "cd_dungeon",
+        "reference": 22,
+        "resource": "IVC12p",
+        "original": "Soundset/PALP0/sounds/PALP0p.wav",
+        "subtitle": "From here, you will witness the final destruction of the Alliance, and the end of your insignificant rebellion."
+      },
+      {
+        "slot": "cd_dying1",
+        "reference": 23,
+        "resource": "IVC12m",
+        "original": "Soundset/PALP0/sounds/PALP0m.wav",
+        "subtitle": "Aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaah"
+      },
+      {
+        "slot": "cd_forest",
+        "reference": 24,
+        "resource": "IVC12n",
+        "original": "Soundset/PALP0/sounds/PALP0n.wav",
+        "subtitle": "There is a great disturbance in the force. "
+      },
+      {
+        "slot": "cd_gen_death1",
+        "reference": 25,
+        "resource": "IVC12w",
+        "original": "Soundset/PALP0/sounds/PALP0w.wav",
+        "subtitle": "Ironic. He can save others from death, but not himself."
+      },
+      {
+        "slot": "cd_hurt1",
+        "reference": 26,
+        "resource": "IVC12e",
+        "original": "Soundset/PALP0/sounds/PALP0e.wav",
+        "subtitle": "I'm too weak! Oh, don't kill me!"
+      },
+      {
+        "slot": "cd_immune",
+        "reference": 27,
+        "resource": "IVC122",
+        "original": "Soundset/PALP0/sounds/PALP02.wav",
+        "subtitle": "It is of no concern."
+      },
+      {
+        "slot": "cd_inventory",
+        "reference": 28,
+        "resource": "IVC123",
+        "original": "Soundset/PALP0/sounds/PALP03.wav",
+        "subtitle": "You want this, don't you?"
+      },
+      {
+        "slot": "cd_leader1",
+        "reference": 29,
+        "resource": "IVC12b",
+        "original": "Soundset/PALP0/sounds/PALP0b.wav",
+        "subtitle": "I am the Senate."
+      },
+      {
+        "slot": "cd_night",
+        "reference": 30,
+        "resource": "IVC12r",
+        "original": "Soundset/PALP0/sounds/PALP0r.wav",
+        "subtitle": "The dark side of the force is a pathway to many abilities some consider to be unnatural."
+      },
+      {
+        "slot": "cd_pickpocket",
+        "reference": 31,
+        "resource": "IVC124",
+        "original": "Soundset/PALP0/sounds/PALP04.wav",
+        "subtitle": "Young fool."
+      },
+      {
+        "slot": "cd_shadows",
+        "reference": 32,
+        "resource": "IVC125",
+        "original": "Soundset/PALP0/sounds/PALP05.wav",
+        "subtitle": "Can you hear me?"
+      },
+      {
+        "slot": "cd_tired1",
+        "reference": 33,
+        "resource": "IVC12c",
+        "original": "Soundset/PALP0/sounds/PALP0c.wav",
+        "subtitle": "I can't hold on any longer."
+      },
+      {
+        "slot": "cd_trap",
+        "reference": 34,
+        "resource": "IVC127",
+        "original": "Soundset/PALP0/sounds/PALP07.wav",
+        "subtitle": "Goooooood."
+      }
+    ],
+    "portraits": [
+      "IVP1201",
+      "IVP1202"
+    ],
+    "omitted_source_placeholders": []
+  },
+  {
+    "id": "13",
+    "name": "Rondak (lawful good)",
+    "prefix": "IVC13",
+    "archive": "Rondak (lawful good) voice pack.zip",
+    "archive_sha256": "23dd06703771e31f36f93e15ebf92cc3294dbcf93bd6e4c0ccfe0b8d01001bf0",
+    "audio": [
+      {
+        "slot": "cd_action1",
+        "reference": 1,
+        "resource": "IVC13i",
+        "original": "rondak/sounds/rondaki.wav",
+        "subtitle": "Done and done and done."
+      },
+      {
+        "slot": "cd_action2",
+        "reference": 2,
+        "resource": "IVC13j",
+        "original": "rondak/sounds/rondakj.wav",
+        "subtitle": "There is glory in this... probably."
+      },
+      {
+        "slot": "cd_action3",
+        "reference": 3,
+        "resource": "IVC13k",
+        "original": "rondak/sounds/rondakk.wav",
+        "subtitle": "The bard will tell tales of this."
+      },
+      {
+        "slot": "cd_action4",
+        "reference": 4,
+        "resource": "IVC13s",
+        "original": "rondak/sounds/rondaks.wav",
+        "subtitle": "Valor calls!"
+      },
+      {
+        "slot": "cd_action5",
+        "reference": 5,
+        "resource": "IVC13t",
+        "original": "rondak/sounds/rondakt.wav",
+        "subtitle": "He he, I like it!"
+      },
+      {
+        "slot": "cd_action6",
+        "reference": 6,
+        "resource": "IVC13u",
+        "original": "rondak/sounds/rondaku.wav",
+        "subtitle": "Leave it to me."
+      },
+      {
+        "slot": "cd_action7",
+        "reference": 7,
+        "resource": "IVC13v",
+        "original": "rondak/sounds/rondakv.wav",
+        "subtitle": "Ha ha, of course!"
+      },
+      {
+        "slot": "cd_battlecry1",
+        "reference": 8,
+        "resource": "IVC13a",
+        "original": "rondak/sounds/rondaka.wav",
+        "subtitle": "You will fall, like so many others before you!"
+      },
+      {
+        "slot": "cd_battlecry2",
+        "reference": 9,
+        "resource": "IVC138",
+        "original": "rondak/sounds/rondak8.wav",
+        "subtitle": "Tremble, ruffians!"
+      },
+      {
+        "slot": "cd_battlecry3",
+        "reference": 10,
+        "resource": "IVC139",
+        "original": "rondak/sounds/rondak9.wav",
+        "subtitle": "The light shall reveal your duplicity, foe."
+      },
+      {
+        "slot": "cd_bored1",
+        "reference": 11,
+        "resource": "IVC13d",
+        "original": "rondak/sounds/rondakd.wav",
+        "subtitle": "We'll do no good standing around. Get off of Facebook and let's go adventure!"
+      },
+      {
+        "slot": "cd_city",
+        "reference": 12,
+        "resource": "IVC13o",
+        "original": "rondak/sounds/rondako.wav",
+        "subtitle": "Blood on the cobblestone, and secrets in the alleys. I have no love of the city."
+      },
+      {
+        "slot": "cd_common1",
+        "reference": 13,
+        "resource": "IVC13f",
+        "original": "rondak/sounds/rondakf.wav",
+        "subtitle": "Greetings!"
+      },
+      {
+        "slot": "cd_common2",
+        "reference": 14,
+        "resource": "IVC13g",
+        "original": "rondak/sounds/rondakg.wav",
+        "subtitle": "What is my task?"
+      },
+      {
+        "slot": "cd_common3",
+        "reference": 15,
+        "resource": "IVC13h",
+        "original": "rondak/sounds/rondakh.wav",
+        "subtitle": "Yes, my friend."
+      },
+      {
+        "slot": "cd_common4",
+        "reference": 16,
+        "resource": "IVC130",
+        "original": "rondak/sounds/rondak0.wav",
+        "subtitle": "Come at me. I await, you devils."
+      },
+      {
+        "slot": "cd_criticalhit",
+        "reference": 17,
+        "resource": "IVC13z",
+        "original": "rondak/sounds/rondakz.wav",
+        "subtitle": "Falter!"
+      },
+      {
+        "slot": "cd_criticalmiss",
+        "reference": 18,
+        "resource": "IVC131",
+        "original": "rondak/sounds/rondak1.wav",
+        "subtitle": "Huh eh... nobody saw that!"
+      },
+      {
+        "slot": "cd_damage1",
+        "reference": 19,
+        "resource": "IVC13l",
+        "original": "rondak/sounds/rondakl.wav",
+        "subtitle": "*Grunts*"
+      },
+      {
+        "slot": "cd_day",
+        "reference": 20,
+        "resource": "IVC13q",
+        "original": "rondak/sounds/rondakq.wav",
+        "subtitle": "I've always loved the sunshine. The day cast light no treachery may hide from."
+      },
+      {
+        "slot": "cd_disrupted",
+        "reference": 21,
+        "resource": "IVC136",
+        "original": "rondak/sounds/rondak6.wav",
+        "subtitle": "My spell is ruined. I must try again."
+      },
+      {
+        "slot": "cd_dungeon",
+        "reference": 22,
+        "resource": "IVC13p",
+        "original": "rondak/sounds/rondakp.wav",
+        "subtitle": "Evil may lurk around every corner, but so do we! Steel yourself, villains, we approach."
+      },
+      {
+        "slot": "cd_dying1",
+        "reference": 23,
+        "resource": "IVC13m",
+        "original": "rondak/sounds/rondakm.wav",
+        "subtitle": "Urgh! The gods will welcome me, fiend!"
+      },
+      {
+        "slot": "cd_forest",
+        "reference": 24,
+        "resource": "IVC13n",
+        "original": "rondak/sounds/rondakn.wav",
+        "subtitle": "I love the smell of the trees and grass. Small reminders that there are yet places evil has not crept."
+      },
+      {
+        "slot": "cd_gen_death1",
+        "reference": 25,
+        "resource": "IVC13w",
+        "original": "rondak/sounds/rondakw.wav",
+        "subtitle": "No! My friend. I will avenge you!"
+      },
+      {
+        "slot": "cd_hurt1",
+        "reference": 26,
+        "resource": "IVC13e",
+        "original": "rondak/sounds/rondake.wav",
+        "subtitle": "I am... stabbed."
+      },
+      {
+        "slot": "cd_immune",
+        "reference": 27,
+        "resource": "IVC132",
+        "original": "rondak/sounds/rondak2.wav",
+        "subtitle": "Hrrm! We must change our tactics, I'm having no effect."
+      },
+      {
+        "slot": "cd_inventory",
+        "reference": 28,
+        "resource": "IVC133",
+        "original": "rondak/sounds/rondak3.wav",
+        "subtitle": "I would if I could, but I won't. Because I can't!"
+      },
+      {
+        "slot": "cd_leader1",
+        "reference": 29,
+        "resource": "IVC13b",
+        "original": "rondak/sounds/rondakb.wav",
+        "subtitle": "An honour, truly. But there are no leaders amongst friends."
+      },
+      {
+        "slot": "cd_night",
+        "reference": 30,
+        "resource": "IVC13r",
+        "original": "rondak/sounds/rondakr.wav",
+        "subtitle": "Dark intentions whisper, just out of earshot. But with every dusk, comes a dawn!"
+      },
+      {
+        "slot": "cd_pickpocket",
+        "reference": 31,
+        "resource": "IVC134",
+        "original": "rondak/sounds/rondak4.wav",
+        "subtitle": "Well... there we go! I suppose..."
+      },
+      {
+        "slot": "cd_shadows",
+        "reference": 32,
+        "resource": "IVC135",
+        "original": "rondak/sounds/rondak5.wav",
+        "subtitle": "I slip away, ready to strike."
+      },
+      {
+        "slot": "cd_tired1",
+        "reference": 33,
+        "resource": "IVC13c",
+        "original": "rondak/sounds/rondakc.wav",
+        "subtitle": "Evil never slumbers, but... I do. We should rest."
+      },
+      {
+        "slot": "cd_trap",
+        "reference": 34,
+        "resource": "IVC137",
+        "original": "rondak/sounds/rondak7.wav",
+        "subtitle": "Watch where you step, villains."
+      },
+      {
+        "slot": "cd_action_rare1",
+        "reference": 35,
+        "resource": "IVC13x",
+        "original": "rondak/sounds/rondakx.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_action_rare2",
+        "reference": 36,
+        "resource": "IVC13y",
+        "original": "rondak/sounds/rondaky.wav",
+        "subtitle": ""
+      }
+    ],
+    "portraits": [],
+    "omitted_source_placeholders": []
+  },
+  {
+    "id": "14",
+    "name": "Safana (Siege of Dragonspear)",
+    "prefix": "IVC14",
+    "archive": "Safana SoD voice pack (no subtitles).zip",
+    "archive_sha256": "82a6d630675d43b5e8db2335978f8b2539fcc2404c97a9e8c2ce16703547f181",
+    "audio": [
+      {
+        "slot": "cd_shadows",
+        "reference": 1,
+        "resource": "IVC145",
+        "original": "safana5.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_day",
+        "reference": 2,
+        "resource": "IVC14q",
+        "original": "safanaq.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_common4",
+        "reference": 3,
+        "resource": "IVC140",
+        "original": "safana0.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_action4",
+        "reference": 4,
+        "resource": "IVC14s",
+        "original": "safanas.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_unhappy_1",
+        "reference": 5,
+        "resource": "IVC145_",
+        "original": "safana5_.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_city",
+        "reference": 6,
+        "resource": "IVC14o",
+        "original": "safanao.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_battlecry4",
+        "reference": 7,
+        "resource": "IVC14g_",
+        "original": "safanag_.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_immune",
+        "reference": 8,
+        "resource": "IVC142",
+        "original": "safana2.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_common1",
+        "reference": 9,
+        "resource": "IVC14f",
+        "original": "safanaf.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_hurt1",
+        "reference": 10,
+        "resource": "IVC14e",
+        "original": "safanae.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_damage1",
+        "reference": 11,
+        "resource": "IVC14l",
+        "original": "safanal.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_common3",
+        "reference": 12,
+        "resource": "IVC14h",
+        "original": "safanah.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_unhappy_2",
+        "reference": 13,
+        "resource": "IVC146_",
+        "original": "safana6_.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_gen_death1",
+        "reference": 14,
+        "resource": "IVC14w",
+        "original": "safanaw.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_common5",
+        "reference": 15,
+        "resource": "IVC14k_",
+        "original": "safanak_.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_leader1",
+        "reference": 16,
+        "resource": "IVC14b",
+        "original": "safanab.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_battlecry5",
+        "reference": 17,
+        "resource": "IVC14h_",
+        "original": "safanah_.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_common2",
+        "reference": 18,
+        "resource": "IVC14g",
+        "original": "safanag.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_battlecry3",
+        "reference": 19,
+        "resource": "IVC149",
+        "original": "safana9.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_common7",
+        "reference": 20,
+        "resource": "IVC14m_",
+        "original": "safanam_.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_battlecry2",
+        "reference": 21,
+        "resource": "IVC148",
+        "original": "safana8.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_night",
+        "reference": 22,
+        "resource": "IVC14r",
+        "original": "safanar.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_tired1",
+        "reference": 23,
+        "resource": "IVC14c",
+        "original": "safanac.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_inventory",
+        "reference": 24,
+        "resource": "IVC143",
+        "original": "safana3.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_action6",
+        "reference": 25,
+        "resource": "IVC14u",
+        "original": "safanau.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_forest",
+        "reference": 26,
+        "resource": "IVC14n",
+        "original": "safanan.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_happy",
+        "reference": 27,
+        "resource": "IVC14r_",
+        "original": "safanar_.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_battlecry1",
+        "reference": 28,
+        "resource": "IVC14a",
+        "original": "safanaa.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_action2",
+        "reference": 29,
+        "resource": "IVC14j",
+        "original": "safanaj.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_dying1",
+        "reference": 30,
+        "resource": "IVC14m",
+        "original": "safanam.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_morale_break1",
+        "reference": 31,
+        "resource": "IVC14u_",
+        "original": "safanau_.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_criticalhit",
+        "reference": 32,
+        "resource": "IVC14z",
+        "original": "safanaz.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_criticalmiss",
+        "reference": 33,
+        "resource": "IVC141",
+        "original": "safana1.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_bored1",
+        "reference": 34,
+        "resource": "IVC14d",
+        "original": "safanad.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_action5",
+        "reference": 35,
+        "resource": "IVC14t",
+        "original": "safanat.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_dungeon",
+        "reference": 36,
+        "resource": "IVC14p",
+        "original": "safanap.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_action1",
+        "reference": 37,
+        "resource": "IVC14i",
+        "original": "safanai.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_breaking_pt",
+        "reference": 38,
+        "resource": "IVC14j_",
+        "original": "safanaj_.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_action7",
+        "reference": 39,
+        "resource": "IVC14v",
+        "original": "safanav.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_trap",
+        "reference": 40,
+        "resource": "IVC147",
+        "original": "safana7.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_action3",
+        "reference": 41,
+        "resource": "IVC14k",
+        "original": "safanak.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_disrupted",
+        "reference": 42,
+        "resource": "IVC146",
+        "original": "safana6.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_pickpocket",
+        "reference": 43,
+        "resource": "IVC144",
+        "original": "safana4.wav",
+        "subtitle": ""
+      }
+    ],
+    "portraits": [],
+    "omitted_source_placeholders": []
+  },
+  {
+    "id": "15",
+    "name": "Shang Tsung",
+    "prefix": "IVC15",
+    "archive": "Shang Tsung(Louder).rar",
+    "archive_sha256": "7b49f9cca263857884c5e5f4516a3fa10e076662cf2da3722ce3a66d6cd092b1",
+    "audio": [
+      {
+        "slot": "cd_action1",
+        "reference": 1,
+        "resource": "IVC15i",
+        "original": "Shang (Louder)/cd_shang/sounds/shangi.wav",
+        "subtitle": "And now for taste of things to come!"
+      },
+      {
+        "slot": "cd_action2",
+        "reference": 2,
+        "resource": "IVC15j",
+        "original": "Shang (Louder)/cd_shang/sounds/shangj.wav",
+        "subtitle": "Deal's a deal."
+      },
+      {
+        "slot": "cd_action3",
+        "reference": 3,
+        "resource": "IVC15k",
+        "original": "Shang (Louder)/cd_shang/sounds/shangk.wav",
+        "subtitle": "The Emperor will not tolerate failure."
+      },
+      {
+        "slot": "cd_action4",
+        "reference": 4,
+        "resource": "IVC15s",
+        "original": "Shang (Louder)/cd_shang/sounds/shangs.wav",
+        "subtitle": "The rules are quite clear."
+      },
+      {
+        "slot": "cd_action5",
+        "reference": 5,
+        "resource": "IVC15t",
+        "original": "Shang (Louder)/cd_shang/sounds/shangt.wav",
+        "subtitle": "Tomorrow morning the great kombat begins."
+      },
+      {
+        "slot": "cd_action6",
+        "reference": 6,
+        "resource": "IVC15u",
+        "original": "Shang (Louder)/cd_shang/sounds/shangu.wav",
+        "subtitle": "You are all witnesses to one of the greatest turning points in the history of your planet."
+      },
+      {
+        "slot": "cd_action7",
+        "reference": 7,
+        "resource": "IVC15v",
+        "original": "Shang (Louder)/cd_shang/sounds/shangv.wav",
+        "subtitle": "Mortal Kombat continues!"
+      },
+      {
+        "slot": "cd_battlecry1",
+        "reference": 8,
+        "resource": "IVC15a",
+        "original": "Shang (Louder)/cd_shang/sounds/shanga.wav",
+        "subtitle": "Let Mortal Kombat begin!"
+      },
+      {
+        "slot": "cd_battlecry2",
+        "reference": 9,
+        "resource": "IVC158",
+        "original": "Shang (Louder)/cd_shang/sounds/shang8.wav",
+        "subtitle": "They are mine FOREVER!"
+      },
+      {
+        "slot": "cd_battlecry3",
+        "reference": 10,
+        "resource": "IVC159",
+        "original": "Shang (Louder)/cd_shang/sounds/shang9.wav",
+        "subtitle": "YOUR SOUL IS MINE!"
+      },
+      {
+        "slot": "cd_battlecry4",
+        "reference": 11,
+        "resource": "IVC15g_",
+        "original": "Shang (Louder)/cd_shang/wav/shangg_.wav",
+        "subtitle": "Liu Kang! You will be first!"
+      },
+      {
+        "slot": "cd_battlecry5",
+        "reference": 12,
+        "resource": "IVC15h_",
+        "original": "Shang (Louder)/cd_shang/wav/shangh_.wav",
+        "subtitle": "Finish him quickly!"
+      },
+      {
+        "slot": "cd_common1",
+        "reference": 13,
+        "resource": "IVC15f",
+        "original": "Shang (Louder)/cd_shang/sounds/shangf.wav",
+        "subtitle": "Shang Tsung, at your service."
+      },
+      {
+        "slot": "cd_common2",
+        "reference": 14,
+        "resource": "IVC15g",
+        "original": "Shang (Louder)/cd_shang/sounds/shangg.wav",
+        "subtitle": "It's an honour to finally meet you."
+      },
+      {
+        "slot": "cd_common3",
+        "reference": 15,
+        "resource": "IVC15h",
+        "original": "Shang (Louder)/cd_shang/sounds/shangh.wav",
+        "subtitle": "Welcome!"
+      },
+      {
+        "slot": "cd_common4",
+        "reference": 16,
+        "resource": "IVC150",
+        "original": "Shang (Louder)/cd_shang/sounds/shang0.wav",
+        "subtitle": "You're here to compete in Mortal Kombat."
+      },
+      {
+        "slot": "cd_common5",
+        "reference": 17,
+        "resource": "IVC15k_",
+        "original": "Shang (Louder)/cd_shang/wav/shangk_.wav",
+        "subtitle": "I've plans for my beautiful Sonya."
+      },
+      {
+        "slot": "cd_common6",
+        "reference": 18,
+        "resource": "IVC15l_",
+        "original": "Shang (Louder)/cd_shang/wav/shangl_.wav",
+        "subtitle": "But it is my boat and if you'd like a tour I'd love to give it to you myself."
+      },
+      {
+        "slot": "cd_common7",
+        "reference": 19,
+        "resource": "IVC15m_",
+        "original": "Shang (Louder)/cd_shang/wav/shangm_.wav",
+        "subtitle": "Kung Lao's ascendant is competing in the tournament."
+      },
+      {
+        "slot": "cd_criticalhit",
+        "reference": 20,
+        "resource": "IVC15z",
+        "original": "Shang (Louder)/cd_shang/sounds/shangz.wav",
+        "subtitle": "FATALITY!"
+      },
+      {
+        "slot": "cd_criticalmiss",
+        "reference": 21,
+        "resource": "IVC151",
+        "original": "Shang (Louder)/cd_shang/sounds/shang1.wav",
+        "subtitle": "Won't happen again, I promise."
+      },
+      {
+        "slot": "cd_damage1",
+        "reference": 22,
+        "resource": "IVC15l",
+        "original": "Shang (Louder)/cd_shang/sounds/shangl.wav",
+        "subtitle": "Ah!"
+      },
+      {
+        "slot": "cd_dying1",
+        "reference": 23,
+        "resource": "IVC15m",
+        "original": "Shang (Louder)/cd_shang/sounds/shangm.wav",
+        "subtitle": "NEVER!"
+      },
+      {
+        "slot": "cd_gen_death1",
+        "reference": 24,
+        "resource": "IVC15w",
+        "original": "Shang (Louder)/cd_shang/sounds/shangw.wav",
+        "subtitle": "Your soul is MINE!"
+      },
+      {
+        "slot": "cd_hurt1",
+        "reference": 25,
+        "resource": "IVC15e",
+        "original": "Shang (Louder)/cd_shang/sounds/shange.wav",
+        "subtitle": "It's not time for foolish pride!"
+      },
+      {
+        "slot": "cd_hurt2",
+        "reference": 26,
+        "resource": "IVC15s_",
+        "original": "Shang (Louder)/cd_shang/wav/shangs_.wav",
+        "subtitle": "Save your pity for the weak!"
+      },
+      {
+        "slot": "cd_immune",
+        "reference": 27,
+        "resource": "IVC152",
+        "original": "Shang (Louder)/cd_shang/sounds/shang2.wav",
+        "subtitle": "I'm impressed."
+      },
+      {
+        "slot": "cd_select_rare1",
+        "reference": 28,
+        "resource": "IVC15w_",
+        "original": "Shang (Louder)/cd_shang/wav/shangw_.wav",
+        "subtitle": "It has begun!"
+      },
+      {
+        "slot": "cd_select_rare2",
+        "reference": 29,
+        "resource": "IVC15x_",
+        "original": "Shang (Louder)/cd_shang/wav/shangx_.wav",
+        "subtitle": "From this moment on my island will be your battleground."
+      },
+      {
+        "slot": "cd_select_rare3",
+        "reference": 30,
+        "resource": "IVC15y_",
+        "original": "Shang (Louder)/cd_shang/wav/shangy_.wav",
+        "subtitle": "Of course."
+      },
+      {
+        "slot": "cd_select_rare4",
+        "reference": 31,
+        "resource": "IVC15z_",
+        "original": "Shang (Louder)/cd_shang/wav/shangz_.wav",
+        "subtitle": "Princess Kitana..."
+      },
+      {
+        "slot": "cd_select_rare5",
+        "reference": 32,
+        "resource": "IVC150_",
+        "original": "Shang (Louder)/cd_shang/wav/shang0_.wav",
+        "subtitle": "We had a deal, remember?"
+      },
+      {
+        "slot": "cd_select_rare6",
+        "reference": 33,
+        "resource": "IVC151_",
+        "original": "Shang (Louder)/cd_shang/wav/shang1_.wav",
+        "subtitle": "We've never been so close to absolute victory."
+      },
+      {
+        "slot": "cd_select_rare7",
+        "reference": 34,
+        "resource": "IVC152_",
+        "original": "Shang (Louder)/cd_shang/wav/shang2_.wav",
+        "subtitle": "Treasure these moments as if they were your last."
+      },
+      {
+        "slot": "cd_select_rare8",
+        "reference": 35,
+        "resource": "IVC153_",
+        "original": "Shang (Louder)/cd_shang/wav/shang3_.wav",
+        "subtitle": "Princess Kitana is 10,000 years old and the rightful heir to the throne of Outworld."
+      },
+      {
+        "slot": "cd_shadows",
+        "reference": 36,
+        "resource": "IVC155",
+        "original": "Shang (Louder)/cd_shang/sounds/shang5.wav",
+        "subtitle": "FLAWLESS VICTORY."
+      }
+    ],
+    "portraits": [
+      "IVP1501"
+    ],
+    "omitted_source_placeholders": []
+  },
+  {
+    "id": "16",
+    "name": "The Hound",
+    "prefix": "IVC16",
+    "archive": "The-Hound-BG-Soundset.zip",
+    "archive_sha256": "22ea5412be9f07e3ca633f32bd08f203102cdd74e41f079d0a4d5dabc22bb263",
+    "audio": [
+      {
+        "slot": "cd_action1",
+        "reference": 1,
+        "resource": "IVC16i",
+        "original": "Soundset/HOUND/sounds/HOUNDi.wav",
+        "subtitle": "Dumb cunt."
+      },
+      {
+        "slot": "cd_action2",
+        "reference": 2,
+        "resource": "IVC16j",
+        "original": "Soundset/HOUND/sounds/HOUNDj.wav",
+        "subtitle": "If any more words come pouring out your cunt mouth..."
+      },
+      {
+        "slot": "cd_action3",
+        "reference": 3,
+        "resource": "IVC16k",
+        "original": "Soundset/HOUND/sounds/HOUNDk.wav",
+        "subtitle": "Will you shut your hole?"
+      },
+      {
+        "slot": "cd_action4",
+        "reference": 4,
+        "resource": "IVC16s",
+        "original": "Soundset/HOUND/sounds/HOUNDs.wav",
+        "subtitle": "Bunch of nances..."
+      },
+      {
+        "slot": "cd_action5",
+        "reference": 5,
+        "resource": "IVC16t",
+        "original": "Soundset/HOUND/sounds/HOUNDt.wav",
+        "subtitle": "Fuck off."
+      },
+      {
+        "slot": "cd_action6",
+        "reference": 6,
+        "resource": "IVC16u",
+        "original": "Soundset/HOUND/sounds/HOUNDu.wav",
+        "subtitle": "Cunts..."
+      },
+      {
+        "slot": "cd_action7",
+        "reference": 7,
+        "resource": "IVC16v",
+        "original": "Soundset/HOUND/sounds/HOUNDv.wav",
+        "subtitle": "Shut up about it!"
+      },
+      {
+        "slot": "cd_action_rare1",
+        "reference": 8,
+        "resource": "IVC16x",
+        "original": "Soundset/HOUND/sounds/HOUNDx.wav",
+        "subtitle": "Aye, that's what I'm doing."
+      },
+      {
+        "slot": "cd_action_rare2",
+        "reference": 9,
+        "resource": "IVC16y",
+        "original": "Soundset/HOUND/sounds/HOUNDy.wav",
+        "subtitle": "Where the fuck's that?"
+      },
+      {
+        "slot": "cd_battlecry1",
+        "reference": 10,
+        "resource": "IVC16a",
+        "original": "Soundset/HOUND/sounds/HOUNDa.wav",
+        "subtitle": "Tougher girls than you tried to kill me!"
+      },
+      {
+        "slot": "cd_battlecry2",
+        "reference": 11,
+        "resource": "IVC168",
+        "original": "Soundset/HOUND/sounds/HOUND8.wav",
+        "subtitle": "Get on with it!"
+      },
+      {
+        "slot": "cd_battlecry3",
+        "reference": 12,
+        "resource": "IVC169",
+        "original": "Soundset/HOUND/sounds/HOUND9.wav",
+        "subtitle": "How did a mad fucker like you live this long?"
+      },
+      {
+        "slot": "cd_bored1",
+        "reference": 13,
+        "resource": "IVC16d",
+        "original": "Soundset/HOUND/sounds/HOUNDd.wav",
+        "subtitle": "Think I'll take two chickens."
+      },
+      {
+        "slot": "cd_city",
+        "reference": 14,
+        "resource": "IVC16o",
+        "original": "Soundset/HOUND/sounds/HOUNDo.wav",
+        "subtitle": "You got any ale?"
+      },
+      {
+        "slot": "cd_common1",
+        "reference": 15,
+        "resource": "IVC16f",
+        "original": "Soundset/HOUND/sounds/HOUNDf.wav",
+        "subtitle": "What do you want?"
+      },
+      {
+        "slot": "cd_common2",
+        "reference": 16,
+        "resource": "IVC16g",
+        "original": "Soundset/HOUND/sounds/HOUNDg.wav",
+        "subtitle": "Would you shut up?"
+      },
+      {
+        "slot": "cd_common3",
+        "reference": 17,
+        "resource": "IVC16h",
+        "original": "Soundset/HOUND/sounds/HOUNDh.wav",
+        "subtitle": "Will you fuck off?"
+      },
+      {
+        "slot": "cd_common4",
+        "reference": 18,
+        "resource": "IVC160",
+        "original": "Soundset/HOUND/sounds/HOUND0.wav",
+        "subtitle": "Listening to talkers makes me thirsty."
+      },
+      {
+        "slot": "cd_criticalhit",
+        "reference": 19,
+        "resource": "IVC16z",
+        "original": "Soundset/HOUND/sounds/HOUNDz.wav",
+        "subtitle": "You're shit at dying, you know that?"
+      },
+      {
+        "slot": "cd_criticalmiss",
+        "reference": 20,
+        "resource": "IVC161",
+        "original": "Soundset/HOUND/sounds/HOUND1.wav",
+        "subtitle": "AAARGH!"
+      },
+      {
+        "slot": "cd_damage1",
+        "reference": 21,
+        "resource": "IVC16l",
+        "original": "Soundset/HOUND/sounds/HOUNDl.wav",
+        "subtitle": "Come on, you can do better!"
+      },
+      {
+        "slot": "cd_day",
+        "reference": 22,
+        "resource": "IVC16q",
+        "original": "Soundset/HOUND/sounds/HOUNDq.wav",
+        "subtitle": "Bring me one of those chickens."
+      },
+      {
+        "slot": "cd_disrupted",
+        "reference": 23,
+        "resource": "IVC166",
+        "original": "Soundset/HOUND/sounds/HOUND6.wav",
+        "subtitle": "What on Seven Hells?"
+      },
+      {
+        "slot": "cd_dungeon",
+        "reference": 24,
+        "resource": "IVC16p",
+        "original": "Soundset/HOUND/sounds/HOUNDp.wav",
+        "subtitle": "Killing is the sweetest thing there is."
+      },
+      {
+        "slot": "cd_dying1",
+        "reference": 25,
+        "resource": "IVC16m",
+        "original": "Soundset/HOUND/sounds/HOUNDm.wav",
+        "subtitle": "Unless there is a Maester hiding behind that rock..."
+      },
+      {
+        "slot": "cd_forest",
+        "reference": 26,
+        "resource": "IVC16n",
+        "original": "Soundset/HOUND/sounds/HOUNDn.wav",
+        "subtitle": "What the fuck's a \"Lommy\"?"
+      },
+      {
+        "slot": "cd_gen_death1",
+        "reference": 27,
+        "resource": "IVC16w",
+        "original": "Soundset/HOUND/sounds/HOUNDw.wav",
+        "subtitle": "This one's been killed six times, you don't hear him bitching about it."
+      },
+      {
+        "slot": "cd_hurt1",
+        "reference": 28,
+        "resource": "IVC16e",
+        "original": "Soundset/HOUND/sounds/HOUNDe.wav",
+        "subtitle": "If I live, I'll brake both of your hands."
+      },
+      {
+        "slot": "cd_immune",
+        "reference": 29,
+        "resource": "IVC162",
+        "original": "Soundset/HOUND/sounds/HOUND2.wav",
+        "subtitle": "There's no divine justice you dumb cunt, if there was you would be dead."
+      },
+      {
+        "slot": "cd_inventory",
+        "reference": 30,
+        "resource": "IVC163",
+        "original": "Soundset/HOUND/sounds/HOUND3.wav",
+        "subtitle": "Fucking whore!"
+      },
+      {
+        "slot": "cd_leader1",
+        "reference": 31,
+        "resource": "IVC16b",
+        "original": "Soundset/HOUND/sounds/HOUNDb.wav",
+        "subtitle": "I'm leading a mob of peasants!"
+      },
+      {
+        "slot": "cd_night",
+        "reference": 32,
+        "resource": "IVC16r",
+        "original": "Soundset/HOUND/sounds/HOUNDr.wav",
+        "subtitle": "Everyone I've ever met has been a cunt."
+      },
+      {
+        "slot": "cd_pickpocket",
+        "reference": 33,
+        "resource": "IVC164",
+        "original": "Soundset/HOUND/sounds/HOUND4.wav",
+        "subtitle": "Eat shit, dwarf!"
+      },
+      {
+        "slot": "cd_shadows",
+        "reference": 34,
+        "resource": "IVC165",
+        "original": "Soundset/HOUND/sounds/HOUND5.wav",
+        "subtitle": "Dead rats don't squeak."
+      },
+      {
+        "slot": "cd_tired1",
+        "reference": 35,
+        "resource": "IVC16c",
+        "original": "Soundset/HOUND/sounds/HOUNDc.wav",
+        "subtitle": "Shut the fuck up so I can get some sleep."
+      },
+      {
+        "slot": "cd_trap",
+        "reference": 36,
+        "resource": "IVC167",
+        "original": "Soundset/HOUND/sounds/HOUND7.wav",
+        "subtitle": "You won't last a day out there."
+      }
+    ],
+    "portraits": [
+      "IVP1601"
+    ],
+    "omitted_source_placeholders": []
+  },
+  {
+    "id": "17",
+    "name": "Thrall",
+    "prefix": "IVC17",
+    "archive": "Thrall BG2.zip",
+    "archive_sha256": "85aa8d99f4bb931bde752813516729adbc2cc37a452776f72af172e6d3652bcd",
+    "audio": [
+      {
+        "slot": "cd_action_rare2",
+        "reference": 1,
+        "resource": "IVC17y",
+        "original": "Thrally.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_damage1",
+        "reference": 2,
+        "resource": "IVC17l",
+        "original": "Thralll.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_action4",
+        "reference": 3,
+        "resource": "IVC17s",
+        "original": "Thralls.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_leader1",
+        "reference": 4,
+        "resource": "IVC17b",
+        "original": "Thrallb.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_criticalhit",
+        "reference": 5,
+        "resource": "IVC17z",
+        "original": "Thrallz.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_action2",
+        "reference": 6,
+        "resource": "IVC17j",
+        "original": "Thrallj.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_action3",
+        "reference": 7,
+        "resource": "IVC17k",
+        "original": "Thrallk.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_gen_death1",
+        "reference": 8,
+        "resource": "IVC17w",
+        "original": "Thrallw.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_dungeon",
+        "reference": 9,
+        "resource": "IVC17p",
+        "original": "Thrallp.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_bored1",
+        "reference": 10,
+        "resource": "IVC17d",
+        "original": "Thralld.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_action6",
+        "reference": 11,
+        "resource": "IVC17u",
+        "original": "Thrallu.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_criticalmiss",
+        "reference": 12,
+        "resource": "IVC171",
+        "original": "Thrall1.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_action5",
+        "reference": 13,
+        "resource": "IVC17t",
+        "original": "Thrallt.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_common4",
+        "reference": 14,
+        "resource": "IVC170",
+        "original": "Thrall0.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_common1",
+        "reference": 15,
+        "resource": "IVC17f",
+        "original": "Thrallf.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_inventory",
+        "reference": 16,
+        "resource": "IVC173",
+        "original": "Thrall3.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_shadows",
+        "reference": 17,
+        "resource": "IVC175",
+        "original": "Thrall5.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_forest",
+        "reference": 18,
+        "resource": "IVC17n",
+        "original": "Thralln.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_city",
+        "reference": 19,
+        "resource": "IVC17o",
+        "original": "Thrallo.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_battlecry3",
+        "reference": 20,
+        "resource": "IVC179",
+        "original": "Thrall9.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_common2",
+        "reference": 21,
+        "resource": "IVC17g",
+        "original": "Thrallg.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_immune",
+        "reference": 22,
+        "resource": "IVC172",
+        "original": "Thrall2.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_dying1",
+        "reference": 23,
+        "resource": "IVC17m",
+        "original": "Thrallm.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_disrupted",
+        "reference": 24,
+        "resource": "IVC176",
+        "original": "Thrall6.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_action7",
+        "reference": 25,
+        "resource": "IVC17v",
+        "original": "Thrallv.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_hurt1",
+        "reference": 26,
+        "resource": "IVC17e",
+        "original": "Thralle.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_common3",
+        "reference": 27,
+        "resource": "IVC17h",
+        "original": "Thrallh.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_battlecry2",
+        "reference": 28,
+        "resource": "IVC178",
+        "original": "Thrall8.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_night",
+        "reference": 29,
+        "resource": "IVC17r",
+        "original": "Thrallr.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_action1",
+        "reference": 30,
+        "resource": "IVC17i",
+        "original": "Thralli.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_action_rare1",
+        "reference": 31,
+        "resource": "IVC17x",
+        "original": "Thrallx.wav",
+        "subtitle": ""
+      },
+      {
+        "slot": "cd_battlecry1",
+        "reference": 32,
+        "resource": "IVC17a",
+        "original": "Thralla.wav",
+        "subtitle": ""
+      }
+    ],
+    "portraits": [
+      "IVP1701"
+    ],
+    "omitted_source_placeholders": []
+  }
+]

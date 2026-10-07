@@ -1,0 +1,44 @@
+LOAD_TRA ~%MOD_FOLDER%/sources/custom/06/english.tra~
+
+COPY ~%MOD_FOLDER%/sources/custom/06/sounds~ ~lang/%EE_LANGUAGE%/sounds~
+
+LAF ivp_add_soundset
+  INT_VAR
+    cd_action1 = RESOLVE_STR_REF(@1)
+    cd_action2 = RESOLVE_STR_REF(@2)
+    cd_action3 = RESOLVE_STR_REF(@3)
+    cd_action4 = RESOLVE_STR_REF(@4)
+    cd_action5 = RESOLVE_STR_REF(@5)
+    cd_action6 = RESOLVE_STR_REF(@6)
+    cd_action7 = RESOLVE_STR_REF(@7)
+    cd_battlecry1 = RESOLVE_STR_REF(@8)
+    cd_battlecry2 = RESOLVE_STR_REF(@9)
+    cd_battlecry3 = RESOLVE_STR_REF(@10)
+    cd_bored1 = RESOLVE_STR_REF(@11)
+    cd_city = RESOLVE_STR_REF(@12)
+    cd_common1 = RESOLVE_STR_REF(@13)
+    cd_common2 = RESOLVE_STR_REF(@14)
+    cd_common3 = RESOLVE_STR_REF(@15)
+    cd_common4 = RESOLVE_STR_REF(@16)
+    cd_criticalhit = RESOLVE_STR_REF(@17)
+    cd_criticalmiss = RESOLVE_STR_REF(@18)
+    cd_damage1 = RESOLVE_STR_REF(@19)
+    cd_day = RESOLVE_STR_REF(@20)
+    cd_disrupted = RESOLVE_STR_REF(@21)
+    cd_dungeon = RESOLVE_STR_REF(@22)
+    cd_dying1 = RESOLVE_STR_REF(@23)
+    cd_forest = RESOLVE_STR_REF(@24)
+    cd_gen_death1 = RESOLVE_STR_REF(@25)
+    cd_hurt1 = RESOLVE_STR_REF(@26)
+    cd_immune = RESOLVE_STR_REF(@27)
+    cd_inventory = RESOLVE_STR_REF(@28)
+    cd_leader1 = RESOLVE_STR_REF(@29)
+    cd_pickpocket = RESOLVE_STR_REF(@30)
+    cd_shadows = RESOLVE_STR_REF(@31)
+    cd_tired1 = RESOLVE_STR_REF(@32)
+    cd_trap = RESOLVE_STR_REF(@33)
+    cd_select_name = RESOLVE_STR_REF(@70)
+  STR_VAR cd_name = ~IVC06~
+END
+OUTER_SET ivp_name_ref = RESOLVE_STR_REF(@70)
+APPEND ~M_ivcsnd.lua~ ~filenames_stringrefs['IVC06'] = {%ivp_name_ref%, 2}~
