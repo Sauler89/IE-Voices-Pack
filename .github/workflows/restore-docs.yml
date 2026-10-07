@@ -1,0 +1,75 @@
+name: Restore repository root documentation
+on:
+  push:
+    branches: [main]
+    paths: [.github/workflows/restore-docs.yml]
+permissions:
+  contents: write
+jobs:
+  restore:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Restore root documentation and verify unchanged release layout
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse refs/tags/v1.0)" = "cf048f82d9bb3dad3b6c6741a498d62ef468ed15"
+          git merge-base --is-ancestor cf048f82d9bb3dad3b6c6741a498d62ef468ed15 HEAD
+          python - <<'PY'
+          from pathlib import Path
+          import hashlib,zipfile,stat
+          
+          root=Path.cwd()
+          mod=root/'IE-Voices-Pack'
+          docs=['README.md','CHANGELOG.md','CREDITS.md','THIRD_PARTY.md','MANIFEST-SHA256.txt']
+          for name in docs:
+              assert (mod/name).is_file() and not (root/name).exists()
+              (mod/name).rename(root/name)
+          tp2=mod/'IE-Voices-Pack.tp2'
+          text=tp2.read_text()
+          assert text.count('README ~IE-Voices-Pack/README.md~')==1
+          tp2.write_text(text.replace('README ~IE-Voices-Pack/README.md~','README ~README.md~'))
+          manifest=root/'MANIFEST-SHA256.txt'
+          files=sorted([p for p in mod.rglob('*') if p.is_file()]+[root/name for name in docs if name!='MANIFEST-SHA256.txt']+[root/'setup-IE-Voices-Pack.exe'],key=lambda p:str(p.relative_to(root)))
+          assert len(files)==6803
+          manifest.write_text(''.join(hashlib.sha256(p.read_bytes()).hexdigest()+'  '+str(p.relative_to(root))+'\n' for p in files))
+          
+          # The source checkout has root documents; the install ZIP has them inside the mod.
+          package={}
+          for p in files:
+              name=str(p.relative_to(root))
+              arc='IE-Voices-Pack/'+name if name in docs else name
+              data=p.read_bytes()
+              if p==tp2:
+                  data=data.replace(b'README ~README.md~',b'README ~IE-Voices-Pack/README.md~')
+              package[arc]=data
+          package['IE-Voices-Pack/MANIFEST-SHA256.txt']=''.join(hashlib.sha256(data).hexdigest()+'  '+name+'\n' for name,data in sorted(package.items())).encode()
+          assert len(package)==6804
+          out=Path('/tmp/IE-Voices-Pack-root-docs-check.zip')
+          with zipfile.ZipFile(out,'w',zipfile.ZIP_DEFLATED,compresslevel=9) as z:
+              for name,data in sorted(package.items()):
+                  info=zipfile.ZipInfo(name,(2026,10,7,0,0,0))
+                  info.compress_type=zipfile.ZIP_DEFLATED
+                  info.external_attr=(stat.S_IFREG|0o644)<<16
+                  z.writestr(info,data)
+          with zipfile.ZipFile(out) as z:
+              assert z.testzip() is None
+              assert {x.split('/')[0] for x in z.namelist()}=={'IE-Voices-Pack','setup-IE-Voices-Pack.exe'}
+              for name,data in package.items(): assert z.read(name)==data
+          digest=hashlib.sha256(out.read_bytes()).hexdigest()
+          assert digest=='2a90d86996671975e70bd19a07abd5d502c63f7e2f5b95f00f1febbc5a63301e',digest
+          print('Root documents restored; release layout reproduced byte-for-byte:',digest)
+          PY
+          git rm -f .github/workflows/restore-docs.yml
+          git add IE-Voices-Pack README.md CHANGELOG.md CREDITS.md THIRD_PARTY.md MANIFEST-SHA256.txt
+          git config user.name "Sauler89"
+          git config user.email "Sauler89@users.noreply.github.com"
+          tree_sha=$(git write-tree)
+          root_sha=$(printf '%s\n' "IE-Voices-Pack 1.0" | git commit-tree "$tree_sha")
+          git push --atomic origin --force-with-lease=refs/heads/main:"$GITHUB_SHA" --force-with-lease=refs/tags/v1.0:cf048f82d9bb3dad3b6c6741a498d62ef468ed15 "$root_sha:refs/heads/main" "$root_sha:refs/tags/v1.0"
+          git push origin --delete restore-root-docs-1-0
+          printf 'Final root commit: %s\n' "$root_sha"
+          
