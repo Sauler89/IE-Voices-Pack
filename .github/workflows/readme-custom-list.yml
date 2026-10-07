@@ -1,0 +1,151 @@
+name: Update custom voice pack list in README and v1.0
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/readme-custom-list.yml']
+permissions:
+  contents: write
+concurrency:
+  group: ie-voices-pack-release-1-0
+  cancel-in-progress: false
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Update README and release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          base=8bc0bae0a72ea385ef5cc26628e64eb3878252d7
+          test "$GITHUB_REPOSITORY" = Sauler89/IE-Voices-Pack
+          test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
+          test "$(git rev-parse refs/tags/v1.0)" = "$base"
+          git merge-base --is-ancestor "$base" HEAD
+          gh api "repos/$GITHUB_REPOSITORY/releases/405613067" > /tmp/release-before.json
+          python3 - <<'PY'
+          import json
+          r = json.load(open('/tmp/release-before.json'))
+          assert r['tag_name'] == 'v1.0' and not r['immutable']
+          a = {a['name']: a for a in r['assets']}
+          assert a['IE-Voices-Pack-v1.0.zip']['id'] == 618951079
+          assert a['IE-Voices-Pack-v1.0.sha256']['id'] == 618951885
+          PY
+          python3 - <<'PY'
+          from pathlib import Path
+          import hashlib,json
+          root=Path('.')
+          p=Path('README.md')
+          b=p.read_bytes()
+          assert hashlib.sha1(b'blob '+str(len(b)).encode()+b'\0'+b).hexdigest() == 'a3675c9729d28647fa3b968409f659050c7abb9c'
+          for line in Path('MANIFEST-SHA256.txt').read_text().splitlines():
+              digest,name=line.split('  ',1)
+              assert hashlib.sha256(Path(name).read_bytes()).hexdigest() == digest,name
+          p.write_text("# IE-Voices-Pack\n\n**Version 1.0** — 205 player voice sets in one WeiDU installer.\n\n## Contents\n\n| Voice pack | Sets |\n| --- | ---: |\n| Baldur's Gate | 18 |\n| Baldur's Gate II | 9 |\n| Baldur's Gate NPCs | 36 |\n| Icewind Dale / Heart of Winter | 30 |\n| Icewind Dale II | 12 |\n| Planescape: Torment | 8 |\n| Neverwinter Nights | 59 |\n| NWN2 / Mask of the Betrayer / Darkness over Daggerford | 16 |\n| Custom voice packs and their included portraits | 17 |\n| **Total** | **205** |\n\nThe 14 generic NWN2 soundsets are excluded.\n\n## Custom voice packs\n\nThe final installer component currently includes these 17 packs:\n\n- Archmage\n- Amelyssan\n- Christopher Lee\n- Dagoth Ur\n- DotA 2: Invoker\n- DotA 2: Puck\n- Filthy Frank\n- Greta\n- Gromnir Il-Khan\n- Illasera\n- Morpheus\n- Palpatine\n- Rondak (lawful good)\n- Safana (Siege of Dragonspear)\n- Shang Tsung\n- The Hound\n- Thrall\n\n## Compatibility\n\n- Baldur's Gate: Enhanced Edition and Siege of Dragonspear\n- Baldur's Gate II: Enhanced Edition\n- Enhanced Edition Trilogy (EET)\n- Icewind Dale: Enhanced Edition\n\nRequires **EE 2.6.6+**. Classic games and Planescape: Torment: Enhanced Edition are not supported.\nFor Steam/GOG Siege of Dragonspear, run [DlcMerger](https://github.com/Argent77/A7-DlcMerger) first when required.\n\n## Installation\n\n1. Download the release ZIP and extract `IE-Voices-Pack/` and `setup-IE-Voices-Pack.exe` into the game folder containing `chitin.key`.\n2. Run `setup-IE-Voices-Pack.exe` and select the desired packs. The last component, **Custom voice packs and included portraits**, lets you install all 17 custom packs or answer yes/no for each pack. Its portraits follow your choices.\n3. Choose a voice during character creation or customization.\n\nThe installer and voices are in English. Uninstall an earlier version of this compilation before installing v1.0. Do not install the same voices from their original packs as well.\n\nCustom portraits include paired 24-bit BMP resources for the vanilla EE interface and Infinity UI++. If you use Infinity UI++, install the custom component after the UI mod; reinstall that component if you replace the UI later.\n\n## Credits\n\nOriginal voice-pack conversions: **GraionDilach** and **AstroBryGuy / The Gate Project**.\nCompilation and integration: **Sauler89**.\n\nCustom packs are supplied by their original authors; available author details and source documentation are preserved in the package.\n\nSee [full credits](CREDITS.md) and [third-party notices](THIRD_PARTY.md). Original audio and text remain the property of their respective rights holders.\n")
+          assert hashlib.sha256(p.read_bytes()).hexdigest() == '7255fd6227c6036c002e1ab3e4762f4954ae404d742f9dd4de2a3d39fa543f61'
+          packs=json.loads(Path('IE-Voices-Pack/sources/custom/PACKS.json').read_text())
+          assert len(packs)==17
+          for pack in packs: assert '- '+pack['name']+'\n' in p.read_text(),pack['name']
+          files=[p for p in Path('IE-Voices-Pack').rglob('*') if p.is_file()]
+          files += [Path(n) for n in ['README.md','CHANGELOG.md','CREDITS.md','THIRD_PARTY.md','setup-IE-Voices-Pack.exe']]
+          assert len(files)==7474
+          Path('MANIFEST-SHA256.txt').write_text(''.join(hashlib.sha256(p.read_bytes()).hexdigest()+'  '+p.as_posix()+'\n' for p in sorted(files,key=lambda p:p.as_posix())))
+          PY
+          python3 - . /tmp/IE-Voices-Pack-v1.0-custom.zip <<'PY'
+          from pathlib import Path
+          import hashlib, json, struct, sys, zipfile
+          
+          root = Path(sys.argv[1])
+          out = Path(sys.argv[2])
+          docs = ['README.md', 'CHANGELOG.md', 'CREDITS.md', 'THIRD_PARTY.md', 'MANIFEST-SHA256.txt']
+          files = [p for p in (root / 'IE-Voices-Pack').rglob('*') if p.is_file()]
+          files += [root / n for n in docs + ['setup-IE-Voices-Pack.exe']]
+          assert len(files) == 7475, len(files)
+          source = {p.relative_to(root).as_posix(): p.read_bytes() for p in files}
+          manifest = source['MANIFEST-SHA256.txt'].decode().splitlines()
+          assert len(manifest) == 7474
+          checked = set()
+          for line in manifest:
+              digest, name = line.split('  ', 1)
+              assert name not in checked and name != 'MANIFEST-SHA256.txt'
+              assert hashlib.sha256(source[name]).hexdigest() == digest, name
+              checked.add(name)
+          assert checked == set(source) - {'MANIFEST-SHA256.txt'}
+          assert hashlib.sha256(source['setup-IE-Voices-Pack.exe']).hexdigest() == 'ad70f5897a6d0ba4b0d226f845a9b14cf345f56cc9697ca8d05cac9fe4932c1a'
+          custom = 'IE-Voices-Pack/sources/custom/'
+          audio = [n for n in source if n.startswith(custom) and n.lower().endswith('.wav')]
+          portraits = [n for n in source if n.startswith(custom) and '/portraits/' in n and n.lower().endswith('.bmp')]
+          assert len(audio) == 537 and len(portraits) == 33
+          for name in portraits:
+              b = source[name]
+              assert b[:2] == b'BM' and struct.unpack_from('<H', b, 28)[0] == 24 and struct.unpack_from('<I', b, 30)[0] == 0
+              assert len(Path(name).stem) <= 8
+          tp2 = 'IE-Voices-Pack/IE-Voices-Pack.tp2'
+          assert source[tp2].count(b'BEGIN @53000') == 1
+          assert source[tp2].rfind(b'DESIGNATED 3000') > source[tp2].rfind(b'DESIGNATED 2100')
+          assert b'VERSION ~1.0~' in source[tp2]
+          assert source[tp2].count(b'README ~README.md~') == 1
+          entries = {}
+          for name, data in source.items():
+              if name == 'MANIFEST-SHA256.txt':
+                  continue
+              target = 'IE-Voices-Pack/' + name if name in docs else name
+              if name == tp2:
+                  data = data.replace(b'README ~README.md~', b'README ~IE-Voices-Pack/README.md~')
+              assert target not in entries
+              entries[target] = data
+          entries['IE-Voices-Pack/MANIFEST-SHA256.txt'] = ''.join(hashlib.sha256(data).hexdigest() + '  ' + name + '\n' for name, data in sorted(entries.items())).encode()
+          assert len(entries) == 7475
+          assert {n.split('/')[0] for n in entries} == {'IE-Voices-Pack', 'setup-IE-Voices-Pack.exe'}
+          out.parent.mkdir(parents=True, exist_ok=True)
+          with zipfile.ZipFile(out, 'w', compression=zipfile.ZIP_DEFLATED, compresslevel=9) as z:
+              for name, data in sorted(entries.items()):
+                  info = zipfile.ZipInfo(name, (2026, 10, 7, 0, 0, 0))
+                  info.create_system = 3
+                  info.external_attr = 0o100644 << 16
+                  info.compress_type = zipfile.ZIP_DEFLATED
+                  z.writestr(info, data, compresslevel=9)
+          with zipfile.ZipFile(out) as z:
+              assert z.testzip() is None
+              assert set(z.namelist()) == set(entries)
+              for name, data in entries.items():
+                  assert z.read(name) == data, name
+          digest = hashlib.sha256(out.read_bytes()).hexdigest()
+          out.with_name('IE-Voices-Pack-v1.0.sha256').write_text(digest + '  IE-Voices-Pack-v1.0.zip\n')
+          report = {'files': len(entries), 'bytes': out.stat().st_size, 'sha256': digest, 'custom_audio': len(audio), 'custom_portraits': len(portraits)}
+          out.with_name('custom-package-report.json').write_text(json.dumps(report))
+          print(json.dumps(report))
+          
+          PY
+          git rm .github/workflows/readme-custom-list.yml
+          git add README.md MANIFEST-SHA256.txt
+          git config user.name Sauler89
+          git config user.email Sauler89@users.noreply.github.com
+          tree=$(git write-tree)
+          new=$(printf 'IE-Voices-Pack 1.0\n' | git commit-tree "$tree")
+          test "$(git cat-file -p "$new" | sed -n '/^parent /p' | wc -l)" = 0
+          gh release upload v1.0 /tmp/IE-Voices-Pack-v1.0-custom.zip --repo "$GITHUB_REPOSITORY" --clobber
+          gh api "repos/$GITHUB_REPOSITORY/releases/405613067" > /tmp/release-staged.json
+          python3 - <<'PY'
+          import json
+          r = json.load(open('/tmp/release-staged.json'))
+          asset = next(a for a in r['assets'] if a['name'] == 'IE-Voices-Pack-v1.0-custom.zip')
+          expected = json.load(open('/tmp/custom-package-report.json'))
+          assert asset['state'] == 'uploaded' and asset['size'] == expected['bytes']
+          assert asset['digest'] == 'sha256:' + expected['sha256']
+          open('/tmp/staged-asset-id', 'w').write(str(asset['id']))
+          PY
+          git push --atomic --force-with-lease=refs/heads/main:"$GITHUB_SHA" --force-with-lease=refs/tags/v1.0:"$base" origin "$new:refs/heads/main" "$new:refs/tags/v1.0"
+          gh api --method DELETE "repos/$GITHUB_REPOSITORY/releases/assets/618951079"
+          staged_id=$(cat /tmp/staged-asset-id)
+          gh api --method PATCH "repos/$GITHUB_REPOSITORY/releases/assets/$staged_id" -f name=IE-Voices-Pack-v1.0.zip > /tmp/renamed-asset.json
+          gh release upload v1.0 /tmp/IE-Voices-Pack-v1.0.sha256 --repo "$GITHUB_REPOSITORY" --clobber
+          if git ls-remote --exit-code --heads origin refs/heads/readme-custom-list-1-0 > /dev/null; then
+              git push origin --delete readme-custom-list-1-0
+          fi
+          printf 'Published root commit: %s\n' "$new"
+          cat /tmp/custom-package-report.json
