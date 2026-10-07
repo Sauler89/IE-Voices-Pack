@@ -21,7 +21,7 @@ The 14 generic NWN2 soundsets are excluded.
 
 ## Custom voice packs
 
-The final installer component currently includes these 17 packs:
+This component currently includes these 17 packs:
 
 - Archmage
 - Amelyssan
